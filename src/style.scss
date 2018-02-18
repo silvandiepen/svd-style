@@ -8,4 +8,8 @@
   Import the grid
 */
 
+
+@import "settings/settings"; $prefix: $settings-prefix;
+@import "functions/functions";
+@import "mixins/mixins";
 @import "grid/grid";

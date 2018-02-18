@@ -28,10 +28,6 @@
 	}
 }
 
-%col{
-	box-sizing: border-box !important;
-}
-.col, .column, .columns{
-	@extend %col;
+.column{
 	@include createGridClasses(false);
 }
