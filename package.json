@@ -1,0 +1,31 @@
+{
+  "name": "svd-style",
+  "version": "1.0.0",
+  "description": "Style for SVD projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "dev": "node-sass src/style.scss dist/style.css --w",
+    "build": "node-sass src/style.scss dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/svd-style.git"
+  },
+  "keywords": [
+    "style",
+    "assets",
+    "digital",
+    "styleguide"
+  ],
+  "author": "Sil van Diepen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silvandiepen/svd-style/issues"
+  },
+  "homepage": "https://github.com/silvandiepen/svd-style#readme",
+  "dependencies": {
+    "grunt": "^1.0.2",
+    "node-sass": "^4.7.2"
+  }
+}
