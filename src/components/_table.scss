@@ -1,0 +1,14 @@
+table{
+	background-color: color(Offwhite,0.5); border-radius: $settings-border-radius;
+	td, th{
+		padding: 1rem; border-bottom: 2px solid color(White); font-size: rem(14);
+	}
+	th{
+		text-align: left; background-color: color(Blue); color: color(White);
+	}
+	tr:hover{
+		td{
+			background-color: color(White);
+		}
+	}
+}
