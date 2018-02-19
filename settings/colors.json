@@ -3,6 +3,7 @@
 		"default": [{
 			"Black": "#111111",
 			"White": "#ffffff",
+			"Offwhite": "#f7f7f7",
 			"Green": "#069e84",
 			"Blue": "#1eaece",
 			"Red": "#dd0000",

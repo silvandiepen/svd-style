@@ -1,5 +1,6 @@
 $colors-default-black: #111111 !default; //
 $colors-default-white: #ffffff !default; //
+$colors-default-offwhite: #f7f7f7 !default; //
 $colors-default-green: #069e84 !default; //
 $colors-default-blue: #1eaece !default; //
 $colors-default-red: #dd0000 !default; //
@@ -30,6 +31,7 @@ $colors-social-wordpress: #21759b !default; //
 $colors-default: (
 	"Black": #111111, 
 	"White": #ffffff, 
+	"Offwhite": #f7f7f7, 
 	"Green": #069e84, 
 	"Blue": #1eaece, 
 	"Red": #dd0000, 

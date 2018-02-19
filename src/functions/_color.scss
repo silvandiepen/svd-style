@@ -16,7 +16,11 @@
 	@if $boolean == true{
 		@return color-exist($value);
 	} @else{
-		@if $rgba != false{
+		@if $rgba == true{
+			$rgb: #{red(map-get($colorset, $value))},#{green(map-get($colorset, $value))},#{blue(map-get($colorset, $value))};
+			@return $rgb;
+		}
+		@elseif $rgba != false{
 			@return rgba(map-get($colorset, $value),$rgba);
 		} @else{
 			@return map-get($colorset, $value);
