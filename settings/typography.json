@@ -9,7 +9,7 @@
     "headers": [{
 			"font-family": "[[RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif]]",
       "font-weight": "{{assets(assets.font-weight.bold)}}",
-      "text-transform": "uppercase",
+      "text-transform": "none",
       "line-height": "1",
       "letter-spacing": "0"
     }],
@@ -19,7 +19,7 @@
       "font-size": "{{grid(1.2)}}",
       "font-family": "[[RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif]]",
       "font-weight": "{{assets(assets.font-weight.bold)}}",
-      "text-transform": "uppercase",
+      "text-transform": "none",
       "line-height": "1",
       "font-size-min": "48px",
       "font-size-max": "144px",
@@ -31,7 +31,7 @@
       "font-size": "{{grid(0.75)}}",
 			"font-family": "[[RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif]]",
       "font-weight": "{{assets(assets.font-weight.bold)}}",
-      "text-transform": "uppercase",
+      "text-transform": "none",
       "line-height": "1",
       "font-size-min": "30px",
       "font-size-max": "60px",

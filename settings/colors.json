@@ -1,16 +1,18 @@
 {
 	"colors":{
 		"default": [{
-			"Black": "#111111",
+			"Black": "#050401",
+			"Dark": "#303036",
 			"White": "#ffffff",
-			"Offwhite": "#f7f7f7",
-			"Green": "#069e84",
-			"Blue": "#1eaece",
-			"Red": "#dd0000",
-			"Orange": "#e86d02",
-			"Yellow": "#ff961e",
-			"Pink": "#ea4c89",
-			"Purple": "#8b008b"
+			"Offwhite": "#f7f7f5",
+			"Green": "#5bce65",
+			"Blue": "#30BCED",
+			"Red": "#FC5130",
+			"Orange": "#f88b3a",
+			"Yellow": "#ead13f",
+			"Pink": "#ea3f8b",
+			"Purple": "#7329b1",
+			"Turquoise":"#3feac3"
 		}],
 		"social":[{
 			"dribbble": "#ea4c89",

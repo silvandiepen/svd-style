@@ -1,13 +1,15 @@
-$colors-default-black: #111111 !default; //
+$colors-default-black: #050401 !default; //
+$colors-default-dark: #303036 !default; //
 $colors-default-white: #ffffff !default; //
-$colors-default-offwhite: #f7f7f7 !default; //
-$colors-default-green: #069e84 !default; //
-$colors-default-blue: #1eaece !default; //
-$colors-default-red: #dd0000 !default; //
-$colors-default-orange: #e86d02 !default; //
-$colors-default-yellow: #ff961e !default; //
-$colors-default-pink: #ea4c89 !default; //
-$colors-default-purple: #8b008b !default; //
+$colors-default-offwhite: #f7f7f5 !default; //
+$colors-default-green: #5bce65 !default; //
+$colors-default-blue: #30BCED !default; //
+$colors-default-red: #FC5130 !default; //
+$colors-default-orange: #f88b3a !default; //
+$colors-default-yellow: #ead13f !default; //
+$colors-default-pink: #ea3f8b !default; //
+$colors-default-purple: #7329b1 !default; //
+$colors-default-turquoise: #3feac3 !default; //
 $colors-social-dribbble: #ea4c89 !default; //
 $colors-social-facebook: #3b5998 !default; //
 $colors-social-flickr: #ff0084 !default; //
@@ -29,16 +31,18 @@ $colors-social-vkontakte: #45668e !default; //
 $colors-social-youtube: #bb0000 !default; //
 $colors-social-wordpress: #21759b !default; //
 $colors-default: (
-	"Black": #111111, 
+	"Black": #050401, 
+	"Dark": #303036, 
 	"White": #ffffff, 
-	"Offwhite": #f7f7f7, 
-	"Green": #069e84, 
-	"Blue": #1eaece, 
-	"Red": #dd0000, 
-	"Orange": #e86d02, 
-	"Yellow": #ff961e, 
-	"Pink": #ea4c89, 
-	"Purple": #8b008b
+	"Offwhite": #f7f7f5, 
+	"Green": #5bce65, 
+	"Blue": #30BCED, 
+	"Red": #FC5130, 
+	"Orange": #f88b3a, 
+	"Yellow": #ead13f, 
+	"Pink": #ea3f8b, 
+	"Purple": #7329b1, 
+	"Turquoise": #3feac3
 ) !default; //, 
 $colors-social: (
 	"dribbble": #ea4c89, 

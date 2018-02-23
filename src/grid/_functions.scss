@@ -40,10 +40,10 @@
 
 @function mq($min: 0,$max: 0){
 	@if $max > 0{
-		$mq: "only screen and (min-width: #{$min}px) and (max-width: #{$max}px)";
+		$mq: "only screen and (min-width: #{strip-unit($min)}px) and (max-width: #{strip-unit($max)}px)";
 		@return $mq;
 	} @elseif $min > 0{
-		$mq: "only screen and (min-width: #{$min}px)";
+		$mq: "only screen and (min-width: #{strip-unit($min)}px)";
 		@return $mq;
 	}
 }
@@ -55,7 +55,7 @@
 		$width: strip-unit((strip-unit($columns) * 16) / $one-column);
 	}
 
-	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (max-width: #{$minimum-screenwidth}px)";
+	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (max-width: #{strip-unit($minimum-screenwidth)}px)";
 	@return $result;
 }
 
@@ -66,6 +66,6 @@
 		$width: strip-unit((strip-unit($columns) * 16) / $one-column);
 	}
 
-	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (min-width: #{$minimum-screenwidth}px)";
+	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (min-width: #{strip-unit($minimum-screenwidth)}px)";
 	@return $result;
 }

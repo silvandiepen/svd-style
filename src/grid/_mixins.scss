@@ -10,6 +10,7 @@
 @mixin min-($what,$columns,$min-width,$alt: false){
 
   $mq: grid-mq-min($columns,$min-width);
+	@debug $mq;
   @media #{$mq}{
     @if $alt != false{
       #{$what}: $alt;
@@ -70,7 +71,7 @@
     @if $alt != false{
       #{$what}: $alt;
     } @else {
-      #{$what}: #{$width}px;
+      #{$what}: #{strip-unit($width)}px;
     }
     @content;
   }

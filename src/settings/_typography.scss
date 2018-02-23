@@ -4,7 +4,7 @@ $assets-font-weight-medium: 500 !default; //
 $assets-font-weight-bold: 600 !default; //
 $assets-headers-font-family: 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif' !default; //
 $assets-headers-font-weight: 600 !default; //
-$assets-headers-text-transform: uppercase !default; //
+$assets-headers-text-transform: none !default; //
 $assets-headers-line-height: 1 !default; //
 $assets-headers-letter-spacing: 0 !default; //
 $assets-h1-design-size: 96px !default; //
@@ -12,7 +12,7 @@ $assets-h1-font-size-value: 1.2 !default; //
 $assets-h1-font-size: 5vw !default; //
 $assets-h1-font-family: 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif' !default; //
 $assets-h1-font-weight: 600 !default; //
-$assets-h1-text-transform: uppercase !default; //
+$assets-h1-text-transform: none !default; //
 $assets-h1-line-height: 1 !default; //
 $assets-h1-font-size-min: 48px !default; //
 $assets-h1-font-size-max: 144px !default; //
@@ -22,7 +22,7 @@ $assets-h2-font-size-value: 0.75 !default; //
 $assets-h2-font-size: 3.125vw !default; //
 $assets-h2-font-family: 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif' !default; //
 $assets-h2-font-weight: 600 !default; //
-$assets-h2-text-transform: uppercase !default; //
+$assets-h2-text-transform: none !default; //
 $assets-h2-line-height: 1 !default; //
 $assets-h2-font-size-min: 30px !default; //
 $assets-h2-font-size-max: 60px !default; //
@@ -106,7 +106,7 @@ $assets-font-weight: (
 $assets-headers: (
 	"font-family": 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif', 
 	"font-weight": 600, 
-	"text-transform": uppercase, 
+	"text-transform": none, 
 	"line-height": 1, 
 	"letter-spacing": 0
 ) !default; //, 
@@ -116,7 +116,7 @@ $assets-h1: (
 	"font-size": 5vw, 
 	"font-family": 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif', 
 	"font-weight": 600, 
-	"text-transform": uppercase, 
+	"text-transform": none, 
 	"line-height": 1, 
 	"font-size-min": 48px, 
 	"font-size-max": 144px, 
@@ -128,7 +128,7 @@ $assets-h2: (
 	"font-size": 3.125vw, 
 	"font-family": 'RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif', 
 	"font-weight": 600, 
-	"text-transform": uppercase, 
+	"text-transform": none, 
 	"line-height": 1, 
 	"font-size-min": 30px, 
 	"font-size-max": 60px, 

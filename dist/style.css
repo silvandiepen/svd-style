@@ -5130,6 +5130,22 @@ table {
   .column.pull-xxlarge-24 {
     margin-left: -100%; } }
 
+* {
+  --mq-small-only: "only screen and (min-width: 0px) and (max-width: 750px)";
+  --mq-medium-only: "only screen and (min-width: 750px) and (max-width: 960px)";
+  --mq-medium-up: "only screen and (min-width: 750px) and (max-width: 9999px)";
+  --mq-medium-down: "only screen and (min-width: 0px) and (max-width: 960px)";
+  --mq-large-only: "only screen and (min-width: 960px) and (max-width: 1280px)";
+  --mq-large-up: "only screen and (min-width: 960px) and (max-width: 9999px)";
+  --mq-large-down: "only screen and (min-width: 0px) and (max-width: 1280px)";
+  --mq-xlarge-only: "only screen and (min-width: 1280px) and (max-width: 1920px)";
+  --mq-xlarge-up: "only screen and (min-width: 1280px) and (max-width: 9999px)";
+  --mq-xlarge-down: "only screen and (min-width: 0px) and (max-width: 1920px)";
+  --mq-xxlarge-only: "only screen and (min-width: 1920px) and (max-width: 9999px)";
+  --mq-mobile: "only screen and (min-width: 0px) and (max-width: 750px)";
+  --mq-landscape: "only screen and (orientation: landscape)";
+  --mq-portrait: "only screen and (orientation: portrait)"; }
+
 @media only screen and (min-width: 960px) and (max-width: 9999px) {
   .hide-for-large-up {
     display: none; } }
@@ -5193,21 +5209,21 @@ h1 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif;
   font-size: 5vw;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
-  text-transform: uppercase; }
+  text-transform: none; }
   h1.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 960pxpx) {
+  @media only screen and (max-width: 960px) {
     h1 {
       font-size: 48px; } }
-  @media only screen and (min-width: 2880pxpx) {
+  @media only screen and (min-width: 2880px) {
     h1 {
-      font-size: 144pxpx; } }
+      font-size: 144px; } }
 
 /*
 	H2
@@ -5219,21 +5235,21 @@ h2 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif;
   font-size: 3.125vw;
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
-  text-transform: uppercase; }
+  text-transform: none; }
   h2.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 960pxpx) {
+  @media only screen and (max-width: 960px) {
     h2 {
       font-size: 30px; } }
-  @media only screen and (min-width: 1920pxpx) {
+  @media only screen and (min-width: 1920px) {
     h2 {
-      font-size: 60pxpx; } }
+      font-size: 60px; } }
 
 /*
 	H3
@@ -5245,7 +5261,7 @@ h3 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: Roboto, Helvetica Neue, helvetica, sans-serif;
   font-size: 2.08333vw;
   font-weight: normal;
@@ -5254,12 +5270,12 @@ h3 {
   text-transform: none; }
   h3.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 960pxpx) {
+  @media only screen and (max-width: 960px) {
     h3 {
       font-size: 20px; } }
-  @media only screen and (min-width: 2880pxpx) {
+  @media only screen and (min-width: 2880px) {
     h3 {
-      font-size: 60pxpx; } }
+      font-size: 60px; } }
 
 h4 {
   font-family: RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif;
@@ -5268,7 +5284,7 @@ h4 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: Roboto, Helvetica Neue, helvetica, sans-serif;
   font-size: 1.66667vw;
   font-weight: 400;
@@ -5277,12 +5293,12 @@ h4 {
   text-transform: none; }
   h4.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 1440pxpx) {
+  @media only screen and (max-width: 1440px) {
     h4 {
       font-size: 24px; } }
-  @media only screen and (min-width: 2880pxpx) {
+  @media only screen and (min-width: 2880px) {
     h4 {
-      font-size: 48pxpx; } }
+      font-size: 48px; } }
 
 h5 {
   font-family: RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif;
@@ -5291,7 +5307,7 @@ h5 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: Roboto, Helvetica Neue, helvetica, sans-serif;
   font-size: 1.25vw;
   font-weight: 400;
@@ -5300,12 +5316,12 @@ h5 {
   text-transform: none; }
   h5.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 1440pxpx) {
+  @media only screen and (max-width: 1440px) {
     h5 {
       font-size: 18px; } }
-  @media only screen and (min-width: 2560pxpx) {
+  @media only screen and (min-width: 2560px) {
     h5 {
-      font-size: 32pxpx; } }
+      font-size: 32px; } }
 
 h6 {
   font-family: RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif;
@@ -5314,7 +5330,7 @@ h6 {
   margin: 0;
   letter-spacing: 0;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: none;
   font-family: Roboto, Helvetica Neue, helvetica, sans-serif;
   font-size: 1.25vw;
   font-weight: 400;
@@ -5323,12 +5339,12 @@ h6 {
   text-transform: none; }
   h6.sub {
     font-weight: 400; }
-  @media only screen and (max-width: 960pxpx) {
+  @media only screen and (max-width: 960px) {
     h6 {
       font-size: 12px; } }
-  @media only screen and (min-width: 2560pxpx) {
+  @media only screen and (min-width: 2560px) {
     h6 {
-      font-size: 32pxpx; } }
+      font-size: 32px; } }
 
 .font-bold, strong {
   font-weight: 600; }
@@ -5355,12 +5371,12 @@ p, .content li {
   font-weight: 400;
   line-height: 1.75;
   font-family: Roboto, Helvetica Neue, helvetica, sans-serif; }
-  @media only screen and (max-width: 1920pxpx) {
+  @media only screen and (max-width: 1920px) {
     p, .content li {
       font-size: 16px; } }
-  @media only screen and (min-width: 1920pxpx) {
+  @media only screen and (min-width: 1920px) {
     p, .content li {
-      font-size: 16pxpx; } }
+      font-size: 16px; } }
 
 blockquote {
   margin: 0;
@@ -5395,6 +5411,9 @@ div p + p {
 
 div p + table {
   margin-top: 1rem; }
+
+div p + h1, div p + h2, div p + h3, div p + h4, div p + h5 {
+  margin-top: 2rem; }
 
 div h1 + dl, div h2 + dl, div h3 + dl, div h4 + dl, div h5 + dl {
   margin-top: 1.04167vw; }
@@ -5433,7 +5452,7 @@ body, html {
 /*				@extend default typographic elements
 /* -------------------------------------------------- */
 table {
-  background-color: rgba(247, 247, 247, 0.5);
+  background-color: rgba(247, 247, 245, 0.5);
   border-radius: 3px; }
   table td, table th {
     padding: 1rem;
@@ -5441,7 +5460,7 @@ table {
     font-size: 0.875rem; }
   table th {
     text-align: left;
-    background-color: #1eaece;
+    background-color: #30BCED;
     color: #ffffff; }
   table tr:hover td {
     background-color: #ffffff; }
@@ -5457,3 +5476,70 @@ dl {
       padding-right: 0; }
   dl dd {
     font-weight: bold; }
+
+body, html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #f7f7f5;
+  color: #303036; }
+
+* {
+  --color-black: #050401;
+  --color-black-r: 5;
+  --color-black-g: 4;
+  --color-black-b: 1;
+  --color-black-rgb: 5, 4, 1;
+  --color-dark: #303036;
+  --color-dark-r: 48;
+  --color-dark-g: 48;
+  --color-dark-b: 54;
+  --color-dark-rgb: 48, 48, 54;
+  --color-white: #ffffff;
+  --color-white-r: 255;
+  --color-white-g: 255;
+  --color-white-b: 255;
+  --color-white-rgb: 255, 255, 255;
+  --color-offwhite: #f7f7f5;
+  --color-offwhite-r: 247;
+  --color-offwhite-g: 247;
+  --color-offwhite-b: 245;
+  --color-offwhite-rgb: 247, 247, 245;
+  --color-green: #5bce65;
+  --color-green-r: 91;
+  --color-green-g: 206;
+  --color-green-b: 101;
+  --color-green-rgb: 91, 206, 101;
+  --color-blue: #30BCED;
+  --color-blue-r: 48;
+  --color-blue-g: 188;
+  --color-blue-b: 237;
+  --color-blue-rgb: 48, 188, 237;
+  --color-red: #FC5130;
+  --color-red-r: 252;
+  --color-red-g: 81;
+  --color-red-b: 48;
+  --color-red-rgb: 252, 81, 48;
+  --color-orange: #f88b3a;
+  --color-orange-r: 248;
+  --color-orange-g: 139;
+  --color-orange-b: 58;
+  --color-orange-rgb: 248, 139, 58;
+  --color-yellow: #ead13f;
+  --color-yellow-r: 234;
+  --color-yellow-g: 209;
+  --color-yellow-b: 63;
+  --color-yellow-rgb: 234, 209, 63;
+  --color-pink: #ea3f8b;
+  --color-pink-r: 234;
+  --color-pink-g: 63;
+  --color-pink-b: 139;
+  --color-pink-rgb: 234, 63, 139;
+  --color-purple: #7329b1;
+  --color-purple-r: 115;
+  --color-purple-g: 41;
+  --color-purple-b: 177;
+  --color-purple-rgb: 115, 41, 177;
+  --color-turquoise: #3feac3;
+  --color-turquoise-r: 63;
+  --color-turquoise-g: 234;
+  --color-turquoise-b: 195;
+  --color-turquoise-rgb: 63, 234, 195; }
