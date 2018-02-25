@@ -4,8 +4,8 @@ let fs = require('fs'),
 	functions = require('./css-functions.js');
 
 let delimiter = '-',
-	sourceFolder = 'settings',
-	distFolder = 'src/';
+	sourceFolder = 'src/settings',
+	distFolder = 'src/scss/';
 
 let fileTypes = [{
 	type: 'scss',
