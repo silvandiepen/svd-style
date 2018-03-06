@@ -1,91 +1,116 @@
 // Color Function
 
-@function shade($color, $percentage){
+@function shade($color, $percentage) {
 	@return mix(black, $color, $percentage);
 }
-@function tint($color, $percentage){
+@function tint($color, $percentage) {
 	@return mix(white, $color, $percentage);
 }
 
-@function color($value, $rgba: false, $colorset: $colors-default, $warning: true, $boolean: false){
-	@if $warning == true{
-		@if color-exist($value) == false{
-			@warn  "color: #{$value} doesn't exist";
+@function color(
+	$value,
+	$rgba: false,
+	$colorset: $colors-default,
+	$warning: true,
+	$boolean: false
+) {
+	@if $warning == true {
+		@if color-exist($value) == false {
+			@warn "color: #{$value} doesn't exist";
 		}
 	}
-	@if $boolean == true{
+	@if $boolean == true {
 		@return color-exist($value);
-	} @else{
-		@if $rgba == true{
-			$rgb: #{red(map-get($colorset, $value))},#{green(map-get($colorset, $value))},#{blue(map-get($colorset, $value))};
+	} @else {
+		@if $rgba == true {
+			$rgb: #{red(map-get($colorset, $value))},
+				#{green(map-get($colorset, $value))},
+				#{blue(map-get($colorset, $value))};
 			@return $rgb;
 		}
-		@elseif $rgba != false{
-			@return rgba(map-get($colorset, $value),$rgba);
-		} @else{
+		@elseif $rgba != false {
+			@return rgba(map-get($colorset, $value), $rgba);
+		} @else {
 			@return map-get($colorset, $value);
 		}
 	}
 }
-@function color-exist($value, $colorset: $colors-default){
+@function color-exist($value, $colorset: $colors-default) {
 	$color: map-get($colorset, $value);
-	@if $color == null{
-		@if variable-exists(main-colors){
-			@if color($value, $rgba, $main-colors, false, true){
+	@if $color == null {
+		@if variable-exists(main-colors) {
+			@if color($value, $rgba, $main-colors, false, true) {
 				@return true;
 			}
 			@return false;
 		}
 		@return false;
-	} @else{
+	} @else {
 		@return true;
 	}
 }
 
-@function colorByKey($key,$colorset: $colors, $return: "value"){
-	$color-list: nth($colorset,$key); // List
-	$color-name: nth($color-list,1); // Name
-	$color-value: nth($color-list,2); // Value
+@function colorByKey($key, $colorset: $colors, $return: 'value') {
+	$color-list: nth($colorset, $key); // List
+	$color-name: nth($color-list, 1); // Name
+	$color-value: nth($color-list, 2); // Value
 	// Return
-	@if $return == "value"{
+	@if $return == 'value' {
 		@return $color-value;
-	} @elseif $return == "name"{
+	}
+	@elseif $return == 'name' {
 		@return $color-name;
-	} @elseif $return == "list"{
+	}
+	@elseif $return == 'list' {
 		@return $color-list;
 	}
 }
 
-@function color-brightness($color,$percentage: true){
-	$sum: red($color) + green($color) + blue($color);  // sum
-	$average: (((red($color) / 255) * 100) + ((green($color) / 255) * 100) + ((blue($color) / 255) * 100)) / 3; // average
+@function color-brightness($color, $percentage: true) {
+	$sum: red($color) + green($color) + blue($color); // sum
+	$average: (
+			 ((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
+				(
+					 (blue($color) / 255) * 100
+				)
+		) / 3; // average
 	//@debug "red: #{red($color)} / green: #{green($color)} / blue: #{blue($color)}";
 
-
 	//@debug $average;
-	@if $percentage{
-		@return percentage($sum / (255*3));
-	} @else{
-		@debug ($sum / (255*3) * 100);
-		@return ($sum / (255*3) * 100);
+	@if $percentage {
+		@return percentage($sum / (255 * 3));
+	} @else {
+		@debug ($sum / (255 * 3) * 100);
+		@return ($sum / (255 * 3) * 100);
 	}
 }
 
-
-@function contra($value, $contrast: 50, $dark: color(Black), $light: color(White)){
+@function contra(
+	$value,
+	$contrast: 50,
+	$dark: color(Black),
+	$light: color(White)
+) {
 	$color: black;
-	@if color-exist($value){
+	@if color-exist($value) {
 		$color: color($value);
-	} @else{
+	} @else {
 		$color: $value;
 	}
-	@if color-brightness($color) > $contrast{
+	@if color-brightness($color) > $contrast {
 		@return $dark;
-	} @else{
+	} @else {
 		@return $light;
 	}
 }
 
-@function native-rgba($string, $opacity){
-	@return #{"rgba(#{$string}, #{$opacity})"};
+@function native-rgba($string, $opacity) {
+	@return #{'rgba(#{$string}, #{$opacity})'};
+}
+
+@function black($o) {
+	@return rgba(0, 0, 0, ($o / 100%));
+}
+@function white($o) {
+	@return rgba(255, 255, 255, ($o / 100%));
 }

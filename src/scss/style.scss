@@ -1,34 +1,64 @@
 /*
-  There where it all begins, the reset
+  There where it all begins, the normalizer
 */
 
-@import "reset";
+@import '~/modern-normalize/modern-normalize.css';
 
 /*
   Import the grid
 */
+@import 'settings/settings';
+$prefix: $base-prefix;
+@import 'functions/functions';
+@import 'mixins/mixins';
+@import 'grid/grid';
+@import 'typography/typography';
+@import 'components/components';
 
-
-@import "settings/settings"; $prefix: $settings-prefix;
-@import "functions/functions";
-@import "mixins/mixins";
-@import "grid/grid";
-@import "typography/typography";
-@import "components/components";
-
-
-body, html{
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; background-color: color(Offwhite); color: color(Dark);
+body,
+html {
+	font-family: $system-fonts;
+	background-color: color(Offwhite);
+	color: color(Dark);
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 // Create css variables
 
-*{
-	@each $color-name,$color-value in $colors-default{
-		$variable: "--color-#{to-lower-case($color-name)}";
+:root {
+	@each $color-name, $color-value in $colors-default {
+		$variable: '--color-#{to-lower-case($color-name)}';
 		//hex
 		#{$variable}: $color-value;
 		//rgb
-		#{$variable}-r: red($color-value); #{$variable}-g: green($color-value); #{$variable}-b: blue($color-value); #{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
+		#{$variable}-r: red($color-value);
+		#{$variable}-g: green($color-value);
+		#{$variable}-b: blue($color-value);
+		#{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
+		.bg-#{$color-name} {
+			background-color: #{$color-value};
+		}
 	}
+	// Social Colors in variables
+	@each $color-name, $color-value in $colors-social {
+		$variable: '--color-#{to-lower-case($color-name)}';
+		//hex
+		#{$variable}: $color-value;
+		//rgb
+		// #{$variable}-r: red($color-value); #{$variable}-g: green($color-value); #{$variable}-b: blue($color-value); #{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
+		.bg-#{$color-name} {
+			background-color: #{$color-value};
+		}
+	}
+}
+
+main.center {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

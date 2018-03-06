@@ -1,71 +1,77 @@
-@function bp($bp){
-	$breakpoint: map-get($grid-breakpoints,$bp);
+@function bp($bp) {
+	$breakpoint: map-get($grid-breakpoints, $bp);
 	@return $breakpoint;
 }
-@function grid($value){
+@function grid($value) {
 	$values: null;
-	@if length($value) > 1{
-		@each $size in $value{
-			$v: calc-grid($size); $values: $values #{$v};
+	@if length($value) > 1 {
+		@each $size in $value {
+			$v: calc-grid($size);
+			$values: $values #{$v};
 		}
-	} @else{
+	} @else {
 		$values: calc-grid($value);
 	}
 	@return $values;
 }
-@function -grid($value){
+@function -grid($value) {
 	$values: null;
-	@if length($value) > 1{
-		@each $size in $value{
-			$v: calc-grid($size); $values: $values -#{$v};
+	@if length($value) > 1 {
+		@each $size in $value {
+			$v: calc-grid($size);
+			$values: $values -#{$v};
 		}
-	} @else{
+	} @else {
 		$values: -#{calc-grid($value)};
 	}
 	@return $values;
 }
 
-@function calc-grid($v){
-	$value: (100/$grid-columns)*$v;
+@function calc-grid($v) {
+	$value: (100 / $grid-columns) * $v;
 	//convert px to vw based on design file
-	@if unit($v) == "px"{
-		$value: (strip-unit($v)*100)/strip-unit($grid-design-width);
+	@if unit($v) == 'px' {
+		$value: (strip-unit($v) * 100) / strip-unit($grid-design-width);
 	}
 	//convert rem to vw based on design file
-	@if unit($v) == "rem"{
-		$value: ((strip-unit($v)*$base-font-size)*100)/strip-unit($grid-design-width);
+	@if unit($v) == 'rem' {
+		$value: ((strip-unit($v) * $base-font-size) * 100) /
+			strip-unit($grid-design-width);
 	}
-	@return unquote("#{$value}vw");
+	@return unquote('#{$value}vw');
 }
 
-@function mq($min: 0,$max: 0){
-	@if $max > 0{
-		$mq: "only screen and (min-width: #{strip-unit($min)}px) and (max-width: #{strip-unit($max)}px)";
+@function mq($min: 0, $max: 0) {
+	@if $max > 0 {
+		$mq: 'only screen and (min-width: #{strip-unit($min)}px) and (max-width: #{strip-unit($max)}px)';
 		@return $mq;
-	} @elseif $min > 0{
-		$mq: "only screen and (min-width: #{strip-unit($min)}px)";
+	}
+	@elseif $min > 0 {
+		$mq: 'only screen and (min-width: #{strip-unit($min)}px)';
 		@return $mq;
 	}
 }
 
-@function grid-mq-min($columns,$width){
-	@if unit($columns) == "rem"{
-		@debug "please just use Grid units!"; //
+@function grid-mq-min($columns, $width) {
+	@if unit($columns) == 'rem' {
+		@debug 'please just use Grid units!'; //
 		$one-column: $grid-design-width / $grid-columns; //
 		$width: strip-unit((strip-unit($columns) * 16) / $one-column);
 	}
 
-	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (max-width: #{strip-unit($minimum-screenwidth)}px)";
+	$minimum-screenwidth: ($width/ $columns) * $grid-columns;
+	$result: 'only screen and (max-width: #{strip-unit($minimum-screenwidth)}px)';
 	@return $result;
 }
 
-@function grid-mq-max($columns,$width){
-	@if unit($columns) == "rem"{
-		@debug "please just use Grid units!"; //
+@function grid-mq-max($columns, $width) {
+	@if unit($columns) == 'rem' {
+		@debug 'please just use Grid units!'; //
 		$one-column: $grid-design-width / $grid-columns; //
 		$width: strip-unit((strip-unit($columns) * 16) / $one-column);
 	}
 
-	$minimum-screenwidth: ($width/ $columns) * $grid-columns; $result: "only screen and (min-width: #{strip-unit($minimum-screenwidth)}px)";
+	$minimum-screenwidth: ($width/ $columns) * $grid-columns;
+	$result: 'only screen and (min-width: #{strip-unit($minimum-screenwidth)}px)';
 	@return $result;
 }
