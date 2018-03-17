@@ -51,7 +51,7 @@ module.exports = {
 				to: 'dist/scss/'
 			},
 			{
-				from: 'static/*.**',
+				from: 'static/',
 				to: 'dist/'
 			}
 		])

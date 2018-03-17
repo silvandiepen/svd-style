@@ -1,0 +1,14 @@
+input {
+	&[type='text'],
+	&[type='email'],
+	&[type='tel'],
+	&[type='url'] {
+		@extend %default-input;
+	}
+}
+
+input[type='radio'] {
+	& + label {
+		@include input-radio();
+	}
+}

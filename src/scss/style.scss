@@ -7,13 +7,14 @@
 /*
   Import the grid
 */
-@import 'settings/settings';
+@import 'settings/index';
 $prefix: $base-prefix;
-@import 'functions/functions';
-@import 'mixins/mixins';
-@import 'grid/grid';
-@import 'typography/typography';
-@import 'components/components';
+@import 'functions/index',
+	'mixins/index',
+	'grid/index',
+	'typography/index',
+	'components/index',
+	'spacing';
 
 body,
 html {

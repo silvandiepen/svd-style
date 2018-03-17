@@ -219,9 +219,7 @@ function createImport(files) {
 	console.log(code);
 
 	fileTypes.forEach(type => {
-		fs.writeFileSync(type.dest + '/_settings.' + type.type, code, function(
-			err
-		) {
+		fs.writeFileSync(type.dest + '/_index.' + type.type, code, function(err) {
 			console.log('woops, something went wrong!' + err);
 		});
 	});

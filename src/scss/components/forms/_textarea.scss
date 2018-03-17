@@ -1,0 +1,5 @@
+textarea {
+	@extend %default-input;
+	resize: none;
+	min-height: 5rem;
+}

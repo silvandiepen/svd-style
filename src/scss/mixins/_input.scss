@@ -41,13 +41,13 @@
 				background: $bg-check;
 				border-radius: $round;
 				opacity: 0;
-				transition: $transition;
+				transition: $base-transition;
 			}
 		}
 		input[type='radio']:checked {
 			& + label:after {
 				opacity: 1;
-				transition: $transition;
+				transition: $base-transition;
 			}
 		}
 	}
@@ -95,13 +95,13 @@
 				background: $bg-check;
 				border-radius: $round;
 				opacity: 0;
-				transition: $transition;
+				transition: $base-transition;
 			}
 		}
 		input[type='checkbox']:checked {
 			& + label:after {
 				opacity: 1;
-				transition: $transition;
+				transition: $base-transition;
 			}
 		}
 	}
@@ -121,33 +121,33 @@
 			}
 		}
 	}
-	@elseif $el == "label" {
+	@elseif $el == 'label' {
 		@include parent {
 			input#{$type} + label {
 				@content;
 			}
 		}
 	}
-	@elseif $el == "focus" {
+	@elseif $el == 'focus' {
 		input#{$type}:focus + label {
 			@content;
 		}
 	}
-	@elseif $el == "check" {
+	@elseif $el == 'check' {
 		@include parent {
 			input#{$type}:checked + label:after {
 				@content;
 			}
 		}
 	}
-	@elseif $el == "body-checked" {
+	@elseif $el == 'body-checked' {
 		input#{$type}:checked + label {
 			&:before {
 				@content;
 			}
 		}
 	}
-	@elseif $el == "label-checked" {
+	@elseif $el == 'label-checked' {
 		@include parent {
 			input#{$type}:checked + label {
 				@content;
@@ -248,29 +248,29 @@
 	}
 }
 $input-types: (
-	(button, button),
-	(checkbox, check),
-	(color, button),
-	(date, button),
-	(datetime, text),
-	(datetime-local, text),
-	(email, text),
-	(file, text),
-	(hidden, hidden),
-	(image, text),
-	(month, text),
-	(number, text),
-	(password, text),
-	(radio, radio),
-	(range, slider),
-	(reset, button),
-	(search, text),
-	(submit, button),
-	(tel, text),
-	(text, text),
-	(time, text),
-	(url, text),
-	(week, text)
+	 (button, button),
+	 (checkbox, check),
+	 (color, button),
+	 (date, button),
+	 (datetime, text),
+	 (datetime-local, text),
+	 (email, text),
+	 (file, text),
+	 (hidden, hidden),
+	 (image, text),
+	 (month, text),
+	 (number, text),
+	 (password, text),
+	 (radio, radio),
+	 (range, slider),
+	 (reset, button),
+	 (search, text),
+	 (submit, button),
+	 (tel, text),
+	 (text, text),
+	 (time, text),
+	 (url, text),
+	 (week, text)
 );
 
 @mixin input-type($type) {

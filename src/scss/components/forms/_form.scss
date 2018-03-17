@@ -1,0 +1,47 @@
+form {
+	display: flex;
+	flex-flow: row;
+	flex-wrap: wrap;
+	label {
+		display: inline-block;
+		margin-top: 1rem;
+		padding-top: 0.75rem;
+		width: 33%;
+		flex-shrink: 0;
+		@media #{$small-only} {
+			width: 100%;
+		}
+		&:nth-child(1) {
+			&,
+			& + input,
+			& + select & + textarea {
+				margin-top: 0;
+			}
+		}
+	}
+	input,
+	textarea,
+	select {
+		width: 50%;
+		@media #{$small-only} {
+			width: 100%;
+		}
+	}
+	label + input,
+	label + textarea,
+	label + select {
+		margin-top: 1rem;
+
+		// margin-left: 1rem;
+	}
+	textarea + label,
+	select + label,
+	input + label {
+		&:before {
+			//content: '';
+			margin-top: 1rem;
+			display: block;
+			clear: both;
+		}
+	}
+}
