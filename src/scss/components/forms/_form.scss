@@ -1,7 +1,14 @@
-form {
+fieldset {
+	margin: 0;
+	padding: 0;
 	display: flex;
 	flex-flow: row;
 	flex-wrap: wrap;
+	border: none;
+	& + fieldset {
+		margin-top: grid(0.5);
+		@include min-('margin-top',0.5,16);
+	}
 	label {
 		display: inline-block;
 		margin-top: 1rem;

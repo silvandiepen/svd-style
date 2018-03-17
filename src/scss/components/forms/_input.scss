@@ -12,7 +12,6 @@ input[type='radio'] {
 		@include input-radio();
 	}
 }
-
 input[type='checkbox'] {
 	& + label {
 		@include input-checkbox();
