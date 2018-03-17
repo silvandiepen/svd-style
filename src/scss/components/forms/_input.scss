@@ -6,12 +6,13 @@ input {
 		@extend %default-input;
 	}
 }
-
-input[type='radio'] {
-	@include input-radio();
-}
-input[type='checkbox'] {
-	@include input-checkbox();
+* {
+	input[type='radio'] {
+		@include input-radio();
+	}
+	input[type='checkbox'] {
+		@include input-checkbox();
+	}
 }
 
 input {
