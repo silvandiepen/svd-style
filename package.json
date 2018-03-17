@@ -1,14 +1,13 @@
 {
 	"name": "svd-style",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "Style for SVD projects",
 	"main": "index.scss",
 	"scripts": {
 		"start": "webpack --config webpack.config.js && npm run build",
 		"test": "grunt test",
 		"settings": "node scripts/json-to-css.js",
-		"dev":
-			"npm run settings && node-sass src/scss/style.scss dist/style.css --w",
+		"dev": "npm run settings && node-sass src/scss/style.scss dist/style.css --w",
 		"build-css": "node-sass src/scss/style.scss dist/style.css",
 		"build": "npm run settings && npm run build-css",
 		"prepublishOnly": "npm run build"
@@ -17,7 +16,12 @@
 		"type": "git",
 		"url": "git+https://github.com/silvandiepen/svd-style.git"
 	},
-	"keywords": ["style", "assets", "digital", "styleguide"],
+	"keywords": [
+		"style",
+		"assets",
+		"digital",
+		"styleguide"
+	],
 	"author": "Sil van Diepen",
 	"license": "ISC",
 	"bugs": {
