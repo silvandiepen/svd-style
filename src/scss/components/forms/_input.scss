@@ -12,3 +12,16 @@ input[type='radio'] {
 		@include input-radio();
 	}
 }
+
+input[type='checkbox'] {
+	& + label {
+		@include input-checkbox();
+	}
+}
+
+input {
+	&[type='submit'],
+	&[type='button'] {
+		@extend %default-button;
+	}
+}
