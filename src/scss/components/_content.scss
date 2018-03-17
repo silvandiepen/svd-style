@@ -2,3 +2,12 @@
 a:not([class]) {
 	text-decoration: underline;
 }
+
+hr {
+	height: 1px;
+	background-color: color(Black, 0.1);
+	color: color(Black, 0.1);
+	border: none;
+	margin: 1rem 0;
+	padding: 0;
+}
