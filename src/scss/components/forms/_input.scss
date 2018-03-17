@@ -8,14 +8,10 @@ input {
 }
 
 input[type='radio'] {
-	& + label {
-		@include input-radio();
-	}
+	@include input-radio();
 }
 input[type='checkbox'] {
-	& + label {
-		@include input-checkbox();
-	}
+	@include input-checkbox();
 }
 
 input {
