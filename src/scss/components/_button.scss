@@ -11,6 +11,9 @@
 	line-height: 1;
 	border: 1px solid darken(color(Blue), 10%);
 	text-decoration: none;
+	&:hover {
+		background-color: darken(color(Blue), 10%);
+	}
 }
 .button,
 button {
