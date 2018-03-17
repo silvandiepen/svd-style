@@ -24,6 +24,7 @@ button {
 	@each $color-name, $color-value in $colors-default {
 		&--#{to-lower-case($color-name)},
 		&--#{$color-name} {
+			border: 1px solid darken($color-value, 10%);
 			background-color: $color-value;
 			color: contra($color-value);
 			&:hover {
