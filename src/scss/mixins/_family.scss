@@ -4,7 +4,7 @@
 /// @param {number} $num - id of the child
 @mixin first($num: 1, $from: 0, $type: all) {
 	@if $type == all {
-		@if $num == 1 && $from == 0 {
+		@if $num == 1 and $from == 0 {
 			&:first-child {
 				@content;
 			}

@@ -36,6 +36,16 @@
 	}
 }
 @function color-exist($value, $colorset: $colors-default) {
+	// @each $c in $colorset {
+	// 	// @debug "#{nth($c,1)} : #{type-of(nth($c,1))} // #{$value} : #{type-of(to-string($value))}";
+	//
+	// 	@if nth($c,1) == $value {
+	// 		@debug "#{nth($c,1)} : #{type-of(unquote(nth($c,1)))} // #{$value} : #{type-of(to-string($value))} == THE FUCKING SAME";
+	// 	} @else {
+	// 		@debug "#{nth($c,1)} : #{type-of(unquote(nth($c,1)))} // #{$value} : #{type-of(to-string($value))} == DIFFERENT";
+	// 		@debug type-of($value);
+	// 	}
+	// }
 	$color: map-get($colorset, $value);
 	@if $color == null {
 		@if variable-exists(main-colors) {
@@ -80,7 +90,6 @@
 	@if $percentage {
 		@return percentage($sum / (255 * 3));
 	} @else {
-		@debug ($sum / (255 * 3) * 100);
 		@return ($sum / (255 * 3) * 100);
 	}
 }

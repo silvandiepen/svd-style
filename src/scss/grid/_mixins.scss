@@ -111,12 +111,12 @@
 @mixin createGridClasses($child: false) {
 	$childClass: '';
 	@if $child == true {
-		$childClass: '> .#{$prefix}column';
+		$childClass: '> .#{$base-prefix}column';
 	}
 	@for $a from 0 through $grid-columns {
 		$percentage: percentage($a/$grid-columns); //
 		$column: #{$a}#{$childClass};
-		&.#{$prefix}column-#{$column} {
+		&.#{$base-prefix}column-#{$column} {
 			width: #{$percentage};
 			@if $grid-cssgrid {
 				@supports (display: grid) {
@@ -124,13 +124,13 @@
 				}
 			}
 		}
-		&.#{$prefix}offset-#{$column} {
+		&.#{$base-prefix}offset-#{$column} {
 			margin-left: #{$percentage};
 		}
-		&.#{$prefix}push-#{$column} {
+		&.#{$base-prefix}push-#{$column} {
 			margin-right: #{$percentage};
 		}
-		&.#{$prefix}pull-#{$column} {
+		&.#{$base-prefix}pull-#{$column} {
 			margin-left: -#{$percentage};
 		}
 	}
@@ -142,7 +142,7 @@
 		$min-width: $bp-value + 1;
 		@each $part, $percentage in $grid-parts {
 			&%#{$part}#{$childClass},
-			&.#{$prefix}#{$part}#{$childClass} {
+			&.#{$base-prefix}#{$part}#{$childClass} {
 				width: percentage($percentage);
 				@if $grid-cssgrid == true {
 					@supports (display: grid) {
@@ -153,40 +153,43 @@
 			}
 		}
 		@media #{$mq-only} {
-			&.#{$prefix}#{$bp-name}-only-0#{$childClass} {
+			&.#{$base-prefix}#{$bp-name}-only-0#{$childClass} {
 				width: 0;
 				display: none;
 			}
 			@each $part, $percentage in $grid-parts {
-				%.#{$bp-name}-only-#{$part}#{$childClass},
-				&.#{$prefix}#{$bp-name}-only-#{$part}#{$childClass} {
+				// @debug '.#{$bp-name}-only-#{$part}#{$childClass}';
+				// @debug '.#{$base-prefix}#{$bp-name}-only-#{$part}#{$childClass}';
+				.#{$bp-name}-only-#{$part}#{$childClass},
+				&.#{$base-prefix}#{$bp-name}-only-#{$part}#{$childClass} {
 					width: percentage($percentage);
 				}
 			}
 			@for $a from 1 through $grid-columns {
 				$percentage: percentage($a/$grid-columns);
-				&.#{$prefix}#{$bp-name}-only-#{$a}#{$childClass} {
+				&.#{$base-prefix}#{$bp-name}-only-#{$a}#{$childClass} {
 					width: $percentage;
 				}
-				&.#{$prefix}offset-#{$bp-name}-only-#{$a}#{$childClass} {
+				&.#{$base-prefix}offset-#{$bp-name}-only-#{$a}#{$childClass} {
 					margin-left: $percentage;
 				}
-				&.#{$prefix}push-#{$bp-name}-only-#{$a}#{$childClass} {
+				&.#{$base-prefix}push-#{$bp-name}-only-#{$a}#{$childClass} {
 					margin-right: $percentage;
 				}
-				&.#{$prefix}pull-#{$bp-name}-only-#{$a}#{$childClass} {
+				&.#{$base-prefix}pull-#{$bp-name}-only-#{$a}#{$childClass} {
 					margin-left: -#{$percentage};
 				}
 			}
 		}
 		@media #{$mq} {
-			%.#{$bp-name}-0#{$childClass} &.#{$prefix}#{$bp-name}-0#{$childClass} {
+			.#{$bp-name}-0#{$childClass}
+				&.#{$base-prefix}#{$bp-name}-0#{$childClass} {
 				width: 0;
 				display: none;
 			}
 			@each $part, $percentage in $grid-parts {
 				%#{$bp-name}-#{$part}#{$childClass},
-				&.#{$prefix}#{$bp-name}-#{$part}#{$childClass} {
+				&.#{$base-prefix}#{$bp-name}-#{$part}#{$childClass} {
 					width: percentage($percentage);
 
 					@if $grid-cssgrid == true {
@@ -200,7 +203,7 @@
 			@for $a from 1 through $grid-columns {
 				$percentage: percentage($a/$grid-columns);
 
-				&.#{$prefix}#{$bp-name}-#{$a}#{$childClass} {
+				&.#{$base-prefix}#{$bp-name}-#{$a}#{$childClass} {
 					width: $percentage;
 					@if $grid-cssgrid == true {
 						@supports (display: grid) {
@@ -210,13 +213,13 @@
 						}
 					}
 				}
-				&.#{$prefix}offset-#{$bp-name}-#{$a}#{$childClass} {
+				&.#{$base-prefix}offset-#{$bp-name}-#{$a}#{$childClass} {
 					margin-left: $percentage;
 				}
-				&.#{$prefix}push-#{$bp-name}-#{$a}#{$childClass} {
+				&.#{$base-prefix}push-#{$bp-name}-#{$a}#{$childClass} {
 					margin-right: $percentage;
 				}
-				&.#{$prefix}pull-#{$bp-name}-#{$a}#{$childClass} {
+				&.#{$base-prefix}pull-#{$bp-name}-#{$a}#{$childClass} {
 					margin-left: -#{$percentage};
 				}
 			}

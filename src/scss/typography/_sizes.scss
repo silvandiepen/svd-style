@@ -13,7 +13,7 @@
 		font-weight: $font-regular;
 	}
 }
-%#{$prefix}header-default {
+%#{$base-prefix}header-default {
 	@include assets-header-default;
 }
 
@@ -30,7 +30,7 @@
 	@include min-fontsize($typography-h1-font-size-value,$typography-h1-font-size-min);
 	@include max-fontsize($typography-h1-font-size-value,$typography-h1-font-size-max);
 }
-%#{$prefix}h1 {
+%#{$base-prefix}h1 {
 	@include assets-header-default;
 	@include assets-h1;
 }
@@ -48,7 +48,7 @@
 	@include min-fontsize($typography-h2-font-size-value,$typography-h2-font-size-min);
 	@include max-fontsize($typography-h2-font-size-value,$typography-h2-font-size-max);
 }
-%#{$prefix}h2 {
+%#{$base-prefix}h2 {
 	@include assets-header-default;
 	@include assets-h2;
 }
@@ -67,7 +67,7 @@
 	@include max-fontsize($typography-h3-font-size-value,$typography-h3-font-size-max);
 }
 
-%#{$prefix}h3 {
+%#{$base-prefix}h3 {
 	@include assets-header-default;
 	@include assets-h3;
 }
@@ -83,7 +83,7 @@
 	@include max-fontsize($typography-h4-font-size-value,$typography-h4-font-size-max);
 }
 
-%#{$prefix}h4 {
+%#{$base-prefix}h4 {
 	@include assets-header-default;
 	@include assets-h4;
 }
@@ -98,7 +98,7 @@
 	@include max-fontsize($typography-h5-font-size-value,$typography-h5-font-size-max);
 }
 
-%#{$prefix}h5 {
+%#{$base-prefix}h5 {
 	@include assets-header-default;
 	@include assets-h5;
 }
@@ -112,32 +112,32 @@
 	@include min-fontsize($typography-h6-font-size-value,$typography-h6-font-size-min);
 	@include max-fontsize($typography-h6-font-size-value,$typography-h6-font-size-max);
 }
-%#{$prefix}h6 {
+%#{$base-prefix}h6 {
 	@include assets-header-default;
 	@include assets-h6;
 }
 
 // make font styles
-%#{$prefix}font-regular {
+%#{$base-prefix}font-regular {
 	font-weight: $font-regular;
 }
-%#{$prefix}font-bold {
+%#{$base-prefix}font-bold {
 	font-weight: $font-bold;
 }
-%#{$prefix}small {
+%#{$base-prefix}small {
 	font-size: smaller;
 }
-%#{$prefix}del {
+%#{$base-prefix}del {
 	text-decoration: line-through;
 }
-%#{$prefix}ins {
+%#{$base-prefix}ins {
 	text-decoration: underline;
 }
-%#{$prefix}sub {
+%#{$base-prefix}sub {
 	font-size: smaller;
 	vertical-align: sub;
 }
-%#{$prefix}sup {
+%#{$base-prefix}sup {
 	font-size: smaller;
 	vertical-align: sup;
 }
@@ -150,11 +150,11 @@
 	@include min-fontsize($typography-p-font-size-value,$typography-p-font-size-min);
 	@include max-fontsize($typography-p-font-size-value,$typography-p-font-size-max);
 }
-%#{$prefix}p {
+%#{$base-prefix}p {
 	@include assets-p;
 }
 
-%#{$prefix}blockquote {
+%#{$base-prefix}blockquote {
 	margin: 0;
 	padding: 0.5rem 1rem;
 }
@@ -166,7 +166,7 @@
 	font-family: unquote($button-font-family);
 	text-transform: $button-text-transform;
 }
-%#{$prefix}button-text {
+%#{$base-prefix}button-text {
 	@include assets-button-text;
 }
 
@@ -178,7 +178,7 @@
 	@include min-fontsize($typography-menu-font-size-value,$typography-menu-font-size-min);
 	@include max-fontsize($typography-menu-font-size-value,$typography-menu-font-size-max);
 }
-%#{$prefix}menu {
+%#{$base-prefix}menu {
 	@include assets-menu;
 }
 
@@ -190,6 +190,6 @@
 	@include min-fontsize($typography-menu-small-font-size-value,$typography-menu-small-font-size-min);
 	@include max-fontsize($typography-menu-small-font-size-value,$typography-menu-small-font-size-max);
 }
-%#{$prefix}menu-small {
+%#{$base-prefix}menu-small {
 	@include assets-menu;
 }

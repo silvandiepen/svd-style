@@ -8,13 +8,12 @@
   Import the grid
 */
 @import 'settings/index';
-$prefix: $base-prefix;
-@import 'functions/index',
-	'mixins/index',
-	'grid/index',
-	'typography/index',
-	'components/index',
-	'spacing';
+@import 'functions/index';
+@import 'mixins/index';
+@import 'grid/index';
+@import 'typography/index';
+@import 'components/index';
+@import 'spacing';
 
 body,
 html {
