@@ -1,6 +1,7 @@
 table {
 	background-color: color(Offwhite, 0.5);
 	border-radius: $base-border-radius;
+	border-collapse: collapse;
 	td,
 	th {
 		padding: 1rem;

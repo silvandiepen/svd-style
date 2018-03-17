@@ -97,6 +97,7 @@ $typography-p-line-height: 1.75 !default; //
 $typography-p-font-size-min: 16px !default; //
 $typography-p-font-size-max: 16px !default; //
 $typography-p-letter-spacing: 0 !default; //
+$typography-p-max-width: 75ch !default; //
 $typography-font-weight: (
 	"light": 300, 
 	"regular": 400, 
@@ -216,5 +217,6 @@ $typography-p: (
 	"line-height": 1.75, 
 	"font-size-min": 16px, 
 	"font-size-max": 16px, 
-	"letter-spacing": 0
+	"letter-spacing": 0, 
+	"max-width": 75ch
 ) !default; //

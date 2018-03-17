@@ -87,7 +87,12 @@ function stringValue(value) {
 	if (typeof value == 'string') {
 		let quotes = true;
 		let noquotes = ['normal', 'regular', 'lowercase', 'uppercase', 'none', '0'];
-		if (value.indexOf('px') > -1) {
+		if (
+			value.indexOf('px') > -1 ||
+			value.indexOf('ch') > -1 ||
+			value.indexOf('rem') > -1 ||
+			value.indexOf('%') > -1
+		) {
 			quotes = false;
 		}
 		if (value.indexOf('(') > -1 && value.indexOf(')') > -1) {

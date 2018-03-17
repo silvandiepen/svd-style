@@ -1,0 +1,4 @@
+// when a link doesnt have styling it will be a default link used in content
+a:not([class]) {
+	text-decoration: underline;
+}

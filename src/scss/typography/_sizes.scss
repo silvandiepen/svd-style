@@ -147,6 +147,7 @@
 	font-weight: $typography-p-font-weight;
 	line-height: $typography-p-line-height;
 	font-family: unquote($typography-p-font-family);
+	max-width: $typography-p-max-width;
 	@include min-fontsize($typography-p-font-size-value,$typography-p-font-size-min);
 	@include max-fontsize($typography-p-font-size-value,$typography-p-font-size-max);
 }
