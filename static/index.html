@@ -32,8 +32,8 @@
 				<a class="button button--purple" href="https://github.com/silvandiepen/svd-style/archive/master.zip">Download</a>
 			</div>
 		</main>
-		<section class="bg-pink content">
-			<div class="row">
+		<section class="bg-blue content">
+			<div class="row center">
 				<div class="column small-full medium-three-quarter large-half">
 					<h2>Grid</h2>
 				</div>
@@ -47,19 +47,30 @@
 						Auto styling forms, just use clean html and get a nicely styled form back :)
 					</p>
 					<form>
-						<label>First name</label><input type="text" placeholder="John"/>
-						<label>Last name</label><input type="text" placeholder="Doe"/>
-						<label>E-mail</label><input type="email" placeholder="john@doe.com"/>
-						<label>Phonenumber</label><input type="tel" placeholder="020 01 20 20"/>
-						<label>More information</label>
-						<textarea></textarea>
-						<input type="checkbox" id="hellyeah"/>
-						<label for="hellyeah">Are you sure?</label>
-						<input type="radio" name="sex" id="sex-male"/>
-						<label for="sex-male">Male</label>
-						<input type="radio" name="sex" id="sex-female"/>
-						<label for="sex-female">Female</label>
+
+						<fieldset>
+							<label>First name</label><input type="text" placeholder="John"/>
+							<label>Last name</label><input type="text" placeholder="Doe"/>
+							<label>E-mail</label><input type="email" placeholder="john@doe.com"/>
+							<label>Phonenumber</label><input type="tel" placeholder="020 01 20 20"/>
+							<label>More information</label>
+							<textarea></textarea>
+						</fieldset>
+
+						<fieldset>
+							<input type="checkbox" id="hellyeah"/>
+							<label for="hellyeah">Are you sure?</label>
+						</fieldset>
+
+						<fieldset>
+							<input type="radio" name="sex" id="sex-male"/>
+							<label for="sex-male">Male</label>
+							<input type="radio" name="sex" id="sex-female"/>
+							<label for="sex-female">Female</label>
+						</fieldset>
+
 						<label></label><input type="submit" value="Send">
+
 					</form>
 				</div>
 			</div>
