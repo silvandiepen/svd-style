@@ -41,14 +41,14 @@ fieldset {
 
 		// margin-left: 1rem;
 	}
-	textarea + label,
-	select + label,
-	input + label {
-		&:before {
-			//content: '';
-			margin-top: 1rem;
-			display: block;
-			clear: both;
-		}
-	}
+	// textarea + label,
+	// select + label,
+	// input + label {
+	// 	&:before {
+	// 		//content: '';
+	// 		margin-top: 1rem;
+	// 		display: block;
+	// 		clear: both;
+	// 	}
+	// }
 }

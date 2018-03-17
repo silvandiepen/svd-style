@@ -107,10 +107,11 @@
 	}
 }
 @mixin input-element($el, $inputtype: null) {
-	@if inputtype != '' {
-		$type: '[type=#{$inputtype}]';
-	} @else {
+	$type: '';
+	@if $inputtype == null {
 		$type: '';
+	} @else {
+		$type: '[type=#{$inputtype}]';
 	}
 	@if $el == 'body' {
 		@include parent {
