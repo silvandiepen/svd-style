@@ -7,15 +7,16 @@ let delimiter = '-',
 	sourceFolder = 'src/settings',
 	distFolder = 'src/scss/';
 
-let fileTypes = [{
-	type: 'scss',
-	dest: distFolder + 'settings',
-	varPattern: '${{var}}: {{value}} !default; //',
-	listPatternParent: '${{var}}: (\n{{list}}\n) !default; //',
-	listSubPatternParent: '\t"{{var}}": (\n{{list}}\n\t) //',
-	listPattern: '\t"{{var}}": {{value}}',
-}];
-
+let fileTypes = [
+	{
+		type: 'scss',
+		dest: distFolder + 'settings',
+		varPattern: '${{var}}: {{value}} !default; //',
+		listPatternParent: '${{var}}: (\n{{list}}\n) !default; //',
+		listSubPatternParent: '\t"{{var}}": (\n{{list}}\n\t) //',
+		listPattern: '\t"{{var}}": {{value}}'
+	}
+];
 
 String.prototype.replaceAll = function(search, replacement) {
 	var target = this;
@@ -53,7 +54,7 @@ function getFiles(dir, files_) {
 
 // Store the used data before compiling;
 let stored = {};
-getFiles(sourceFolder).forEach((file) => {
+getFiles(sourceFolder).forEach(file => {
 	//	let fileName = file.split('/')[file.split('/').length - 1].replace('.json', '');
 	Object.assign(stored, JSON.parse(fs.readFileSync(file, 'utf8')));
 });
@@ -112,7 +113,7 @@ function stringValue(value) {
 			}
 		}
 		if (quotes) {
-			return '\'' + value + '\'';
+			return "'" + value + "'";
 		} else {
 			return value;
 		}
@@ -134,9 +135,11 @@ function objToStyle(file, type) {
 	});
 
 	// Do the variables
-	Object.keys(data).forEach((key) => {
+	Object.keys(data).forEach(key => {
 		if (!functions.isNumber(key.split('-')[key.split('-').length - 1])) {
-			variable = type.varPattern.replace('{{var}}', removeKeys(key.toLowerCase())).replace('{{value}}', stringValue(data[key]));
+			variable = type.varPattern
+				.replace('{{var}}', removeKeys(key.toLowerCase()))
+				.replace('{{value}}', stringValue(data[key]));
 			newFile.push(removeKeys(variable));
 		}
 	});
@@ -145,17 +148,41 @@ function objToStyle(file, type) {
 	function stringify(object, iteration, inObjectList = false) {
 		let list = [];
 
-		Object.keys(object).forEach((key) => {
+		Object.keys(object).forEach(key => {
 			if (typeof object[key][0] === 'object') {
 				if (iteration > 0) {
-					list.push(type.listSubPatternParent.replace('{{var}}', removeKeys(key.toLowerCase())).replace('{{list}}', stringify(object[key][0], iteration + 1, true)));
+					list.push(
+						type.listSubPatternParent
+							.replace('{{var}}', removeKeys(key.toLowerCase()))
+							.replace(
+								'{{list}}',
+								stringify(object[key][0], iteration + 1, true)
+							)
+					);
 				} else {
-					list.push(type.listPatternParent.replace('{{var}}', removeKeys(key.toLowerCase())).replace('{{list}}', stringify(object[key][0], iteration + 1, true)));
+					list.push(
+						type.listPatternParent
+							.replace('{{var}}', removeKeys(key.toLowerCase()))
+							.replace(
+								'{{list}}',
+								stringify(object[key][0], iteration + 1, true)
+							)
+					);
 				}
-			} else if (Object.prototype.toString.call(object[key]) === '[object Array]') {
-				list.push(type.listPatternParent.replace('{{var}}', removeKeys(key.toLowerCase())).replace('{{list}}', '"' + object[key].join('", \r\n"') + '"'));
+			} else if (
+				Object.prototype.toString.call(object[key]) === '[object Array]'
+			) {
+				list.push(
+					type.listPatternParent
+						.replace('{{var}}', removeKeys(key.toLowerCase()))
+						.replace('{{list}}', '"' + object[key].join('", \r\n"') + '"')
+				);
 			} else if (inObjectList) {
-				list.push(type.listPattern.replace('{{var}}', key).replace('{{value}}', stringValue(object[key])));
+				list.push(
+					type.listPattern
+						.replace('{{var}}', key)
+						.replace('{{value}}', stringValue(object[key]))
+				);
 			}
 		});
 		return list.join(', \r\n');
@@ -170,7 +197,7 @@ function objToStyle(file, type) {
  * Define the folder and get the files
  */
 function makeDirs() {
-	fileTypes.forEach((type) => {
+	fileTypes.forEach(type => {
 		const sep = path.sep;
 		const initDir = path.isAbsolute(type.dest) ? sep : '';
 		type.dest.split(sep).reduce((parentDir, childDir) => {
@@ -191,12 +218,13 @@ function createImport(files) {
 	});
 	console.log(code);
 
-	fileTypes.forEach((type) => {
-		fs.writeFileSync(type.dest + '/_settings.' + type.type, code, function(err) {
+	fileTypes.forEach(type => {
+		fs.writeFileSync(type.dest + '/_settings.' + type.type, code, function(
+			err
+		) {
 			console.log('woops, something went wrong!' + err);
 		});
 	});
-
 }
 
 /**
@@ -205,27 +233,44 @@ function createImport(files) {
 
 let settingFiles = [];
 let i = 0;
-getFiles(sourceFolder).forEach((file) => {
+getFiles(sourceFolder).forEach(file => {
 	i++;
 
-	let fileName = file.split('/')[file.split('/').length - 1].replace('.json', '');
+	let fileName = file
+		.split('/')
+		[file.split('/').length - 1].replace('.json', '');
 	console.log('\x1b[33m%s\x1b[0m', fileName);
-	if (fileName.charAt(0) !== "_") {
-
-		fileTypes.forEach((type) => {
+	if (fileName.charAt(0) !== '_') {
+		fileTypes.forEach(type => {
 			// Write New Files
-			let compiled = objToStyle(JSON.parse(fs.readFileSync(file, 'utf8')), type);
+			let compiled = objToStyle(
+				JSON.parse(fs.readFileSync(file, 'utf8')),
+				type
+			);
 
 			// Fix for less lists;
 			compiled = compiled.replaceAll(';,', ';');
 
-
 			console.log('\x1b[32m%s\x1b[0m', '\t\u2713', type.type);
-			console.log('\x1b[32m%s\x1b[0m', '\t  ' + file + ' \u2192 ' + type.dest + '/_' + fileName + '.' + type.type);
+			console.log(
+				'\x1b[32m%s\x1b[0m',
+				'\t  ' +
+					file +
+					' \u2192 ' +
+					type.dest +
+					'/_' +
+					fileName +
+					'.' +
+					type.type
+			);
 
-			fs.writeFileSync(type.dest + '/_' + fileName + '.' + type.type, compiled, function(err) {
-				console.log('woops, something went wrong!' + err);
-			});
+			fs.writeFileSync(
+				type.dest + '/_' + fileName + '.' + type.type,
+				compiled,
+				function(err) {
+					console.log('woops, something went wrong!' + err);
+				}
+			);
 		});
 		settingFiles.push(fileName);
 		if (i === getFiles(sourceFolder).length) {
