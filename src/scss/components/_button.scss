@@ -19,3 +19,16 @@
 button {
 	@extend %default-button;
 }
+
+.button {
+	@each $color-name, $color-value in $colors-default {
+		&--#{to-lower-case($color-name)},
+		&--#{$color-name} {
+			background-color: $color-value;
+			color: contra($color-value);
+			&:hover {
+				background-color: darken($color-value, 10%);
+			}
+		}
+	}
+}
