@@ -2,12 +2,13 @@
 	"name": "svd-style",
 	"version": "1.3.0",
 	"description": "Style for SVD projects",
-	"main": "index.js",
+	"main": "index.scss",
 	"scripts": {
 		"start": "webpack --config webpack.config.js --watch",
 		"test": "grunt test",
 		"settings": "node scripts/json-to-css.js",
-		"dev": "npm run settings && node-sass src/scss/style.scss dist/style.css --w",
+		"dev":
+			"npm run settings && node-sass src/scss/style.scss dist/style.css --w",
 		"build": "node-sass src/scss/style.scss dist/style.css",
 		"prepublishOnly": "npm run build"
 	},
@@ -15,22 +16,16 @@
 		"type": "git",
 		"url": "git+https://github.com/silvandiepen/svd-style.git"
 	},
-	"keywords": [
-		"style",
-		"assets",
-		"digital",
-		"styleguide"
-	],
+	"keywords": ["style", "assets", "digital", "styleguide"],
 	"author": "Sil van Diepen",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/silvandiepen/svd-style/issues"
 	},
 	"homepage": "https://github.com/silvandiepen/svd-style#readme",
-	"dependencies": {
-		"modern-normalize": "^0.4.0"
-	},
+	"dependencies": {},
 	"devDependencies": {
+		"modern-normalize": "^0.4.0",
 		"autoprefixer": "^8.0.0",
 		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.3",
