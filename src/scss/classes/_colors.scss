@@ -1,0 +1,39 @@
+// Color variables
+:root {
+	@each $color-name, $color-value in $colors-default {
+		$variable: '--color-#{to-lower-case($color-name)}';
+		//hex
+		#{$variable}: $color-value;
+		//rgb
+		#{$variable}-r: red($color-value);
+		#{$variable}-g: green($color-value);
+		#{$variable}-b: blue($color-value);
+		#{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
+	}
+	// Social Colors in variables
+	@each $color-name, $color-value in $colors-social {
+		$variable: '--color-#{to-lower-case($color-name)}';
+		//hex
+		#{$variable}: $color-value;
+	}
+}
+
+// Classes
+@each $color-name, $color-value in $colors-default {
+	.bg-#{$color-name} {
+		background-color: #{$color-value};
+		color: contra($color-value);
+	}
+	.color-#{$color-name} {
+		color: $color-value;
+	}
+}
+@each $color-name, $color-value in $colors-social {
+	.bg-#{$color-name} {
+		background-color: #{$color-value};
+		color: contra($color-value);
+	}
+	.color-#{$color-name} {
+		color: $color-value;
+	}
+}
