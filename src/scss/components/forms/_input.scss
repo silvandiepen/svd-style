@@ -4,6 +4,9 @@ input {
 	&[type='tel'],
 	&[type='url'] {
 		@extend %default-input;
+		&:not(:placeholder-shown) {
+			border: 1px solid color(Black, 0.25);
+		}
 	}
 }
 * {

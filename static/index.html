@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>svd.im Style</title>
-		<link rel="stylesheet" type="text/css" href="../dist/style.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body style="background-color: var(--color-white);">
 
@@ -49,14 +49,14 @@
 					<form>
 
 						<fieldset>
-							<label>First name</label><input type="text" placeholder="John"/>
-							<label>Last name</label><input type="text" placeholder="Doe"/>
-							<label>E-mail</label><input type="email" placeholder="john@doe.com"/>
-							<label>Phonenumber</label><input type="tel" placeholder="020 01 20 20"/>
-							<label>More information</label>
-							<textarea></textarea>
-							<label>Place</label>
-							<select>
+							<label for="form-first">First name</label><input id="form-first" type="text" placeholder="John"/>
+							<label for="form-last">Last name</label><input id="form-last" type="text" placeholder="Doe"/>
+							<label for="form-email">E-mail</label><input id="form-email" type="email" placeholder="john@doe.com"/>
+							<label for="form-phone">Phonenumber</label><input id="form-phone" type="tel" placeholder="020 01 20 20"/>
+							<label for="form-moreinfo">More information</label>
+							<textarea for="form-moreinfo"></textarea>
+							<label for="form-city">City</label>
+							<select id="form-city">
 								<option>
 									Amsterdam
 								</option>
@@ -150,8 +150,9 @@
 							<label for="sex-female">Female</label>
 						</fieldset>
 
-						<label></label><input type="submit" value="Send">
-
+						<fieldset>
+							<label></label><input type="submit" value="Send">
+						</fieldset>
 					</form>
 				</div>
 			</div>
