@@ -22,6 +22,7 @@ input {
 		@include input-radio-label {
 			position: relative;
 			padding-left: 2rem;
+			width: auto;
 		}
 	}
 	input[type='checkbox'] {

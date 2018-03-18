@@ -109,7 +109,7 @@ function stringValue(value) {
 		}
 		// Do Functions
 		if (value.indexOf('{{') > -1) {
-			value = doFunction(value);
+			value = stringValue(doFunction(value));
 		}
 		// makeList
 		if (value) {

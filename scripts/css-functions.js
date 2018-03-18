@@ -2,7 +2,7 @@ let convert = require('color-convert');
 
 let functions = {};
 
-functions.isNumber = (n) => {
+functions.isNumber = n => {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
@@ -11,7 +11,7 @@ functions.isNumber = (n) => {
 */
 functions.grid = function(data, v) {
 	function gridCalc(g) {
-		let grid = (100 / data.grid.columns);
+		let grid = 100 / data.grid.columns;
 		return grid * g + 'vw';
 	}
 	if (functions.isNumber(v)) {
@@ -53,7 +53,12 @@ functions.color = (data, v) => {
 				if (value.toLowerCase() === searchColor.toLowerCase()) {
 					theColor = colorList[value];
 					if (transparency < 1) {
-						theColor = 'rgba(' + convert.hex.rgb(theColor.substring(1)).join(',') + ',' + transparency + ')';
+						theColor =
+							'rgba(' +
+							convert.hex.rgb(theColor.substring(1)).join(',') +
+							',' +
+							transparency +
+							')';
 					}
 				}
 			});
@@ -62,18 +67,19 @@ functions.color = (data, v) => {
 	return theColor;
 };
 
-
 /*
  Return assets setting from settings
 */
 functions.assets = (data, v) => {
-	//	console.log(v);
-
 	let theValue = null;
 	let vArray = v.split('.');
 	if (vArray.length > 1) {
 		if (vArray.length == 3) {
-			theValue = data[vArray[0]][vArray[1]][0][vArray[2]];
+			if (data[vArray[0]][vArray[1]][vArray[2]]) {
+				theValue = data[vArray[0]][vArray[1]][vArray[2]];
+			} else {
+				theValue = data[vArray[0]][vArray[1]][0][vArray[2]];
+			}
 		}
 	}
 	if (theValue === null) {
@@ -81,6 +87,5 @@ functions.assets = (data, v) => {
 	}
 	return theValue;
 };
-
 
 module.exports = functions;

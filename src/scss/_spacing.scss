@@ -4,7 +4,8 @@ h3,
 h4,
 h5,
 pre,
-p {
+p,
+form {
 	& + h1 {
 		margin-top: 0.75rem;
 	}
@@ -28,7 +29,8 @@ p {
 	}
 	& + input,
 	& + select,
-	& + textarea {
+	& + textarea,
+	& + form {
 		margin-top: grid(0.5);
 		@include min-('margin-top',0.5,16);
 	}
@@ -149,7 +151,8 @@ textarea {
 	& + h4,
 	& + h5,
 	& + ul,
-	& + p {
+	& + p,
+	& + form {
 		margin-top: grid(0.5);
 		@include min-('margin-top',0.5,16);
 	}
