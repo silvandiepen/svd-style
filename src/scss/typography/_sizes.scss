@@ -1,10 +1,6 @@
 /*
 	Header Default
 	*/
-@debug 'test: -----------';
-@debug $typography-headers-font-family;
-@debug 'test2: -----------';
-@debug unquote($typography-headers-font-family);
 @mixin assets-header-default {
 	font-family: unquote($typography-headers-font-family);
 	font-weight: $typography-headers-font-weight;

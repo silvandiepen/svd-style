@@ -9,9 +9,9 @@ module.exports = {
 		main: `${rootPath}/index.js`
 	},
 	output: {
-		// filename: 'main[name].js',
-		filename: 'dist/main.js',
-		path: `${rootPath}/`
+		// filename: 'main-[name].js',
+		filename: 'main.js',
+		path: `${rootPath}/dist`
 	},
 	plugins: {
 		autoprefixer: {}
@@ -30,9 +30,9 @@ module.exports = {
 					{
 						loader: 'css-loader'
 					},
-					{
-						loader: 'postcss-loader'
-					},
+					// {
+					// 	loader: 'postcss-loader'
+					// },
 					{
 						loader: 'sass-loader',
 						options: {
@@ -41,20 +41,24 @@ module.exports = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.pug$/,
+				loaders: ['html-loader', 'pug-html-loader']
 			}
 		]
 	},
 	plugins: [
-		new CopyWebpackPlugin([
-			{
-				from: 'src/scss/',
-				to: 'dist/scss/'
-			},
-			{
-				from: 'static/',
-				to: 'dist/'
-			}
-		])
+		// new CopyWebpackPlugin([
+		// 	{
+		// 		from: 'src/scss/',
+		// 		to: 'dist/scss/'
+		// 	},
+		// 	{
+		// 		from: 'static/',
+		// 		to: 'dist/'
+		// 	}
+		// ])
 	],
 	// 	new ExtractTextPlugin({ // define where to save the file
 	// 		filename: 'style.css',
