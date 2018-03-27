@@ -1,0 +1,10 @@
+.dots {
+	background-image: radial-gradient(black 25%, transparent 25%),
+		radial-gradient(black 25%, transparent 25%);
+	background-image: radial-gradient(var(--dots-color) 25%, transparent 25%),
+			radial-gradient(var(--dots-color) 25%, transparent 25%);
+	background-size: grid(0.5) grid(0.5), grid(0.5) grid(0.5);
+	background-size: var(--dots-size) var(--dots-size), var(--dots-size) var(--dots-size);
+	background-position: 0 0, calc(var(--dots-size) / 2) calc(var(--dots-size) / 2);
+	background-position: 0 0, grid(0.25) grid(.25);
+}

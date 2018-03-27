@@ -1,73 +1,56 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const path = require('path');
-const rootPath = path.join(__dirname, '/');
+const extractSass = new ExtractTextPlugin({
+	filename: 'style.css'
+});
+
+const extractHtml = new ExtractTextPlugin({
+	filename: 'index.html'
+});
 
 module.exports = {
-	entry: {
-		main: `${rootPath}/index.js`
-	},
+	entry: './index.js',
 	output: {
-		// filename: 'main-[name].js',
-		filename: 'main.js',
-		path: `${rootPath}/dist`
-	},
-	plugins: {
-		autoprefixer: {}
+		path: path.resolve('dist'),
+		filename: 'main.js'
 	},
 	module: {
 		rules: [
 			{
 				test: /\.scss$/,
-				use: [
-					{
-						loader: 'file-loader'
-					},
-					{
-						loader: 'extract-loader'
-					},
-					{
-						loader: 'css-loader'
-					},
-					// {
-					// 	loader: 'postcss-loader'
-					// },
-					{
-						loader: 'sass-loader',
-						options: {
-							name: '[name].css',
-							outputPath: 'dist/css/'
+				use: extractSass.extract({
+					use: [
+						{
+							loader: 'css-loader'
+						},
+						{
+							loader: 'sass-loader'
 						}
-					}
-				]
+					],
+					// use style-loader in development
+					fallback: 'style-loader'
+				})
 			},
 			{
 				test: /\.pug$/,
-				loaders: ['html-loader', 'pug-html-loader']
+				use: extractHtml.extract({
+					use: [
+						{
+							loader: 'raw-loader'
+						},
+						{
+							loader: 'pug-html-loader'
+						}
+					]
+				})
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: 'babel-loader'
 			}
 		]
 	},
-	plugins: [
-		// new CopyWebpackPlugin([
-		// 	{
-		// 		from: 'src/scss/',
-		// 		to: 'dist/scss/'
-		// 	},
-		// 	{
-		// 		from: 'static/',
-		// 		to: 'dist/'
-		// 	}
-		// ])
-	],
-	// 	new ExtractTextPlugin({ // define where to save the file
-	// 		filename: 'style.css',
-	// 		allChunks: true,
-	// 	}),
-	// ],
-	watch: false,
-	watchOptions: {
-		aggregateTimeout: 300,
-		poll: 1000
-	}
+	plugins: [extractSass, extractHtml]
 };
