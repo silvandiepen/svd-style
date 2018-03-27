@@ -1,73 +1,27 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const path = require('path');
-const rootPath = path.join(__dirname, '/');
+var path = require('path');
 
 module.exports = {
-	entry: {
-		main: `${rootPath}/index.js`
-	},
+	entry: './index.js',
 	output: {
-		// filename: 'main-[name].js',
-		filename: 'main.js',
-		path: `${rootPath}/dist`
-	},
-	plugins: {
-		autoprefixer: {}
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'main.js'
 	},
 	module: {
 		rules: [
+			{ test: /\.pug/, use: 'pug-html-loader' },
 			{
 				test: /\.scss$/,
 				use: [
+					{ loader: 'style-loader' },
+					{ loader: 'sass-loader' },
 					{
-						loader: 'file-loader'
-					},
-					{
-						loader: 'extract-loader'
-					},
-					{
-						loader: 'css-loader'
-					},
-					// {
-					// 	loader: 'postcss-loader'
-					// },
-					{
-						loader: 'sass-loader',
+						loader: 'css-loader',
 						options: {
-							name: '[name].css',
-							outputPath: 'dist/css/'
+							modules: true
 						}
 					}
 				]
-			},
-			{
-				test: /\.pug$/,
-				loaders: ['html-loader', 'pug-html-loader']
 			}
 		]
-	},
-	plugins: [
-		// new CopyWebpackPlugin([
-		// 	{
-		// 		from: 'src/scss/',
-		// 		to: 'dist/scss/'
-		// 	},
-		// 	{
-		// 		from: 'static/',
-		// 		to: 'dist/'
-		// 	}
-		// ])
-	],
-	// 	new ExtractTextPlugin({ // define where to save the file
-	// 		filename: 'style.css',
-	// 		allChunks: true,
-	// 	}),
-	// ],
-	watch: false,
-	watchOptions: {
-		aggregateTimeout: 300,
-		poll: 1000
 	}
 };
