@@ -5,6 +5,10 @@ const extractSass = new ExtractTextPlugin({
     filename: "style.css"
 });
 
+const extractHtml = new ExtractTextPlugin({
+    filename: "index.html"
+});
+
 module.exports = {
     entry: './index.js',
     output: {
@@ -26,6 +30,16 @@ module.exports = {
                 })
             },
             {
+                test: /\.pug$/,
+                use: extractHtml.extract({
+                    use: [{
+                        loader: "raw-loader"
+                    },{
+                        loader: "pug-html-loader"
+                    }],
+                })
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: "babel-loader"
@@ -37,6 +51,7 @@ module.exports = {
         ]
     },
     plugins: [
-        extractSass
+        extractSass,
+        extractHtml
     ]
 }
