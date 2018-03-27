@@ -1,3 +1,3 @@
 console.log('Welcome');
-require('html-loader?name=[name].[ext]!./static/index.pug');
-require('sass-loader?name=[name].[ext]!./src/scss/style.scss');
+// require('html-loader?name=[name].[ext]!./static/index.pug');
+// require('sass-loader?name=[name].[ext]!./src/scss/style.scss');

@@ -4,7 +4,7 @@
 	"description": "Style for SVD projects",
 	"main": "index.scss",
 	"scripts": {
-		"start": "webpack --config webpack.config.js && npm run build",
+		"start": "rm -rf dist && webpack --config webpack.config.js",
 		"test": "grunt test",
 		"settings": "node scripts/json-to-css.js",
 		"dev": "npm run settings && node-sass src/scss/style.scss dist/style.css --w",
