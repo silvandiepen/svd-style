@@ -15,6 +15,9 @@
 		background-color: darken(color(Blue), 10%);
 	}
 }
+button{
+	-webkit-appearance: none; 
+}
 .button,
 button {
 	@extend %default-button;
