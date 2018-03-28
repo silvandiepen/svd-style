@@ -1,21 +1,42 @@
 table {
-//	background-color: color(Offwhite, 0.5);
+	//	background-color: color(Offwhite, 0.5);
 	border-radius: $base-border-radius;
 	border-collapse: collapse;
+	@media #{$small-only} {
+		display: block;
+		width: 100%;
+	}
 	td,
 	th {
 		padding: 1rem;
-		border-bottom: 2px solid color(White);
+		border-bottom: 2px solid currentColor;
 		font-size: rem(14);
+		@media #{$small-only} {
+			display: block;
+			border: none;
+			&:last-child {
+				border-bottom: 2px solid currentColor;
+			}
+		}
 	}
 	th {
 		text-align: left;
 		background-color: color(Blue);
 		color: color(White);
 	}
-	tr:hover {
-		td {
-//			background-color: color(White);
+	tr {
+		&:last-child{
+			td,th{
+				border-bottom: none;
+			}
+		}
+		@media #{$small-only} {
+			display: block;
+		}
+		&:hover {
+			td {
+				//			background-color: color(White);
+			}
 		}
 	}
 }
