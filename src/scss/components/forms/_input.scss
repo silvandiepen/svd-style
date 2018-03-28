@@ -2,6 +2,7 @@ input {
 	&[type='text'],
 	&[type='email'],
 	&[type='tel'],
+	&[type='number'],
 	&[type='url'] {
 		@extend %default-input;
 		&:not(:placeholder-shown) {
@@ -11,7 +12,15 @@ input {
 }
 * {
 	input[type='radio'] {
-		@include input-radio(1rem,1rem,0,0.25rem,color(White),color(Blue),100%);
+		@include input-radio(
+			1rem,
+			1rem,
+			0,
+			0.25rem,
+			color(White),
+			color(Blue),
+			100%
+		);
 		@include input-radio-body {
 			box-shadow: 0 0 0 1px color(Black, 0.2) inset;
 			top: 50%;
@@ -26,7 +35,15 @@ input {
 		}
 	}
 	input[type='checkbox'] {
-		@include input-checkbox(1rem,1rem,0,0.25rem,color(White),color(Blue),0%);
+		@include input-checkbox(
+			1rem,
+			1rem,
+			0,
+			0.25rem,
+			color(White),
+			color(Blue),
+			0%
+		);
 		@include input-checkbox-body {
 			box-shadow: 0 0 0 1px color(Black, 0.2) inset;
 			top: 50%;
@@ -45,5 +62,21 @@ input {
 	&[type='submit'],
 	&[type='button'] {
 		@extend %default-button;
+	}
+}
+
+input {
+	&[type='color'] {
+		-webkit-appearance: none;
+		border: none;
+		width: 32px;
+		height: 32px;
+
+		&::-webkit-color-swatch-wrapper {
+			padding: 0;
+		}
+		&::-webkit-color-swatch {
+			border: none;
+		}
 	}
 }

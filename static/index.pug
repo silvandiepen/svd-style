@@ -3,6 +3,8 @@ html
 	head
 		title svd.im - styleguide
 		link(rel="stylesheet",type="text/css",href="style.css")
+		script(src="https://unpkg.com/vue")
+
 	body
 		section.basic.bg-white
 			div.row.center
@@ -24,11 +26,49 @@ html
 				div.column.small-full.medium-three-quarter.large-half
 					h2 Grid
 					
-		section.basic.bg-red.dots
+		section#app.basic.bg-red
 			div.row.center
-				div.column.small-full.medium-three-quarter.large-half
-					h2 Dots
-				
+				div.column.small-full.medium-three-quarter.large-half.content
+					h2 Patterns
+			div.row.center(:style="patternStyles")
+				div.column.small-half.medium-third.large-quarter.pattern-dots
+					div.padding-square
+				div.column.small-half.medium-third.large-quarter.pattern-lines
+					div.padding-square
+				div.column.small-half.medium-third.large-quarter.pattern-checkered
+					div.padding-square
+				div.column.small-half.medium-third.large-quarter.pattern-zigzag
+					div.padding-square
+				div.column.small-half.medium-third.large-quarter.pattern-cubes
+					div.padding-square
+				div.column.small-half.medium-third.large-quarter.pattern-houndstooth
+					div.padding-square
+			div.row.center
+				div.column.small-full.medium-three-quarter.large-half.content
+					h4 Change the patterns by defining these custom properties
+					table
+						tr
+							td 
+								code --pattern-color: {{ pattern.colorPrimary }} 
+							td 
+								input#pattern-color(type="color",v-model="pattern.colorPrimary")
+						tr
+							td 
+								code --pattern-color: {{ pattern.colorSecondary }} 
+							td 
+								input#pattern-color(type="color",v-model="pattern.colorSecondary")
+						tr 
+							td 
+								code --pattern-size: {{ pattern.size }} px
+							td 
+								input#pattern-size(type="number",v-model="pattern.size")
+						tr
+							td 
+								code  --pattern-width: {{ pattern.width }} px
+							td 
+								input#pattern-size(type="number",v-model="pattern.width")
+
+		
 		section.basic.bg-white 
 			div.row.center
 				div.column.small-full.medium-three-quarter.large-half
@@ -38,10 +78,10 @@ html
 						fieldset
 							
 							label(for="form-first") First name
-							input#form-first(type="text",placeholder="John")
+							input#form-first(type="text",placeholder="John",v-model="form.firstName")
 								
 							label(for="form-last") Last name
-							input#form-last(type="text",placeholder="Doe")
+							input#form-last(type="text",placeholder="Doe",v-model="form.lastName")
 								
 							label(for="form-email") E-mail address
 							input#form-email(type="email",placeholder="john@doe.com")
@@ -75,10 +115,10 @@ html
 								option Sao Paolo							
 								option Tunis							
 								option Ulaanbaatar							
-								option Venice								
-								option Willemstad								
-								option Xochimilco								
-								option Yerevan		
+								option Venice
+								option Willemstad
+								option Xochimilco
+								option Yerevan
 								option Zheleznodorozhny
 								
 						fieldset
@@ -86,10 +126,10 @@ html
 							label(for="hellyeah") Are you sure?
 							
 						fieldset
-							input#sex-male(type="radio")
-							label(for="sex-male") Boy					
-							input#sex-female(type="radio")
-							label(for="sex-female") Girl					
+							input#sex-male(type="radio",name="sex")
+							label(for="sex-male") Boy
+							input#sex-female(type="radio",name="sex")
+							label(for="sex-female") Girl
 
 						fieldset
 							label
@@ -105,4 +145,30 @@ html
 					h5(data-label="h5") The quick brown fox jumps over the lazy dog
 					h6(data-label="h6") The quick brown fox jumps over the lazy dog
 					p(data-label="p") Quisque elementum diam ligula, nec fringilla dui vulputate in. Donec sagittis ullamcorper maximus. Sed sed pulvinar lorem, nec luctus mi. Pellentesque sit amet fringilla lacus. Suspendisse vulputate varius augue, in vestibulum mauris. Donec risus velit, accumsan vel purus ut, cursus pulvinar neque. Fusce maximus, ante sit amet auctor feugiat, mi eros facilisis massa, quis bibendum magna leo vitae ligula. Donec tristique felis orci, vitae vehicula sapien pulvinar in. In tincidunt scelerisque tellus, a tempus mi mattis consequat.
-				
+							
+	script(type="text/javascript").
+		new Vue({
+			el: '#app',
+			data: {
+				pattern: {
+					colorPrimary: 'var(--color-white)',
+					colorSecondary: 'var(--color-dark)',
+					size: '24',
+					width: '12'
+				},
+				form:{
+					firstName: 'John',
+					lastName: 'Doe'
+				}
+			},
+			computed: {
+				patternStyles: function(){ 	
+					return {
+						'--pattern-color-primary': this.pattern.colorPrimary, 
+						'--pattern-color-secondary': this.pattern.colorSecondary, 
+						'--pattern-size': this.pattern.size + 'px', 
+						'--pattern-width': this.pattern.width + 'px'
+					}
+				}
+			}
+		});

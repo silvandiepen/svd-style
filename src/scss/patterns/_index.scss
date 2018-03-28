@@ -1,2 +1,15 @@
+:root {
+	--pattern-width: .5rem;
+	--pattern-space: 1rem;
+	--pattern-color-primary: white;
+	--pattern-color-secondary: transparent;
+	--pattern-total: calc((var(--pattern-width) * 2) + var(--pattern-space));
+	--pattern-size: 1rem;
+}
 @import
-	"dots";
+	"dots",
+	"checkered",
+	"cubes",
+	"zigzag",
+	"houndstooth",
+	"lines";

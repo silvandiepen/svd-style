@@ -1,5 +1,5 @@
 table {
-	background-color: color(Offwhite, 0.5);
+//	background-color: color(Offwhite, 0.5);
 	border-radius: $base-border-radius;
 	border-collapse: collapse;
 	td,
@@ -15,7 +15,7 @@ table {
 	}
 	tr:hover {
 		td {
-			background-color: color(White);
+//			background-color: color(White);
 		}
 	}
 }
