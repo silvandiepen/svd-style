@@ -2,6 +2,7 @@ table {
 	//	background-color: color(Offwhite, 0.5);
 	border-radius: $base-border-radius;
 	border-collapse: collapse;
+	&.full-width{ width: 100%; }
 	@media #{$small-only} {
 		display: block;
 		width: 100%;

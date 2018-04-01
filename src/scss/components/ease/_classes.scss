@@ -1,0 +1,14 @@
+	$temp: ();
+@each $ease-name, $ease-value in $ease {
+
+	.ease-#{$ease-name} {
+		&,
+		&:before,
+		&:after {
+			transition-timing-function: cubic-bezier(#{unquote($ease-value)});
+		}
+		$temp: join($temp,$ease-name);
+	}
+}
+
+@debug $temp;

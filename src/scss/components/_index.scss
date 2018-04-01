@@ -1,7 +1,19 @@
-@import 'table';
-@import 'dl';
-@import 'button';
-@import 'code';
-@import 'content';
-@import 'data-label';
-@import 'forms/index';
+// need to go first
+@import
+	'color/index';
+
+// all components
+@import
+	'button/index',
+	'code/index',
+	'content/index',
+	'data-label/index',
+	'dl/index',
+	'ease/index',
+	'forms/index',
+	'helpers/index',
+	'print/index',
+	'reminder/index',
+	'section/index',
+	'show-more/index',
+	'table/index';

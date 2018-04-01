@@ -60,7 +60,7 @@
 				"font-weight": "{{assets(typography.font-weight.bold)}}",
 				"text-transform": "none",
 				"line-height": "1.15",
-				"font-size-min": "20px",
+				"font-size-min": "25px",
 				"font-size-max": "60px",
 				"letter-spacing": "0"
 			}
@@ -74,7 +74,7 @@
 				"font-weight": "{{assets(typography.font-weight.bold)}}",
 				"text-transform": "none",
 				"line-height": "1.25",
-				"font-size-min": "24px",
+				"font-size-min": "20px",
 				"font-size-max": "48px",
 				"letter-spacing": "0"
 			}
@@ -102,7 +102,7 @@
 				"font-weight": "{{assets(typography.font-weight.bold)}}",
 				"text-transform": "none",
 				"line-height": "1.5",
-				"font-size-min": "18px",
+				"font-size-min": "16px",
 				"font-size-max": "28px",
 				"letter-spacing": "-0"
 			}

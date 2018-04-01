@@ -1,0 +1,17 @@
+@import
+	'functions',
+	'classes';
+
+
+.ease-example{
+	border-radius: .5rem;
+	background-color: color(White);
+height: 1rem;
+	width: 100%;
+	display: block; position: relative;
+
+	&:before{ content: ""; position: absolute; left: .75rem; top: 50%; width: 1.5rem; height: 1.5rem; display: block; transform: translate(-50%,-50%); border-radius: 50%; background-color: color(Dark); 	transition: 1s; }
+	&:hover{
+		&:before{ left: 100%; }
+	}
+}

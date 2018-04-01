@@ -1,3 +1,7 @@
+.content {
+	padding: grid(0.5) 0;
+}
+
 // when a link doesnt have styling it will be a default link used in content
 a:not([class]) {
 	text-decoration: underline;
@@ -5,8 +9,8 @@ a:not([class]) {
 
 hr {
 	height: 1px;
-	background-color: color(Black, 0.1);
-	color: color(Black, 0.1);
+	background-color: currentColor;
+	color: currentColor;
 	border: none;
 	margin: 1rem 0;
 	padding: 0;

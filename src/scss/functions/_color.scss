@@ -7,45 +7,126 @@
 	@return mix(white, $color, $percentage);
 }
 
+// DEDICATED TESTING AREA.....
+
+// The function, check what the input is and sent through to set the value.
+@function set-color($k, $v, $set: $colors-default) {
+	$temp: null;
+	@if type-of($v) == 'string' {
+		$temp: map-set($set, $k, unquote($v));
+	}
+	@elseif type-of($v) == 'color' {
+		$temp: map-set($set, $k, $v);
+	}
+	@return $temp;
+}
+@function define-color($k, $v: null, $set: $colors-default) {
+	$temp: null;
+
+	// Define the Color set if its a string
+	@if type-of($set) == 'string' {
+		@if $set == 'default' {
+			$set: $colors-default;
+		}
+		@elseif $set == 'social' {
+			$set: $colors-default;
+		}
+	}
+
+	// If the input is a string, directly add it to the color list,
+	@if type-of($k) == 'string'{
+		$temp: set-color($k, $v, $set);
+	}
+
+	// If the input is a Map, add multiple values;
+	@elseif type-of($k) == 'map'{
+		@each $entry-name, $entry-value in $k{
+			$set: set-color($entry-name,$entry-value,$set);
+		}
+		$temp: $set;
+	}
+
+	@return $temp;
+}
+
+// Define the actual value to the colorset
+@debug '------------: Add one color';
+@debug length($colors-default);
+$colors-default: define-color('Blurry', #ff0022);
+@debug length($colors-default);
+@debug '------------';
+
+@debug '------------: Add list of colors';
+// $temp-colors: ('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224);
+@debug length($colors-default);
+$colors-default: define-color(('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224, 'Yeva': pink));
+@debug length($colors-default);
+@debug $colors-default;
+@debug '------------';
+
+@debug '------------: Add list of colors';
+
+$temp-colors: ('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224);
+@debug length($colors-default);
+$colors-default: define-color($temp-colors);
+@debug length($colors-default);
+@debug '------------';
+
+
+
+
+
 @function color(
 	$value,
 	$rgba: false,
 	$colorset: $colors-default,
 	$warning: true,
-	$boolean: false
+	$boolean: false,
+	$salt: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ) {
+	$return: null;
 	// Fix for case sensitivity
-	@if type-of($value) == 'color' {
-		$value: '#{$value}';
-	}
+	// @if type-of($value) == 'color' {
+	$value: '#{$salt}#{$value}';
+	// }
 
 	@if $warning == true {
-		@if color-exist($value) == false {
+		@if color-exist($value, $colorset, $salt) == false {
 			@warn "color: #{$value} doesn't exist";
 		}
 	}
 	@if $boolean == true {
-		@return color-exist($value);
+		$return: color-exist($value, $colorset, $salt);
 	} @else {
 		@if $rgba == true {
 			$rgb: #{red(map-get($colorset, $value))},
 				#{green(map-get($colorset, $value))},
 				#{blue(map-get($colorset, $value))};
-			@return $rgb;
+			$return: $rgb;
 		}
 		@elseif $rgba != false {
-			@return rgba(map-get($colorset, $value), $rgba);
+			$return: rgba(map-get($colorset, str-replace($value, $salt, '')), $rgba);
 		} @else {
-			@return map-get($colorset, $value);
+			$return: map-get($colorset, str-replace($value, $salt, ''));
 		}
 	}
+	// @debug 'final-return: #{$return}';
+	@return $return;
 }
-@function color-exist($value, $colorset: $colors-default) {
-	$color: map-get($colorset, $value);
+
+@function color-exist($value, $colorset: $colors-default, $salt: null) {
+	// @debug '-salt: #{$salt}';
+	// @debug '-value: #{$value}';
+	// @debug '-simpled: #{str-replace($value,$salt,'')}';
+
+	$color: map-get($colorset, str-replace($value, $salt, ''));
+
+	// @debug '-color: #{$color}';
+
 	@if $color == null {
 		@if variable-exists(main-colors) {
 			@if color($value, $rgba, $main-colors, false, true) {
-				@return true;
+				$return: true;
 			}
 			@return false;
 		}
@@ -74,10 +155,8 @@
 @function color-brightness($color, $percentage: true) {
 	$sum: red($color) + green($color) + blue($color); // sum
 	$average: (
-			 ((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
-				(
-					 (blue($color) / 255) * 100
-				)
+			((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
+				((blue($color) / 255) * 100)
 		) / 3; // average
 	//@debug "red: #{red($color)} / green: #{green($color)} / blue: #{blue($color)}";
 
@@ -96,7 +175,7 @@
 	$light: color(White)
 ) {
 	$color: black;
-	@if color-exist($value) {
+	@if color($value, 1, $colors-default, false, true) {
 		$color: color($value);
 	} @else {
 		$color: $value;

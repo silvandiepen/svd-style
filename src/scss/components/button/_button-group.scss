@@ -1,0 +1,14 @@
+.button-group {
+	.button {
+		& + .button {
+			margin-left: $base-space;
+		}
+		@media #{$small-only} {
+			display: block;
+			& + .button {
+				margin-left: auto;
+				margin-top: $base-space;
+			}
+		}
+	}
+}

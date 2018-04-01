@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin({
 	filename: 'style.css'
@@ -15,7 +16,18 @@ module.exports = {
 		path: path.resolve('dist'),
 		filename: 'main.js'
 	},
+	devServer: {
+		// Display only errors to reduce the amount of output.
+		stats: 'errors-only',
+
+		// 0.0.0.0 is available to all network devices
+		// unlike default `localhost`.
+		host: process.env.HOST, // Defaults to `localhost`
+		port: process.env.PORT, // Defaults to 8080
+		open: true // Open the page in browser
+	},
 	module: {
+
 		rules: [
 			{
 				test: /\.scss$/,
@@ -52,5 +64,9 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [extractSass, extractHtml]
+	plugins: [
+		extractSass,
+		extractHtml,
+		new CopyWebpackPlugin([{ from: 'src', to: 'src' }])
+	]
 };

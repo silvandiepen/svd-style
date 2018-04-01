@@ -1,0 +1,41 @@
+.showMore {
+	&__container {
+		position: relative;
+		transition: $base-transition;
+		max-height: var(--max-height, 50vh);
+		overflow: hidden;
+		&:before {
+			content: '';
+			z-index: 10;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: var(--shadow-height, 200px);
+			pointer-events: none; 
+			background-image: linear-gradient(
+				to top,
+				var(--shadow-color, white),
+				var(--shadow-color-transparent, rgba(255,255,255,0))
+			);
+		}
+	}
+	&__input {
+		&:checked {
+			& ~ .showMore__container {
+				max-height: var(--expanded-height, 500vh);
+				&:before{ opacity: 0; }
+			}
+			& ~ .showMore__trigger {
+				&:before {
+					content: var(--show-less, '');
+				}
+			}
+		}
+	}
+	&__trigger {
+		&:before {
+			content: var(--show-more, '');
+		}
+	}
+}
