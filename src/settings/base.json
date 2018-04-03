@@ -7,6 +7,7 @@
 		"font-path": "/fonts",
 		"image-path": "/fonts",
 		"transition": ".3s",
-		"transition-time": ".3"
+		"transition-time": ".3",
+		"box-shadow": "0 0 100px 0 rgba(0,0,0,.1)"
 	}
 }

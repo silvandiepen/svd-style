@@ -7,268 +7,60 @@ html
 		script(src="https://unpkg.com/vue")
 
 	body
-		main#app
+		main(id="app")
+			include pages/intro.pug
+			include pages/grid.pug
+			include pages/forms.pug
+			include pages/typography.pug
 			section.basic.bg-white
 				div.row.center
-					div.column.small-full.medium-half
-						h1 A styling package to include and make your frontend-developer life a lot easier.
-						h4 A styleguide by Sil van Diepen
-						hr
-						p Install it
-						code npm install svd-styles
-						p include it
-						code @import ~/svd-style
-						p run it!
-						hr
-						.button-group
-							a.button(href="https://github.com/silvandiepen/svd-style") More on <strong>Github</strong>
-							a.button.button--purple(href="https://github.com/silvandiepen/svd-style/archive/master.zip") Download
+					div.column.small-full.medium-three-quarter
+						h2 Colors
+						h3 Default 
+						ul.row.card__row
+							li(class="card__holder column small-half medium-third xlarge-quarter color" v-for="(color, name) in colors.default[0]")
+								.card.card--expand-main(v-bind:class="'bg-'+name")
+									header
+										h4 {{name}}
+									main 
+										dl
+											dt custom property
+											dd 
+												code --color-{{name}}
+											dt scss variable
+											dd 
+												code $colors-social-{{name}}
+											dt scss function
+											dd 
+												code color({{name}})
+									
+							
+						h3 Social
+						ul.row.card__row
+							li(class="card__holder column small-half medium-third xlarge-quarter color" v-for="(color, name) in colors.social[0]")
+								.card.card--expand-main(v-bind:class="'bg-'+name")
+									header
+										h4 {{name}}
+									main 
+										dl
+											dt custom property
+											dd 
+												code --color-{{name}}
+										dl
+											dt scss variable
+											dd 
+												code $colors-social-{{name}}
+										dl
+											dt scss function
+											dd 
+												code color({{name}})
+									
+			include pages/easings.pug
+			include pages/show-more.pug
+			include pages/patterns.pug
 						
-			section.basic.bg-offwhite
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						h2 Grid
-						
-			section.basic.bg-red
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half.content
-						h2 Patterns
-				div.row.center(:style="patternStyles")
-					div.column.small-half.medium-third.large-quarter.pattern-dots
-						div.padding-square
-					div.column.small-half.medium-third.large-quarter.pattern-lines
-						div.padding-square
-					div.column.small-half.medium-third.large-quarter.pattern-checkered
-						div.padding-square
-					div.column.small-half.medium-third.large-quarter.pattern-zigzag
-						div.padding-square
-					div.column.small-half.medium-third.large-quarter.pattern-cubes
-						div.padding-square
-					div.column.small-half.medium-third.large-quarter.pattern-houndstooth
-						div.padding-square
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half.content
-						h4 Change the patterns by defining these custom properties
-						table
-							tr
-								td 
-									code --pattern-color: {{ pattern.colorPrimary }} 
-								td 
-									input#pattern-color(type="color",v-model="pattern.colorPrimary")
-							tr
-								td 
-									code --pattern-color: {{ pattern.colorSecondary }} 
-								td 
-									input#pattern-color(type="color",v-model="pattern.colorSecondary")
-							tr 
-								td 
-									code --pattern-size: {{ pattern.size }} px
-								td 
-									input#pattern-size(type="number",v-model="pattern.size")
-							tr
-								td 
-									code  --pattern-width: {{ pattern.width }} px
-								td 
-									input#pattern-size(type="number",v-model="pattern.width")
-
-			
-			section.basic.bg-white 
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						h2 Forms
-						p Auto styling forms, just use clean html and get a nicely styled form back :)
-						form
-							fieldset
-								
-								label(for="form-first") First name
-								input#form-first(type="text",placeholder="John",v-model="form.firstName")
-									
-								label(for="form-last") Last name
-								input#form-last(type="text",placeholder="Doe",v-model="form.lastName")
-									
-								label(for="form-email") E-mail address
-								input#form-email(type="email",placeholder="john@doe.com")
-									
-								label(for="form-phone") Phonenumber
-								input#form-phone(type="tel",placeholder="020 01 20 20")
-									
-								label(for="form-moreinfo") Message
-								textarea#form-morinfo(placeholder="A very interesting story...")
-							
-								label(for="form-city") city
-								select#form-city
-									option Amsterdam						
-									option Berlin		
-									option Copenhagen					
-									option Detroit
-									option Espoo
-									option Florence
-									option Gdansk							
-									option Hanoi							
-									option Islamabad							
-									option Jyväskylä						
-									option Kuala Lumpur							
-									option Lisbon							
-									option Madrid							
-									option Nairobi							
-									option Oslo							
-									option Panama							
-									option Quilmes							
-									option Reykjavik							
-									option Sao Paolo							
-									option Tunis							
-									option Ulaanbaatar							
-									option Venice
-									option Willemstad
-									option Xochimilco
-									option Yerevan
-									option Zheleznodorozhny
-									
-							fieldset
-								input#hellyeah(type="checkbox")
-								label(for="hellyeah") Are you sure?
-								
-							fieldset
-								input#sex-male(type="radio",name="sex")
-								label(for="sex-male") Boy
-								input#sex-female(type="radio",name="sex")
-								label(for="sex-female") Girl
-
-							fieldset
-								label
-								input(type="submit",value="Go for it!")
-
-			section.basic.bg-dark
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						h1(data-label="h1") {{ headingText }}
-						h2(data-label="h2") {{ headingText }}
-						h3(data-label="h3") {{ headingText }}
-						h4(data-label="h4") {{ headingText }}
-						h5(data-label="h5") {{ headingText }}
-						h6(data-label="h6") {{ headingText }}
-						p(data-label="p") Quisque elementum diam ligula, nec fringilla dui vulputate in. Donec sagittis ullamcorper maximus. Sed sed pulvinar lorem, nec luctus mi. Pellentesque sit amet fringilla lacus. Suspendisse vulputate varius augue, in vestibulum mauris. Donec risus velit, accumsan vel purus ut, cursus pulvinar neque. Fusce maximus, ante sit amet auctor feugiat, mi eros facilisis massa, quis bibendum magna leo vitae ligula. Donec tristique felis orci, vitae vehicula sapien pulvinar in. In tincidunt scelerisque tellus, a tempus mi mattis consequat.
-						hr
-						form
-							label Change the heading text:
-							input(type="text",v-model="headingText")
-								
-			section.basic.bg-white
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						h2 Default Colors
-						div {{ colors }}
-						div(v-for="color in colors")
-							div.color(style="background-color: red")
-								
-			section.basic.bg-yellow
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						h3 Easings
-						p Use the easings as classes on elements. 
-						input#showMore1.showMore__input(type="checkbox")
-						div.showMore__container(style="--shadow-color: var(--color-yellow); --shadow-color-transparent: rgba(var(--color-yellow-r),var(--color-yellow-g),var(--color-yellow-b),0)")
-							table.full-width
-								for ease in ['linear','ease','ease-in','ease-out','ease-in-out','easeInQuad','easeInCubic','easeInQuart','easeInQuint','easeInSine','easeInExpo','easeInCirc','easeInBack','easeOutQuad','easeOutCubic','easeOutQuart','easeOutQuint','easeOutSine','easeOutExpo','easeOutCirc','easeOutBack','easeInOutQuad','easeInOutCubic','easeInOutQuart','easeInOutQuint','easeInOutSine','easeInOutExpo','easeInOutCirc','easeInOutBack']
-									tr
-										td .ease-
-											span= ease
-										td(style="width: 100%;")
-											div(class="ease-example ease-"+ease)
-						label.button.button--orange.showMore__trigger(for="showMore1", style="--show-more: 'Show more'; --show-less: 'Show less'")  easings
-			section.basic.bg-orange
-				div.row.center
-					div.column.small-full.medium-three-quarter.large-half
-						div.content
-							h3 Show more 
-							p As the section above here, with the easing. We don't want to show all because that would take too much of the page. This section has a "Show more component". The settings and their defaults here:
-							table
-								tr
-									td 
-										code --shadow-height
-									td default: 200px
-								tr
-									td 
-										code --shadow-color
-									td default: white
-									
-								tr
-									td 
-										code --shadow-color-transparent
-									td default: rgba(255,255,255,0)
-									
-								tr
-									td 
-										code --show-more
-									td default: 'show more'
-							
-								tr
-									td 
-										code --show-less
-									td default: 'show less'
-									
-								tr
-									td 
-										code --expanded-height
-									td default: '500vh'
-									
-								tr
-									td 
-										code --max-height
-									td default: '50vh'
-
-							
-	script(type="text/javascript").
+	script(type="text/javascript")
+		include script.js
 		
-		let colorSettings;
-		function loadJSON(file,callback) {
-			var xobj = new XMLHttpRequest();
-			xobj.overrideMimeType("application/json");
-			xobj.open('GET', file, true);
-			xobj.onreadystatechange = function() {
-				if (xobj.readyState == 4 && xobj.status == "200") {
-					callback(xobj.responseText);
-				}
-			}
-			xobj.send(null);
-		}
-
-		function returnJson(file){			
-			loadJSON('src/settings/'+file+'.json',function(response){
-				colorSettings = response;
-				return colorSettings;
-			});
-		}
-	
-
-
-		new Vue({
-			el: '#app',
-			data: {
-				colors: null,
-				headingText: 'The quick brown fox jumps over the lazy dog',
-				pattern: {
-					colorPrimary: 'var(--color-white)',
-					colorSecondary: 'var(--color-dark)',
-					size: '24',
-					width: '12'
-				},
-				form:{
-					firstName: 'John',
-					lastName: 'Doe'
-				}
-			},
-			mounted() {
-				this.colors = returnJson('colors')
-			},
-			computed: {
-				patternStyles: function(){ 	
-					return {
-						'--pattern-color-primary': this.pattern.colorPrimary, 
-						'--pattern-color-secondary': this.pattern.colorSecondary, 
-						'--pattern-size': this.pattern.size + 'px', 
-						'--pattern-width': this.pattern.width + 'px'
-					}
-				}
-			}
-		});
+		
+	style svg{ width: 8vw; height: 16vw; } svg g path{ fill: var(--color-dark); }
