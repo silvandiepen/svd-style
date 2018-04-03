@@ -8,8 +8,11 @@ section.basic.bg-dark
 				div.card__holder.column.small-full.medium-third
 					div.card
 						header
-							include ../img/icon_columns-in-percentages.svg
-							h4 Columns in percentage
+							div.row
+								div.column.small-third.medium-full
+									include ../img/icon_columns-in-percentages.svg
+								div.column.small-two-third.medium-full.align-center
+									h4 Columns in percentage
 						main
 							p The grid is based on 24 columns. Most of layouting can be refered to the grid and sizes are specified in "grid". For example; a padding of 2 grid means ((100 / 24) * 2 ) = 8.333% from the 
 							
@@ -20,7 +23,7 @@ section.basic.bg-dark
 							div.row
 								div.column.small-third.medium-full
 									include ../img/icon_grid-sizes.svg
-								div.column.small-third.medium-full
+								div.column.small-two-third.medium-full.align-center
 									h4 Grid sizes
 						main
 							p Because the whole design is based on a full width, we can calculate in grid sizes. This means sizes can be set width the grid function: <code> .element{ padding: grid(2); }. </code> In this case grid will be calculated to viewport widths and get compiled to: <code>.element{ padding: 8.333vw; } </code>
@@ -28,8 +31,11 @@ section.basic.bg-dark
 				div.card__holder.column.small-full.medium-third
 					div.card
 						header
-							include ../img/icon_classes.svg
-							h4 Classes
+							div.row
+								div.column.small-third.medium-full
+									include ../img/icon_classes.svg
+								div.column.small-two-third.medium-full.align-center
+									h4 Classes
 						main
 							p The layout is simple. We build rows <code> .row </code> with children <code> .column </code>
 							code
@@ -40,8 +46,11 @@ section.basic.bg-dark
 				div.card__holder.column.small-full.medium-third
 					div.card
 						header
-							include ../img/icon_responsive.svg
-							h4 Responsive
+							div.row
+								div.column.small-third.medium-full
+									include ../img/icon_responsive.svg
+								div.column.small-third.medium-full.align-center
+									h4 Responsive
 						main
 							p To create responsive widths on the columns, there are different classes to be used on the columns. 
 							p In an ideal world we start by declaring the small width. This is the width which will be set for everything from small.
@@ -51,8 +60,11 @@ section.basic.bg-dark
 				div.card__holder.column.small-full.medium-third
 					div.card
 						header
-							include ../img/icon_breakpoint-classes.svg
-							h4 Breakpoint classes
+							div.row
+								div.column.small-third.medium-full
+									include ../img/icon_breakpoint-classes.svg
+								div.column.small-two-third.medium-full.align-center
+									h4 Breakpoint classes
 						main
 							p Extra classes can be added to change values on a breakpoint and up. 
 							code
@@ -61,8 +73,11 @@ section.basic.bg-dark
 				div.card__holder.column.small-full.medium-third
 					div.card
 						header
-							include ../img/icon_breakpoint-only.svg
-							h4 Specific for Breakpoint classes
+							div.row
+								div.column.small-third.medium-full
+									include ../img/icon_breakpoint-only.svg
+								div.column.small-two-third.medium-full.align-center
+									h4 Specific for Breakpoint classes
 						main
 							p Adding <code>-only</code> to the class, will use this specified width only on that specific size. 
 							code
@@ -183,24 +198,33 @@ section.basic.bg-dark
 						div.card__holder.column.small-full.medium-third
 							div.card
 								header
-									include ../img/icon_column-on-row.svg
-									h4 On the Row
+									div.row
+										div.column.small-third.medium-full
+											include ../img/icon_column-on-row.svg
+										div.column.small-third.medium-full.align-center
+											h4 On the Row
 								main
 									p  The column width can be specified directly on the row. This will set the width for all direct children with the class <code>.column</code>. This is done to simplify rows with equal columns. 
 
 						div.card__holder.column.small-full.medium-third
 							div.card
 								header
-									include ../img/icon_class-on-column.svg
-									h4 On the column
+									div.row
+										div.column.small-third.medium-full
+											include ../img/icon_class-on-column.svg
+										div.column.small-third.medium-full.align-center
+											h4 On the column
 								main
 									p  The column width can be specified on each <code>.column in a </code>.row in order to create a layout with different widths. 
 
 						div.card__holder.column.small-full.medium-third
 							div.card
 								header
-									include ../img/icon_class-on-both.svg
-									h4 On both
+									div.row
+										div.column.small-third.medium-full
+											include ../img/icon_class-on-both.svg
+										div.column.small-third.medium-full.align-center
+											h4 On both
 								main
 									p When the width is specified on the row. The widths of a specific <code>.column</code> can be overriden by setting the width on the column itself. 
 					
