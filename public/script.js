@@ -4,6 +4,10 @@
 new Vue({
 	el: '#app',
 	data: {
+		button: {
+			text: 'Button'
+		},
+		buttonClasses: [],
 		colors: null,
 		headingText: 'The quick brown fox jumps over the lazy dog',
 		pattern: {
@@ -37,6 +41,11 @@ new Vue({
 				}
 			}
 			xobj.send(null);
+		}
+	},
+	watch:{
+		button: function(){
+			console.log('button changed');
 		}
 	},
 	computed: {

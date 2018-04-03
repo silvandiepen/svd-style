@@ -1,2 +1,2 @@
 import styleSheet from './index.scss';
-import indexHtml from './static/index.pug';
+import indexHtml from './public/index.pug';

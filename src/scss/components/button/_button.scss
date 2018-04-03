@@ -2,14 +2,14 @@
 	display: inline-block;
 	border-radius: $base-border-radius;
 	width: auto;
-	padding: 0.75rem 1.5rem;
+	padding: 0.75em 1.5em;
 	background-color: color(Blue);
-	color: color(White);
+	color: contra(color(Blue));
 	border: none;
 	font-size: 1rem;
 	cursor: pointer;
-	line-height: 1;
-	border: 1px solid darken(color(Blue), 10%);
+	line-height: 1em;
+	border-bottom: 2px solid darken(color(Blue), 10%);
 	text-decoration: none;
 	&:hover {
 		background-color: darken(color(Blue), 10%);
@@ -27,12 +27,80 @@ button {
 	@each $color-name, $color-value in $colors-default {
 		&--#{to-lower-case($color-name)},
 		&--#{$color-name} {
-			border: 1px solid darken($color-value, 10%);
+			border-bottom: 2px solid darken($color-value, 10%);
 			background-color: $color-value;
 			color: contra($color-value);
 			&:hover {
 				background-color: darken($color-value, 10%);
 			}
+		}
+	}
+	&--rounded {
+		border-radius: 1.25em;
+	}
+	// &--round {
+	// 	position: relative;
+	// 	border-radius: 50%;
+	// 	height: 0;
+	// 	padding-top: 50%;
+	// 	padding-bottom: 50%;
+	// }
+	&--large {
+		font-size: 1.5rem;
+	}
+	&--normal {
+		font-size: 1rem;
+	}
+	&--small {
+		font-size: rem(12);
+	}
+}
+
+@include wildcard('button-basic') {
+	@extend %default-button;
+	padding-left: 3rem;
+	position: relative;
+	&:before {
+		width: 2.5em;
+		height: 2.5em;
+		position: absolute;
+		left: 0;
+		top: 0;
+		line-height: 2.5em;
+		text-align: center;
+	}
+}
+.button-basic {
+	&--play:before {
+		content: '\25b6';
+	}
+	&--stop:before {
+		content: '\25d9';
+	}
+	&--arrow-left:before {
+		content: '\21fd';
+	}
+	&--arrow-right:before {
+		content: '\21fe';
+	}
+}
+
+.button--round {
+	border-radius: 50%;
+	padding: 0;
+	span {
+		width: 100%;
+		height: 0;
+		padding-bottom: 100%;
+		border-radius: 50%;
+		overflow: hidden;
+		span {
+			display: block;
+			padding-top: 50%;
+			padding-bottom: 50%;
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+			line-height: 0em;
 		}
 	}
 }

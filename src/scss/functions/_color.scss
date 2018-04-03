@@ -170,7 +170,7 @@ $colors-default: define-color($temp-colors);
 
 @function contra(
 	$value,
-	$contrast: 50,
+	$contrast: 57.5,
 	$dark: color(Black),
 	$light: color(White)
 ) {

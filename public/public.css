@@ -1,0 +1,34 @@
+.section-intro svg {
+	width: 12.5vw;
+	height: 12.5vw;
+}
+svg {
+	width: 100%;
+}
+svg polygon,
+svg rect,
+svg path {
+	fill: var(--color-blue);
+}
+
+.section-grid .column.example {
+	border: 1px solid red;
+}
+
+.generator {
+border-radius: 1rem; overflow: hidden;
+}
+.generator__example {
+	padding: 2rem;
+	background-color: rgba(255, 255, 255, 0.25);
+	display: flex;
+	justify-content: center; 
+}
+.generator__content { display: flex;
+align-content: center;
+}
+
+.generator__tools {
+	padding: 2rem;
+	background-color: rgba(0, 0, 0, 0.25);
+}

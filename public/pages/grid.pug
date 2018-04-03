@@ -5,7 +5,7 @@ section.basic.bg-dark
 			h2 Grid
 			
 			div.row.card__row
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -17,7 +17,7 @@ section.basic.bg-dark
 							p The grid is based on 24 columns. Most of layouting can be refered to the grid and sizes are specified in "grid". For example; a padding of 2 grid means ((100 / 24) * 2 ) = 8.333% from the 
 							
 							
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -28,7 +28,7 @@ section.basic.bg-dark
 						main
 							p Because the whole design is based on a full width, we can calculate in grid sizes. This means sizes can be set width the grid function: <code> .element{ padding: grid(2); }. </code> In this case grid will be calculated to viewport widths and get compiled to: <code>.element{ padding: 8.333vw; } </code>
 							
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -40,10 +40,10 @@ section.basic.bg-dark
 							p The layout is simple. We build rows <code> .row </code> with children <code> .column </code>
 							code
 								|	<div class="row">
-								|		<div class="column"></div>
+								|		<div class="column example"></div>
 								|	</div>
 
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -57,7 +57,7 @@ section.basic.bg-dark
 							code
 								| <div class="column small-half"></div>
 
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -70,7 +70,7 @@ section.basic.bg-dark
 							code
 								|	<div class="column small-half medium-quarter large-fifth"></div>
 
-				div.card__holder.column.small-full.medium-third
+				div.card__holder.column.small-full.medium-half.xlarge-third
 					div.card
 						header
 							div.row
@@ -195,7 +195,7 @@ section.basic.bg-dark
 					p Using the numeral columns can be in two ways. The width of the columns can be specified in multiple ways; 
 					div.row.card__row
 						
-						div.card__holder.column.small-full.medium-third
+						div.card__holder.column.small-full.medium-half.xlarge-third
 							div.card
 								header
 									div.row
@@ -206,7 +206,7 @@ section.basic.bg-dark
 								main
 									p  The column width can be specified directly on the row. This will set the width for all direct children with the class <code>.column</code>. This is done to simplify rows with equal columns. 
 
-						div.card__holder.column.small-full.medium-third
+						div.card__holder.column.small-full.medium-half.xlarge-third
 							div.card
 								header
 									div.row
@@ -217,7 +217,7 @@ section.basic.bg-dark
 								main
 									p  The column width can be specified on each <code>.column in a </code>.row in order to create a layout with different widths. 
 
-						div.card__holder.column.small-full.medium-third
+						div.card__holder.column.small-full.medium-half.xlarge-third
 							div.card
 								header
 									div.row
@@ -229,74 +229,73 @@ section.basic.bg-dark
 									p When the width is specified on the row. The widths of a specific <code>.column</code> can be overriden by setting the width on the column itself. 
 					
 			h3 Standard columns (numeral)
-			.examples
-							
-				- var i = 1
-					while i < 24
-						div(class="row small-"+i) 
-						- i++
-						- var n = 1
-							while n < (i / 24) 
-								div(class="column")= i
-								- n++
-			
-				<div class="row small-8">
-					<div class="column">8</div>
-					<div class="column">8</div>
-					<div class="column">8</div>
-				</div>
-				<div class="row small-9">
-					<div class="column">9</div>
-					<div class="column">9</div>
-				</div>
-				<div class="row small-10">
-					<div class="column">10</div>
-					<div class="column">10</div>
-				</div>
-				<div class="row small-11">
-					<div class="column">11</div>
-					<div class="column">11</div>
-				</div>
-				<div class="row small-12">
-					<div class="column">12</div>
-					<div class="column">12</div>
-				</div>
-				<div class="row small-13">
-					<div class="column">13</div>
-				</div>
-				<div class="row small-14">
-					<div class="column">14</div>
-				</div>
-				<div class="row small-15">
-					<div class="column">15</div>
-				</div>
-				<div class="row small-16">
-					<div class="column">16</div>
-				</div>
-				<div class="row small-17">
-					<div class="column">17</div>
-				</div>
-				<div class="row small-18">
-					<div class="column">18</div>
-				</div>
-				<div class="row small-19">
-					<div class="column">19</div>
-				</div>
-				<div class="row small-20">
-					<div class="column">20</div>
-				</div>
-				<div class="row small-21">
-					<div class="column">21</div>
-				</div>
-				<div class="row small-22">
-					<div class="column">22</div>
-				</div>
-				<div class="row small-23">
-					<div class="column">23</div>
-				</div>
-				<div class="row small-24">
-					<div class="column">24</div>
-				</div>
+					
+			- var i = 1
+				while i < 24
+					div(class="row example small-"+i) 
+					- i++
+					- var n = 1
+						while n < (i / 24) 
+							div(class="column example")= i
+							- n++
+		
+			<div class="row example small-8">
+				<div class="column example">8</div>
+				<div class="column example">8</div>
+				<div class="column example">8</div>
+			</div>
+			<div class="row example small-9">
+				<div class="column example">9</div>
+				<div class="column example">9</div>
+			</div>
+			<div class="row example small-10">
+				<div class="column example">10</div>
+				<div class="column example">10</div>
+			</div>
+			<div class="row example small-11">
+				<div class="column example">11</div>
+				<div class="column example">11</div>
+			</div>
+			<div class="row example small-12">
+				<div class="column example">12</div>
+				<div class="column example">12</div>
+			</div>
+			<div class="row example small-13">
+				<div class="column example">13</div>
+			</div>
+			<div class="row example small-14">
+				<div class="column example">14</div>
+			</div>
+			<div class="row example small-15">
+				<div class="column example">15</div>
+			</div>
+			<div class="row example small-16">
+				<div class="column example">16</div>
+			</div>
+			<div class="row example small-17">
+				<div class="column example">17</div>
+			</div>
+			<div class="row example small-18">
+				<div class="column example">18</div>
+			</div>
+			<div class="row example small-19">
+				<div class="column example">19</div>
+			</div>
+			<div class="row example small-20">
+				<div class="column example">20</div>
+			</div>
+			<div class="row example small-21">
+				<div class="column example">21</div>
+			</div>
+			<div class="row example small-22">
+				<div class="column example">22</div>
+			</div>
+			<div class="row example small-23">
+				<div class="column example">23</div>
+			</div>
+			<div class="row example small-24">
+				<div class="column example">24</div>
+			</div>
 
 			h3 Combine columns 
 			.examples
@@ -312,35 +311,35 @@ section.basic.bg-dark
 
 			h3 Partial columns
 			.examples
-				<div class="row small-half">
-					<div class="column">half</div>
-					<div class="column">half</div>
+				<div class="row example small-half">
+					<div class="column example">half</div>
+					<div class="column example">half</div>
 				</div>
-				<div class="row small-third">
-					<div class="column">third</div>
-					<div class="column">third</div>
-					<div class="column">third</div>
+				<div class="row example small-third">
+					<div class="column example">third</div>
+					<div class="column example">third</div>
+					<div class="column example">third</div>
 				</div>
-				<div class="row small-quarter">
-					<div class="column">quarter</div>
-					<div class="column">quarter</div>
-					<div class="column">quarter</div>
-					<div class="column">quarter</div>
+				<div class="row example small-quarter">
+					<div class="column example">quarter</div>
+					<div class="column example">quarter</div>
+					<div class="column example">quarter</div>
+					<div class="column example">quarter</div>
 				</div>
-				<div class="row small-fifth">
-					<div class="column">fifth</div>
-					<div class="column">fifth</div>
-					<div class="column">fifth</div>
-					<div class="column">fifth</div>
-					<div class="column">fifth</div>
+				<div class="row example small-fifth">
+					<div class="column example">fifth</div>
+					<div class="column example">fifth</div>
+					<div class="column example">fifth</div>
+					<div class="column example">fifth</div>
+					<div class="column example">fifth</div>
 				</div>
-				<div class="row small-sixth">
-					<div class="column">sixth</div>
-					<div class="column">sixth</div>
-					<div class="column">sixth</div>
-					<div class="column">sixth</div>
-					<div class="column">sixth</div>
-					<div class="column">sixth</div>
+				<div class="row example small-sixth">
+					<div class="column example">sixth</div>
+					<div class="column example">sixth</div>
+					<div class="column example">sixth</div>
+					<div class="column example">sixth</div>
+					<div class="column example">sixth</div>
+					<div class="column example">sixth</div>
 				</div>
 
 

@@ -1,6 +1,6 @@
 .card {
 	border-radius: $base-border-radius;
-	box-shadow: $base-box-shadow;
+	// box-shadow: $base-box-shadow;
 	position: relative;
 	&__holder {
 		padding: var(--card-space, 1rem);
@@ -48,3 +48,4 @@
 		}
 	}
 }
+.column .card{ height: 100%; }
