@@ -1,0 +1,15 @@
+section.basic.bg-yellow
+	div.row.center
+		div.column.small-full.medium-three-quarter.large-half
+			h3 Easings
+			p Use the easings as classes on elements. 
+			input#showMore1.showMore__input(type="checkbox")
+			div.showMore__container(style="--shadow-color: var(--color-yellow); --shadow-color-transparent: rgba(var(--color-yellow-r),var(--color-yellow-g),var(--color-yellow-b),0)")
+				table.full-width
+					for ease in ['linear','ease','ease-in','ease-out','ease-in-out','easeInQuad','easeInCubic','easeInQuart','easeInQuint','easeInSine','easeInExpo','easeInCirc','easeInBack','easeOutQuad','easeOutCubic','easeOutQuart','easeOutQuint','easeOutSine','easeOutExpo','easeOutCirc','easeOutBack','easeInOutQuad','easeInOutCubic','easeInOutQuart','easeInOutQuint','easeInOutSine','easeInOutExpo','easeInOutCirc','easeInOutBack']
+						tr
+							td .ease-
+								span= ease
+							td(style="width: 100%;")
+								div(class="ease-example ease-"+ease)
+			label.button.button--orange.showMore__trigger(for="showMore1", style="--show-more: 'Show more'; --show-less: 'Show less'")  easings

@@ -1,0 +1,49 @@
+section.basic.bg-red
+	div.row.center
+		div.column.small-full.medium-three-quarter.large-half.content
+			h2 Patterns
+	div.row.center(:style="patternStyles")
+		div.column.small-full.medium-three-quarter.large-half
+			div.row
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-dots
+						div.padding-square
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-lines
+						div.padding-square
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-checkered
+						div.padding-square
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-zigzag
+						div.padding-square
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-cubes
+						div.padding-square
+				div.card__holder.column.small-half.medium-third
+					div.card.pattern-houndstooth
+						div.padding-square
+	div.row.center
+		div.column.small-full.medium-three-quarter.large-half.content
+			h4 Change the patterns by defining these custom properties
+			table
+				tr
+					td 
+						code --pattern-color: {{ pattern.colorPrimary }} 
+					td 
+						input#pattern-color(type="color",v-model="pattern.colorPrimary")
+				tr
+					td 
+						code --pattern-color: {{ pattern.colorSecondary }} 
+					td 
+						input#pattern-color(type="color",v-model="pattern.colorSecondary")
+				tr 
+					td 
+						code --pattern-size: {{ pattern.size }} px
+					td 
+						input#pattern-size(type="number",v-model="pattern.size")
+				tr
+					td 
+						code  --pattern-width: {{ pattern.width }} px
+					td 
+						input#pattern-size(type="number",v-model="pattern.width")
