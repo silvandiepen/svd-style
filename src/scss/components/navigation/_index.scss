@@ -1,0 +1,32 @@
+// The main class
+$mainNav: '.nav' !default;
+
+// Import styles
+@import 'types';
+
+// And define it
+$types: ('basic','flow');
+
+// Create the classes, including responsive
+@each $type in $types{
+	.nav--#{$type} {
+		@include nav($type, $mainNav);
+		@each $breakpoint-name, $breakpoint-value in $grid-breakpoints{
+
+			$mq-only: media-query('#{$breakpoint-name}-only');
+			$mq-up: media-query('#{$breakpoint-name}-up');
+			@debug $mq-up;
+
+			&__#{$breakpoint-name}-only{
+				@media #{$mq-only}{
+					@include nav($type, $mainNav);
+				}
+			}
+			&__#{$breakpoint-name}-up{
+				@media #{$mq-up}{
+					@include nav($type, $mainNav);
+				}
+			}
+		}
+	}
+}
