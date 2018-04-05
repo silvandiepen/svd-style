@@ -15,7 +15,6 @@ $types: ('basic','flow');
 
 			$mq-only: media-query('#{$breakpoint-name}-only');
 			$mq-up: media-query('#{$breakpoint-name}-up');
-			@debug $mq-up;
 
 			&__#{$breakpoint-name}-only{
 				@media #{$mq-only}{
