@@ -18,19 +18,12 @@
 	}
 }
 
+// Merge color arrays
+
+$colors: join($colors-default,$colors-social);
+
 // Classes
-@each $color-name, $color-value in $colors-default {
-	.bg-#{to-lower-case($color-name)},
-	.bg-#{$color-name} {
-		background-color: #{$color-value};
-		color: contra($color-value);
-	}
-	.color-#{to-lower-case($color-name)},
-	.color-#{$color-name} {
-		color: $color-value;
-	}
-}
-@each $color-name, $color-value in $colors-social {
+@each $color-name, $color-value in $colors {
 	.bg-#{to-lower-case($color-name)},
 	.bg-#{$color-name} {
 		background-color: #{$color-value};

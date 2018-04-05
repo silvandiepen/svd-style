@@ -1,4 +1,4 @@
-section.basic.bg-dark
+section.basic.bg-dark#grid
 	div.row.center
 		div.column.small-full.medium-three-quarter
 			
@@ -230,125 +230,40 @@ section.basic.bg-dark
 					
 			h3 Standard columns (numeral)
 					
-			- var i = 1
-				while i < 24
-					div(class="row example small-"+i) 
-					- i++
-					- var n = 1
-						while n < (i / 24) 
-							div(class="column example")= i
-							- n++
-		
-			<div class="row example small-8">
-				<div class="column example">8</div>
-				<div class="column example">8</div>
-				<div class="column example">8</div>
-			</div>
-			<div class="row example small-9">
-				<div class="column example">9</div>
-				<div class="column example">9</div>
-			</div>
-			<div class="row example small-10">
-				<div class="column example">10</div>
-				<div class="column example">10</div>
-			</div>
-			<div class="row example small-11">
-				<div class="column example">11</div>
-				<div class="column example">11</div>
-			</div>
-			<div class="row example small-12">
-				<div class="column example">12</div>
-				<div class="column example">12</div>
-			</div>
-			<div class="row example small-13">
-				<div class="column example">13</div>
-			</div>
-			<div class="row example small-14">
-				<div class="column example">14</div>
-			</div>
-			<div class="row example small-15">
-				<div class="column example">15</div>
-			</div>
-			<div class="row example small-16">
-				<div class="column example">16</div>
-			</div>
-			<div class="row example small-17">
-				<div class="column example">17</div>
-			</div>
-			<div class="row example small-18">
-				<div class="column example">18</div>
-			</div>
-			<div class="row example small-19">
-				<div class="column example">19</div>
-			</div>
-			<div class="row example small-20">
-				<div class="column example">20</div>
-			</div>
-			<div class="row example small-21">
-				<div class="column example">21</div>
-			</div>
-			<div class="row example small-22">
-				<div class="column example">22</div>
-			</div>
-			<div class="row example small-23">
-				<div class="column example">23</div>
-			</div>
-			<div class="row example small-24">
-				<div class="column example">24</div>
-			</div>
-
+					
+			- var a = 1;
+			while a < 25
+				- var b = 0;
+				div(class="row example small-"+a) 
+					- var times = Math.floor(24 / a)
+					while b < times
+						div.column.example= a
+						- b++;
+				- a++;
+					
 			h3 Combine columns 
-			.examples
-				<div class="row">
-					<div class="column small-12">12</div>
-					<div class="column small-6">3</div>
-					<div class="column small-3">3</div>
-					<div class="column small-2">2</div>
-					<div class="column small-1">1</div>
-				</div>
-
-
+			div.row.example
+				div.column.example.small-12 12
+				div.column.example.small-3 3
+				div.column.example.small-3 3
+				div.column.example.small-2 2
+				div.column.example.small-1 1
 
 			h3 Partial columns
-			.examples
-				<div class="row example small-half">
-					<div class="column example">half</div>
-					<div class="column example">half</div>
-				</div>
-				<div class="row example small-third">
-					<div class="column example">third</div>
-					<div class="column example">third</div>
-					<div class="column example">third</div>
-				</div>
-				<div class="row example small-quarter">
-					<div class="column example">quarter</div>
-					<div class="column example">quarter</div>
-					<div class="column example">quarter</div>
-					<div class="column example">quarter</div>
-				</div>
-				<div class="row example small-fifth">
-					<div class="column example">fifth</div>
-					<div class="column example">fifth</div>
-					<div class="column example">fifth</div>
-					<div class="column example">fifth</div>
-					<div class="column example">fifth</div>
-				</div>
-				<div class="row example small-sixth">
-					<div class="column example">sixth</div>
-					<div class="column example">sixth</div>
-					<div class="column example">sixth</div>
-					<div class="column example">sixth</div>
-					<div class="column example">sixth</div>
-					<div class="column example">sixth</div>
-				</div>
-
-
-
-			.examples
-				<div class="row">
-					<div class="column small-half">half</div>
-					<div class="column small-quarter">quarter</div>
-					<div class="column small-quarter">quarter</div>
-				</div>
-
+			- c = 0;
+			each val in ['full', 'half', 'third', 'quarter', 'fifth', 'sixth']
+				- c++
+				div(class="row example small-"+val)
+					- d = 0;
+					while d < c
+						div.column.example= val
+						- d++
+					
+			
+						
+			h3 Combine partials 
+			div.row.example
+				div.column.example.small-half half
+				div.column.example.small-quarter quarter
+				div.column.example.small-fifth fifth
 		

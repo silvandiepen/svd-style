@@ -6,21 +6,28 @@ html
 		style
 			include public.css
 		meta(name="viewport", content="width=device-width, initial-scale=1")
-		script(src="https://unpkg.com/vue")
 
 	body
-		main(id="app")
-			include pages/intro.pug
-			include pages/buttons.pug
-			include pages/grid.pug
-			include pages/forms.pug
-			include pages/typography.pug
-			include pages/colors.pug
-			include pages/easings.pug
-			include pages/show-more.pug
-			include pages/html-elements.pug
-			include pages/patterns.pug
-						
-	script(type="text/javascript")
-		include script.js
+		div(id="app")
+			nav.nav.nav--flow__medium-up.nav--fixed
+				ul.nav__list
+				each item in ['intro','buttons','grid','forms','typography','colors','easings','show-more','html-elements','patterns']
+					li.nav__item
+						a.nav__link(href="#"+item, v-smooth-scroll="{ duration: 1000, offset: -50 }")
+							span.nav__text= item
+
+			main
+				include pages/intro.pug
+				//- include pages/buttons.pug
+				include pages/grid.pug
+				include pages/forms.pug
+				include pages/typography.pug
+				//- include pages/colors.pug
+				include pages/navigation.pug
+				include pages/easings.pug
+				include pages/show-more.pug
+				include pages/html-elements.pug
+				include pages/patterns.pug
+
+		script(type="text/javascript", src="main.js")
 		

@@ -1,5 +1,9 @@
-
 //import { settingsColor } from 'src/settings/colors.json';
+// import Vue from 'vue'
+// import VueSmoothScroll from 'vue-smooth-scroll'
+//
+//
+// Vue.use(VueSmoothScroll);
 
 new Vue({
 	el: '#app',
@@ -16,46 +20,51 @@ new Vue({
 			size: '24',
 			width: '12'
 		},
-		form:{
+		form: {
 			firstName: 'John',
 			lastName: 'Doe'
 		}
 	},
-	mounted() {
+	created() {
 		let self = this;
-			this.loadJSON('src/settings/colors.json',function(response){
-				self.colors = JSON.parse(response).colors;
-				console.log('self.colors',self.colors);
-			//	console.log('self.colors.default',self.colors.default);
-				console.log('response',response);
-			});
+		this.loadJSON('src/settings/colors.json', function(response) {
+			self.colors = JSON.parse(response).colors;
+		});
 	},
 	methods: {
-		loadJSON: function(file,callback) {
+		slowScroll: function(el, ev) {
+			console.log(this);
+			console.log(el);
+			console.log(ev);
+			// e.preventDefault();
+			// console.log(e);
+			// alert('poep');
+		},
+		loadJSON: function(file, callback) {
 			let xobj = new XMLHttpRequest();
-			xobj.overrideMimeType("application/json");
+			xobj.overrideMimeType('application/json');
 			xobj.open('GET', file, true);
 			xobj.onreadystatechange = function() {
-				if (xobj.readyState == 4 && xobj.status == "200") {
+				if (xobj.readyState == 4 && xobj.status == '200') {
 					callback(xobj.responseText);
 				}
-			}
+			};
 			xobj.send(null);
 		}
 	},
-	watch:{
-		button: function(){
+	watch: {
+		button: function() {
 			console.log('button changed');
 		}
 	},
 	computed: {
-		patternStyles: function(){
+		patternStyles: function() {
 			return {
 				'--pattern-color-primary': this.pattern.colorPrimary,
 				'--pattern-color-secondary': this.pattern.colorSecondary,
 				'--pattern-size': this.pattern.size + 'px',
 				'--pattern-width': this.pattern.width + 'px'
-			}
+			};
 		}
 	}
 });

@@ -27,14 +27,14 @@ module.exports = {
 		open: true // Open the page in browser
 	},
 	module: {
-
 		rules: [
 			{
 				test: /\.scss$/,
 				use: extractSass.extract({
 					use: [
 						{
-							loader: 'css-loader', options: { minimize: true } 
+							loader: 'css-loader',
+							options: { minimize: true }
 						},
 						{
 							loader: 'sass-loader'
@@ -56,6 +56,16 @@ module.exports = {
 						}
 					]
 				})
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				options: {
+					hotReload: true,
+					loaders: {
+						js: 'babel-loader!eslint-loader'
+					}
+				}
 			},
 			{
 				test: /\.js$/,

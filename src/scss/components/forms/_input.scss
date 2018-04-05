@@ -1,4 +1,7 @@
-input {
+.input,input {
+	&:not([type='checkbox']),
+	&:not([type='radio']),
+	&:not([type='submit']),
 	&[type='text'],
 	&[type='email'],
 	&[type='tel'],
@@ -7,6 +10,10 @@ input {
 		@extend %default-input;
 		&:not(:placeholder-shown) {
 			border: 1px solid color(Black, 0.25);
+		}
+		&--ghost,
+		&--naked{
+			@extend %default-input--ghost;
 		}
 	}
 }
@@ -79,4 +86,8 @@ input {
 			border: none;
 		}
 	}
+}
+
+.input{
+
 }

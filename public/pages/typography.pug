@@ -1,4 +1,4 @@
-section.basic.bg-dark
+section.basic.bg-dark#typography
 	div.row.center
 		div.column.small-full.medium-three-quarter.large-half
 			h1(data-label="h1") {{ headingText }}
@@ -11,4 +11,4 @@ section.basic.bg-dark
 			hr
 			form
 				label Change the heading text:
-				input(type="text",v-model="headingText")
+				input.input--ghost(type="text",v-model="headingText")
