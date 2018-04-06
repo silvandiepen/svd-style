@@ -3,7 +3,7 @@ section.basic.bg-white#colors
 		div.column.small-full.medium-three-quarter
 			h2 Colors
 			h3 Default 
-			ul.row.card__row
+			ul.row.card__row(v-if="colors")
 				li(class="card__holder column small-half medium-third xlarge-quarter color" v-for="(color, name) in colors.default[0]")
 					.card.card--expand-main(v-bind:class="'bg-'+name")
 						header
@@ -22,7 +22,7 @@ section.basic.bg-white#colors
 						
 				
 			h3 Social
-			ul.row.card__row
+			ul.row.card__row(v-if="colors")
 				li(class="card__holder column small-half medium-third xlarge-quarter color" v-for="(color, name) in colors.social[0]")
 					.card.card--expand-main(v-bind:class="'bg-'+name")
 						header

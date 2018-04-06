@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import smoothScroll from 'vue-smooth-scroll';
 import styleSheet from './index.scss';
 import indexHtml from './public/index.pug';
 import publicJs from './public/script.js';
