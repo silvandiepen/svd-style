@@ -33,9 +33,9 @@
 	}
 	&--expand-main {
 		main {
-			background-color: color(White);
-			max-height: 0;
-			position: absolute;
+			background-color: color(White,.2);
+		//	max-height: 0;
+		//	position: absolute;
 			overflow: hidden;
 			transition: $base-transition;
 			width: 100%;
