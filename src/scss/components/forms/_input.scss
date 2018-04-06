@@ -1,4 +1,5 @@
-.input,input {
+.input,
+input {
 	&:not([type='checkbox']),
 	&:not([type='radio']),
 	&:not([type='submit']),
@@ -12,7 +13,7 @@
 			border: 1px solid color(Black, 0.25);
 		}
 		&--ghost,
-		&--naked{
+		&--naked {
 			@extend %default-input--ghost;
 		}
 	}
@@ -42,25 +43,39 @@
 		}
 	}
 	input[type='checkbox'] {
-		@include input-checkbox(
-			1rem,
-			1rem,
-			0,
-			0.25rem,
-			color(White),
-			color(Blue),
-			0%
-		);
-		@include input-checkbox-body {
-			box-shadow: 0 0 0 1px color(Black, 0.2) inset;
-			top: 50%;
+		&:not(.hidden) {
+			@include input-checkbox(
+				1rem,
+				1rem,
+				0,
+				0.25rem,
+				color(White),
+				color(Blue),
+				0%
+			);
+			@include input-checkbox-body {
+				box-shadow: 0 0 0 1px color(Black, 0.2) inset;
+				top: 50%;
+			}
+			@include input-checkbox-check {
+				top: calc(50% + 0.25rem);
+			}
+			@include input-checkbox-label {
+				position: relative;
+				padding-left: 2rem;
+			}
 		}
-		@include input-checkbox-check {
-			top: calc(50% + 0.25rem);
-		}
-		@include input-checkbox-label {
-			position: relative;
-			padding-left: 2rem;
+		&.hidden {
+			width: 0;
+			height: 0;
+			opacity: 0;
+			position: absolute;
+			& + label {
+				&:before,
+				&:after {
+					content: none;
+				}
+			}
 		}
 	}
 }
@@ -88,6 +103,5 @@ input {
 	}
 }
 
-.input{
-
+.input {
 }

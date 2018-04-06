@@ -4,13 +4,15 @@
 //  use width calculation
 //  @include min-(width,4,240,'calc(100% - 240px)');
 
-@mixin min-($what, $columns, $min-width, $alt: false) {
+@mixin min-($what: false, $columns: 1, $min-width: 100, $alt: false) {
 	$mq: grid-mq-min($columns, $min-width);
 	@media #{$mq} {
-		@if $alt != false {
-			#{$what}: $alt;
-		} @else {
-			#{$what}: #{strip-unit($min-width)}px;
+		@if $what != null {
+			@if $alt != false {
+				#{$what}: $alt;
+			} @else {
+				#{$what}: #{strip-unit($min-width)}px;
+			}
 		}
 		@content;
 	}
@@ -58,13 +60,15 @@
   @include min-(width,4,240,'calc(100% - 240px)');
 */
 
-@mixin max-($what, $columns, $width, $alt: false) {
-	$mq: grid-mq-max($columns, $width);
+@mixin max-($what: null, $columns: 1, $max-width: 200, $alt: false) {
+	$mq: grid-mq-max($columns, $max-width);
 	@media #{$mq} {
-		@if $alt != false {
-			#{$what}: $alt;
-		} @else {
-			#{$what}: #{strip-unit($width)}px;
+		@if $what != null {
+			@if $alt != false {
+				#{$what}: $alt;
+			} @else {
+				#{$what}: #{strip-unit($max-width)}px;
+			}
 		}
 		@content;
 	}

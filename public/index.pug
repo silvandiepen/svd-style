@@ -9,12 +9,15 @@ html
 
 	body
 		div(id="app")
-			nav.nav.nav--flow__medium-up.nav--fixed
+			input(type="checkbox", id="nav--trigger", class="nav__trigger-input hidden")
+			label.nav__trigger(for="nav--trigger")
+				span
+			nav.nav--left__large-up.nav--mobile__small-only.nav--mobile__medium-only(fixed)(style="--menu-bg: var(--color-dark); --menu-text: var(--color-white)")
 				ul.nav__list
-				each item in ['intro','buttons','grid','forms','typography','colors','easings','show-more','html-elements','patterns']
-					li.nav__item
-						a.nav__link(href="#"+item, v-smooth-scroll="{ duration: 1000, offset: -50 }")
-							span.nav__text= item
+					each item in ['intro','buttons','grid','forms','typography','colors','easings','show-more','html-elements','patterns']
+						li.nav__item
+							a.nav__link(href="#"+item, v-smooth-scroll="{ duration: 1000, offset: -50 }")
+								span.nav__text= item
 
 			main
 				include pages/intro.pug
@@ -28,6 +31,7 @@ html
 				include pages/show-more.pug
 				include pages/html-elements.pug
 				include pages/patterns.pug
-
+				
+		script(type="text/javascript", src="https://unpkg.com/vue@2.5.16/dist/vue.js")
 		script(type="text/javascript", src="main.js")
 		

@@ -1,15 +1,8 @@
 /*
-  There where it all begins, the normalizer
-*/
-
-// @import '~/modern-normalize/modern-normalize.css';
-
-/*
   Import the grid
 */
 @import 'settings/index';
 @import 'functions/index';
-
 @import 'reset/index';
 @import 'mixins/index';
 @import 'grid/index';

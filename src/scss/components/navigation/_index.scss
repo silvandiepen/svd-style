@@ -5,27 +5,19 @@ $mainNav: '.nav' !default;
 @import 'types';
 
 // And define it
-$types: ('basic','flow');
+$types: (
+	'basic',
+	'flow',
+	'mobile',
+	'left'
+);
 
 // Create the classes, including responsive
-@each $type in $types{
-	.nav--#{$type} {
-		@include nav($type, $mainNav);
-		@each $breakpoint-name, $breakpoint-value in $grid-breakpoints{
+@each $type in $types {
+	@include nav($type, $mainNav, null);
 
-			$mq-only: media-query('#{$breakpoint-name}-only');
-			$mq-up: media-query('#{$breakpoint-name}-up');
-
-			&__#{$breakpoint-name}-only{
-				@media #{$mq-only}{
-					@include nav($type, $mainNav);
-				}
-			}
-			&__#{$breakpoint-name}-up{
-				@media #{$mq-up}{
-					@include nav($type, $mainNav);
-				}
-			}
-		}
+	@each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
+		@include nav($type, $mainNav, '#{$breakpoint-name}-only');
+		@include nav($type, $mainNav, '#{$breakpoint-name}-up');
 	}
 }

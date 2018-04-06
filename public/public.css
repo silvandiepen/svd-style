@@ -1,3 +1,7 @@
+:root{
+	--nav-trigger-bg: var(--color-dark);
+}
+
 
 /* SVG elements
 */
