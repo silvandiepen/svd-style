@@ -25,9 +25,11 @@ section.basic.bg-yellow#buttons
 				button.button-basic--arrow-right To the right
 				button.button-basic--arrow-left To the left
 
+
+section.basic.bg-orange
 	div.row.center
-		div.column.small-full.medium-three-quarter.large-half
-			h3 Wooohooo generator your button
+		div.column.small-full.medium-three-quarter
+			h3 Generate your button
 			div.row.generator
 				div.column.small-full.medium-half.generator__example
 					div.generator__content
@@ -36,21 +38,27 @@ section.basic.bg-yellow#buttons
 							p {{button.size}}
 							p {{button.icon}}
 							p {{button.color}}
-					
+	
 				div.column.small-full.medium-half.generator__tools
 					form 
 						label Text
 						input(type="text", v-model="button.text")
-							
+						
+						br 
+						
 						label Size
 						select(v-model="button.size")
 							option(value="small") Small
 							option(value="normal") Normal
 							option(value="large") Large
-								
+							
+						br 
+							
 						label Icon
 						select(v-model="button.icon")
 							option Icon
+							
+						br 
 							
 						label Color
 						select(v-model="button.color")

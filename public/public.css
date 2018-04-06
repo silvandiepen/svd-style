@@ -29,7 +29,7 @@ svg path {
 }
 .generator__example {
 	padding: 2rem;
-	background-color: rgba(255, 255, 255, 0.25);
+	background-color: white;
 	display: flex;
 	justify-content: center;
 }
@@ -39,7 +39,7 @@ svg path {
 }
 .generator__tools {
 	padding: 2rem;
-	background-color: rgba(0, 0, 0, 0.25);
+	background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Example rows and columns
