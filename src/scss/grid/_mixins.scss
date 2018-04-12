@@ -120,22 +120,30 @@
 	@for $a from 0 through $grid-columns {
 		$percentage: percentage($a/$grid-columns); //
 		$column: #{$a}#{$childClass};
-		&.#{$base-prefix}column-#{$column} {
-			width: #{$percentage};
-			@if $grid-cssgrid {
-				@supports (display: grid) {
-					width: #{$a}fr;
+		@if $grid-create-column {
+			&.#{$base-prefix}column-#{$column} {
+				width: #{$percentage};
+				@if $grid-cssgrid {
+					@supports (display: grid) {
+						width: #{$a}fr;
+					}
 				}
 			}
 		}
-		&.#{$base-prefix}offset-#{$column} {
-			margin-left: #{$percentage};
+		@if $grid-create-offset {
+			&.#{$base-prefix}offset-#{$column} {
+				margin-left: #{$percentage};
+			}
 		}
-		&.#{$base-prefix}push-#{$column} {
-			margin-right: #{$percentage};
+		@if $grid-create-push {
+			&.#{$base-prefix}push-#{$column} {
+				margin-right: #{$percentage};
+			}
 		}
-		&.#{$base-prefix}pull-#{$column} {
-			margin-left: -#{$percentage};
+		@if $grid-create-pull {
+			&.#{$base-prefix}pull-#{$column} {
+				margin-left: -#{$percentage};
+			}
 		}
 	}
 
@@ -174,14 +182,21 @@
 				&.#{$base-prefix}#{$bp-name}-only-#{$a}#{$childClass} {
 					width: $percentage;
 				}
-				&.#{$base-prefix}offset-#{$bp-name}-only-#{$a}#{$childClass} {
-					margin-left: $percentage;
+
+				@if $grid-create-offset {
+					&.#{$base-prefix}offset-#{$bp-name}-only-#{$a}#{$childClass} {
+						margin-left: $percentage;
+					}
 				}
-				&.#{$base-prefix}push-#{$bp-name}-only-#{$a}#{$childClass} {
-					margin-right: $percentage;
+				@if $grid-create-push {
+					&.#{$base-prefix}push-#{$bp-name}-only-#{$a}#{$childClass} {
+						margin-right: $percentage;
+					}
 				}
-				&.#{$base-prefix}pull-#{$bp-name}-only-#{$a}#{$childClass} {
-					margin-left: -#{$percentage};
+				@if $grid-create-pull {
+					&.#{$base-prefix}pull-#{$bp-name}-only-#{$a}#{$childClass} {
+						margin-left: -#{$percentage};
+					}
 				}
 			}
 		}
@@ -217,14 +232,20 @@
 						}
 					}
 				}
-				&.#{$base-prefix}offset-#{$bp-name}-#{$a}#{$childClass} {
-					margin-left: $percentage;
+				@if $grid-create-offset {
+					&.#{$base-prefix}offset-#{$bp-name}-#{$a}#{$childClass} {
+						margin-left: $percentage;
+					}
 				}
-				&.#{$base-prefix}push-#{$bp-name}-#{$a}#{$childClass} {
-					margin-right: $percentage;
+				@if $grid-create-push {
+					&.#{$base-prefix}push-#{$bp-name}-#{$a}#{$childClass} {
+						margin-right: $percentage;
+					}
 				}
-				&.#{$base-prefix}pull-#{$bp-name}-#{$a}#{$childClass} {
-					margin-left: -#{$percentage};
+				@if $grid-create-pull {
+					&.#{$base-prefix}pull-#{$bp-name}-#{$a}#{$childClass} {
+						margin-left: -#{$percentage};
+					}
 				}
 			}
 		}
