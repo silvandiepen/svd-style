@@ -36,6 +36,15 @@
 			}
 		}
 	}
+	@each $grid-name, $grid-value in $grid-breakpoints{
+		// @debug $grid-name;
+		&.#{$grid-name}-reverse{
+			$mq: media-query(#{$grid-name}-up);
+			@media #{$mq}{
+			  flex-direction: row-reverse;
+			}
+		}
+	}
 }
 
 .column {
