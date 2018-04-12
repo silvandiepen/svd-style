@@ -2,8 +2,8 @@
   Import the grid
 */
 
-@import 'settings/settings';
-$prefix: $settings-prefix;
-@import 'functions/functions';
-@import 'mixins/mixins';
+@import 'settings/index';
+$prefix: $base-prefix;
+@import 'functions/index';
+@import 'mixins/index';
 @import 'grid/import';
