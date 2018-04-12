@@ -49,37 +49,23 @@
 	@return $temp;
 }
 
-// Define the actual value to the colorset
-// @debug '------------: Add one color';
-// @debug length($colors-default);
-$colors-default: define-color('Blurry', #ff0022);
-// @debug length($colors-default);
-// @debug '------------';
 
-// @debug '------------: Add list of colors';
-// $temp-colors: ('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224);
-// @debug length($colors-default);
-$colors-default: define-color(('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224, 'Yeva': pink));
-// @debug length($colors-default);
-// @debug $colors-default;
-// @debug '------------';
+$colors: customColor();
 
-// @debug '------------: Add list of colors';
-$temp-colors: ('Sil': #889900, 'Sam': #921010, 'Pol': #223110, 'Tos': #112224);
-// @debug length($colors-default);
-$colors-default: define-color($temp-colors);
-// @debug length($colors-default);
-// @debug '------------';
-
-
-
-
-
+@function customColors(){
+	$t: ();
+	@if variable-exists(custom-colors){
+		$t: map-merge($colors-default,$custom-colors);
+	} @else {
+		$t: $colors-default;
+	}
+	@return $t;
+}
 
 @function color(
 	$value,
 	$rgba: false,
-	$colorset: $colors-default,
+	$colorset: $colors,
 	$warning: true,
 	$boolean: false,
 	$salt: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -105,23 +91,18 @@ $colors-default: define-color($temp-colors);
 			$return: $rgb;
 		}
 		@elseif $rgba != false {
-			$return: rgba(map-get($colorset, str-replace($value, $salt, '')), $rgba);
+			$return: rgba(map-get(to-map($colorset), str-replace($value, $salt, '')), $rgba);
 		} @else {
-			$return: map-get($colorset, str-replace($value, $salt, ''));
+			$return: map-get(to-map($colorset), str-replace($value, $salt, ''));
 		}
 	}
-	// // @debug 'final-return: #{$return}';
 	@return $return;
 }
 
-@function color-exist($value, $colorset: $colors-default, $salt: null) {
-	// // @debug '-salt: #{$salt}';
-	// // @debug '-value: #{$value}';
-	// // @debug '-simpled: #{str-replace($value,$salt,'')}';
+@function color-exist($value, $colorset: $colors, $salt: null) {
 
-	$color: map-get($colorset, str-replace($value, $salt, ''));
+	$color: map-get(to-map($colorset), str-replace($value, $salt, ''));
 
-	// // @debug '-color: #{$color}';
 
 	@if $color == null {
 		@if variable-exists(main-colors) {
@@ -158,9 +139,7 @@ $colors-default: define-color($temp-colors);
 			((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
 				((blue($color) / 255) * 100)
 		) / 3; // average
-	//// @debug "red: #{red($color)} / green: #{green($color)} / blue: #{blue($color)}";
 
-	//// @debug $average;
 	@if $percentage {
 		@return percentage($sum / (255 * 3));
 	} @else {
