@@ -56,8 +56,6 @@
 	@if variable-exists(custom-colors){
 //	@debug $custom-colors;
 		$t: map-merge($colors-default,$custom-colors);
-
-		@debug $t;
 	} @else {
 		$t: $colors-default;
 	}
