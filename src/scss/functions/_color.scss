@@ -50,17 +50,20 @@
 }
 
 
-$colors: customColor();
 
 @function customColors(){
 	$t: ();
 	@if variable-exists(custom-colors){
+//	@debug $custom-colors;
 		$t: map-merge($colors-default,$custom-colors);
+
+		@debug $t;
 	} @else {
 		$t: $colors-default;
 	}
 	@return $t;
 }
+$colors: customColors();
 
 @function color(
 	$value,

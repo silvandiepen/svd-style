@@ -1,6 +1,6 @@
 // Color variables
 :root {
-	@each $color-name, $color-value in $colors-default {
+	@each $color-name, $color-value in $colors {
 		$variable: '--color-#{to-lower-case($color-name)}';
 		//hex
 		#{$variable}: $color-value;
@@ -17,10 +17,6 @@
 		#{$variable}: $color-value;
 	}
 }
-
-// Merge color arrays
-
-$colors: join($colors-default,$colors-social);
 
 // Classes
 @each $color-name, $color-value in $colors {
