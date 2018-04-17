@@ -1,0 +1,21 @@
+{
+	"colors": {
+		"default": [
+			{
+				"Black": "#050401",
+				"Dark": "#24132f",
+				"White": "#ffffff",
+				"Offwhite": "#bab5be",
+				"Green": "#10c565",
+				"Blue": "#1eb3e0",
+				"Red": "#eb0f33",
+				"Brown": "#aa834f",
+				"Yellow": "#f5c505",
+				"Orange": "#f6790b",
+				"Pink": "#ca1387",
+				"Purple": "#7329b1",
+				"Turquoise": "#3feac3"
+			}
+		]
+	}
+}
