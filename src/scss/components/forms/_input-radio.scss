@@ -1,0 +1,26 @@
+
+.input-radio {
+	input[type='radio'] {
+		@include input-radio(
+			1rem,
+			1rem,
+			0,
+			0.25rem,
+			color(White),
+			color(Blue),
+			100%
+		);
+		@include input-radio-body {
+			box-shadow: 0 0 0 1px color(Black, 0.2) inset;
+			top: 50%;
+		}
+		@include input-radio-check {
+			top: calc(50% + 0.25rem);
+		}
+		@include input-radio-label {
+			position: relative;
+			padding-left: 2rem;
+			width: auto;
+		}
+	}
+}

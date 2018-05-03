@@ -136,6 +136,13 @@
 	}
 	@elseif $el == 'check' {
 		@include parent {
+			input#{$type} + label:after {
+				@content;
+			}
+		}
+	}
+	@elseif $el == 'check-checked' {
+		@include parent {
 			input#{$type}:checked + label:after {
 				@content;
 			}
@@ -215,6 +222,11 @@
 }
 @mixin input-checkbox-check {
 	@include input-element('check', 'checkbox') {
+		@content;
+	}
+}
+@mixin input-checkbox-check-checked {
+	@include input-element('check-checked', 'checkbox') {
 		@content;
 	}
 }
