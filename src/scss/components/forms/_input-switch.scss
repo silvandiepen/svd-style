@@ -2,6 +2,7 @@
 	display: inline-block;
 	position: relative;
 	input[type='checkbox'] {
+    position: absolute;
 		&:not(.hidden) {
 			@include input-checkbox(
 				2.5rem,
