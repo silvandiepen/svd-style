@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "vibrant": [
+      {
+        "Black": "#1f1e1d",
+        "Dark": "#363432",
+        "White": "#ffffff",
+        "Offwhite": "#eefef8",
+        "Green": "#58f29a",
+        "Blue": "#2ae0e4",
+        "Red": "#fe5165",
+        "Brown": "#c08e69",
+        "Yellow": "#f6ff5f",
+        "Orange": "#ffb95f",
+        "Pink": "#f258a0",
+        "Purple": "#c757e7",
+        "Turquoise": "#58f2bd"
+      }
+    ]
+  }
+}

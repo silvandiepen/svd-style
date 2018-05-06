@@ -1,182 +1,194 @@
 $default-color-set: $colors-default !default;
 
+@function define-color-set($set) {
+  // Define the Color set if its a string
+  @if type-of($set) == "string" {
+    @if $set == "default" {
+      $set: $colors-default;
+    }
+    @elseif $set == 'social' {
+      $set: $colors-default;
+    }
+    @elseif $set == 'svd' {
+      $set: $colors-svd;
+    }
+    @elseif $set == 'vibrant' {
+      $set: $colors-vibrant;
+    }
+  }
+  @return $set;
+}
+
+@if type-of($default-color-set) == "string" {
+  $default-color-set: define-color-set($default-color-set);
+}
 
 // Color Function
 
 @function shade($color, $percentage) {
-	@return mix(black, $color, $percentage);
+  @return mix(black, $color, $percentage);
 }
 @function tint($color, $percentage) {
-	@return mix(white, $color, $percentage);
+  @return mix(white, $color, $percentage);
 }
 
 // DEDICATED TESTING AREA.....
 
 // The function, check what the input is and sent through to set the value.
-@function set-color($k, $v, $set: $colors-default) {
-	$temp: null;
-	@if type-of($v) == 'string' {
-		$temp: map-set($set, $k, unquote($v));
-	}
-	@elseif type-of($v) == 'color' {
-		$temp: map-set($set, $k, $v);
-	}
-	@return $temp;
-}
-@function define-color($k, $v: null, $set: $colors-default) {
-	$temp: null;
-
-	// Define the Color set if its a string
-	@if type-of($set) == 'string' {
-		@if $set == 'default' {
-			$set: $colors-default;
-		}
-		@elseif $set == 'social' {
-			$set: $colors-default;
-		}
-	}
-
-	// If the input is a string, directly add it to the color list,
-	@if type-of($k) == 'string'{
-		$temp: set-color($k, $v, $set);
-	}
-
-	// If the input is a Map, add multiple values;
-	@elseif type-of($k) == 'map'{
-		@each $entry-name, $entry-value in $k{
-			$set: set-color($entry-name,$entry-value,$set);
-		}
-		$temp: $set;
-	}
-
-	@return $temp;
+@function set-color($k, $v, $set: $default-color-set) {
+  $temp: null;
+  @if type-of($v) == "string" {
+    $temp: map-set($set, $k, unquote($v));
+  }
+  @elseif type-of($v) == 'color' {
+    $temp: map-set($set, $k, $v);
+  }
+  @return $temp;
 }
 
+@function define-color($k, $v: null, $set: $default-color-set) {
+  $temp: null;
 
+  // If the input is a string, directly add it to the color list,
+  @if type-of($k) == "string" {
+    $temp: set-color($k, $v, $set);
+  }
 
-@function customColors(){
-	$t: ();
-	@if variable-exists(custom-colors){
-//	@debug $custom-colors;
-		$t: map-merge($colors-default,$custom-colors);
-	} @else {
-		$t: $colors-default;
-	}
-	@return $t;
+  // If the input is a Map, add multiple values;
+  @elseif type-of($k) == 'map' {
+    @each $entry-name, $entry-value in $k {
+      $set: set-color($entry-name, $entry-value, $set);
+    }
+    $temp: $set;
+  }
+
+  @return $temp;
+}
+
+@function customColors() {
+  $t: ();
+  @if variable-exists(custom-colors) {
+    //	@debug $custom-colors;
+    $t: map-merge($colors-default, $custom-colors);
+  } @else {
+    $t: $colors-default;
+  }
+  @return $t;
 }
 $colors: customColors();
 
 @function color(
-	$value,
-	$rgba: false,
-	$colorset: $colors,
-	$warning: true,
-	$boolean: false,
-	$salt: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  $value,
+  $rgba: false,
+  $colorset: $default-color-set,
+  $warning: true,
+  $boolean: false,
+  $salt: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ) {
-	$return: null;
-	// Fix for case sensitivity
-	// @if type-of($value) == 'color' {
-	$value: '#{$salt}#{$value}';
-	// }
+  $return: null;
+  // Fix for case sensitivity
+  // @if type-of($value) == 'color' {
+  $value: "#{$salt}#{$value}";
+  // }
 
-	@if $warning == true {
-		@if color-exist($value, $colorset, $salt) == false {
-			@warn "color: #{$value} doesn't exist";
-		}
-	}
-	@if $boolean == true {
-		$return: color-exist($value, $colorset, $salt);
-	} @else {
-		@if $rgba == true {
-			$rgb: #{red(map-get($colorset, $value))},
-				#{green(map-get($colorset, $value))},
-				#{blue(map-get($colorset, $value))};
-			$return: $rgb;
-		}
-		@elseif $rgba != false {
-			$return: rgba(map-get(to-map($colorset), str-replace($value, $salt, '')), $rgba);
-		} @else {
-			$return: map-get(to-map($colorset), str-replace($value, $salt, ''));
-		}
-	}
-	@return $return;
+  @if $warning == true {
+    @if color-exist($value, $colorset, $salt) == false {
+      @warn "color: #{$value} doesn't exist";
+    }
+  }
+  @if $boolean == true {
+    $return: color-exist($value, $colorset, $salt);
+  } @else {
+    @if $rgba == true {
+      $rgb: #{red(map-get($colorset, $value))},
+        #{green(map-get($colorset, $value))},
+        #{blue(map-get($colorset, $value))};
+      $return: $rgb;
+    }
+    @elseif $rgba != false {
+      $return: rgba(
+        map-get(to-map($colorset), str-replace($value, $salt, "")),
+        $rgba
+      );
+    } @else {
+      $return: map-get(to-map($colorset), str-replace($value, $salt, ""));
+    }
+  }
+  @return $return;
 }
 
 @function color-exist($value, $colorset: $colors, $salt: null) {
+  $color: map-get(to-map($colorset), str-replace($value, $salt, ""));
 
-	$color: map-get(to-map($colorset), str-replace($value, $salt, ''));
-
-
-	@if $color == null {
-		@if variable-exists(main-colors) {
-			@if color($value, $rgba, $main-colors, false, true) {
-				$return: true;
-			}
-			@return false;
-		}
-		@return false;
-	} @else {
-		@return true;
-	}
+  @if $color == null {
+    @if variable-exists(main-colors) {
+      @if color($value, $rgba, $main-colors, false, true) {
+        $return: true;
+      }
+      @return false;
+    }
+    @return false;
+  } @else {
+    @return true;
+  }
 }
 
-@function colorByKey($key, $colorset: $colors, $return: 'value') {
-	$color-list: nth($colorset, $key); // List
-	$color-name: nth($color-list, 1); // Name
-	$color-value: nth($color-list, 2); // Value
-	// Return
-	@if $return == 'value' {
-		@return $color-value;
-	}
-	@elseif $return == 'name' {
-		@return $color-name;
-	}
-	@elseif $return == 'list' {
-		@return $color-list;
-	}
+@function colorByKey($key, $colorset: $colors, $return: "value") {
+  $color-list: nth($colorset, $key); // List
+  $color-name: nth($color-list, 1); // Name
+  $color-value: nth($color-list, 2); // Value
+  // Return
+  @if $return == "value" {
+    @return $color-value;
+  }
+  @elseif $return == 'name' {
+    @return $color-name;
+  }
+  @elseif $return == 'list' {
+    @return $color-list;
+  }
 }
 
 @function color-brightness($color, $percentage: true) {
-	$sum: red($color) + green($color) + blue($color); // sum
-	$average: (
-			((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
-				((blue($color) / 255) * 100)
-		) / 3; // average
+  $sum: red($color) + green($color) + blue($color); // sum
+  $average: (
+      ((red($color) / 255) * 100) + ((green($color) / 255) * 100) +
+        ((blue($color) / 255) * 100)
+    ) / 3; // average
 
-	@if $percentage {
-		@return percentage($sum / (255 * 3));
-	} @else {
-		@return ($sum / (255 * 3) * 100);
-	}
+  @if $percentage {
+    @return percentage($sum / (255 * 3));
+  } @else {
+    @return ($sum / (255 * 3) * 100);
+  }
 }
 
 @function contra(
-	$value,
-	$contrast: 57.5,
-	$dark: color(Black),
-	$light: color(White)
+  $value,
+  $contrast: 57.5,
+  $dark: color(Black),
+  $light: color(White)
 ) {
-	$color: black;
-	@if color($value, 1, $colors-default, false, true) {
-		$color: color($value);
-	} @else {
-		$color: $value;
-	}
-	@if color-brightness($color) > $contrast {
-		@return $dark;
-	} @else {
-		@return $light;
-	}
+  $color: black;
+  @if color($value, 1, $colors-default, false, true) {
+    $color: color($value);
+  } @else {
+    $color: $value;
+  }
+  @if color-brightness($color) > $contrast {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
 }
 
 @function native-rgba($string, $opacity) {
-	@return #{'rgba(#{$string}, #{$opacity})'};
+  @return #{"rgba(#{$string}, #{$opacity})"};
 }
 
 @function black($o) {
-	@return rgba(0, 0, 0, ($o / 100%));
+  @return rgba(0, 0, 0, ($o / 100%));
 }
 @function white($o) {
-	@return rgba(255, 255, 255, ($o / 100%));
+  @return rgba(255, 255, 255, ($o / 100%));
 }

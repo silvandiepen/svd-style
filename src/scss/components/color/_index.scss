@@ -1,32 +1,32 @@
 // Color variables
 :root {
-	@each $color-name, $color-value in $colors {
-		$variable: '--color-#{to-lower-case($color-name)}';
-		//hex
-		#{$variable}: $color-value;
-		//rgb
-		#{$variable}-r: red($color-value);
-		#{$variable}-g: green($color-value);
-		#{$variable}-b: blue($color-value);
-		#{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
-	}
-	// Social Colors in variables
-	@each $color-name, $color-value in $colors-social {
-		$variable: '--color-#{to-lower-case($color-name)}';
-		//hex
-		#{$variable}: $color-value;
-	}
+  @each $color-name, $color-value in $default-color-set {
+    $variable: "--color-#{to-lower-case($color-name)}";
+    //hex
+    #{$variable}: $color-value;
+    //rgb
+    #{$variable}-r: red($color-value);
+    #{$variable}-g: green($color-value);
+    #{$variable}-b: blue($color-value);
+    #{$variable}-rgb: red($color-value), green($color-value), blue($color-value);
+  }
+  // Social Colors in variables
+  @each $color-name, $color-value in $colors-social {
+    $variable: "--color-#{to-lower-case($color-name)}";
+    //hex
+    #{$variable}: $color-value;
+  }
 }
 
 // Classes
-@each $color-name, $color-value in $colors {
-	.bg-#{to-lower-case($color-name)},
-	.bg-#{$color-name} {
-		background-color: #{$color-value};
-		color: contra($color-value);
-	}
-	.color-#{to-lower-case($color-name)},
-	.color-#{$color-name} {
-		color: $color-value;
-	}
+@each $color-name, $color-value in $default-color-set {
+  .bg-#{to-lower-case($color-name)},
+  .bg-#{$color-name} {
+    background-color: #{$color-value};
+    color: contra($color-value);
+  }
+  .color-#{to-lower-case($color-name)},
+  .color-#{$color-name} {
+    color: $color-value;
+  }
 }
