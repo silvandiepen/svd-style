@@ -94,7 +94,8 @@ $basic-icons: (
 	stop: "\25d9",
 	arrow-left: "\21fd",
 	arrow-right: "\21fe",
-	plus: "\2795" minus: "\2796"
+	plus: "\2795",
+	minus: "\2796"
 );
 .button-basic {
 	@each $icon-name, $icon-value in $basic-icons {
