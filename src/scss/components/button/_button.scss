@@ -75,7 +75,7 @@ button {
 	}
 }
 
-@include wildcard('button-basic') {
+@include wildcard("button-basic") {
 	@extend %default-button;
 	padding-left: 3rem;
 	position: relative;
@@ -89,20 +89,37 @@ button {
 		text-align: center;
 	}
 }
+$basic-icons: (
+	play: "\25b6",
+	stop: "\25d9",
+	arrow-left: "\21fd",
+	arrow-right: "\21fe",
+	plus: "\2795" minus: "\2796"
+);
 .button-basic {
-	&--play:before {
-		content: '\25b6';
-	}
-	&--stop:before {
-		content: '\25d9';
-	}
-	&--arrow-left:before {
-		content: '\21fd';
-	}
-	&--arrow-right:before {
-		content: '\21fe';
+	@each $icon-name, $icon-value in $basic-icons {
+		&--#{$icon-name}:before {
+			content: $icon-value;
+		}
 	}
 }
-
-.button--round {
+&[data-icon-before] {
+	padding-left: 3em;
+	&:before {
+		position: absolute;
+		left: 0;
+		width: 3em;
+		text-align: center;
+		content: attr(data-icon-before);
+	}
+}
+&[data-icon-after] {
+	padding-right: 3em;
+	&:before {
+		position: absolute;
+		right: 0;
+		width: 3em;
+		text-align: center;
+		content: attr(data-icon-after);
+	}
 }

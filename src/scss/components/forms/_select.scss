@@ -33,3 +33,8 @@ select {
 			top 50% right calc(#{(1rem + $select-arrow-size)} - 1px);
 	}
 }
+
+<div class="input-checkbox">
+	<input type="checkbox" id="check" />
+	<label for="check"></label>
+</div>
