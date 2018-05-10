@@ -97,14 +97,12 @@ $basic-icons: (
 	plus: "\2795",
 	minus: "\2796"
 );
-.button-basic {
-	@each $icon-name, $icon-value in $basic-icons {
-		&--#{$icon-name}:before {
-			content: $icon-value;
-		}
+@each $icon-name, $icon-value in $basic-icons {
+	.button--#{$icon-name}:before {
+		content: #{$icon-value};
 	}
 }
-&[data-icon-before] {
+.button[data-icon-before] {
 	padding-left: 3em;
 	&:before {
 		position: absolute;
@@ -114,7 +112,7 @@ $basic-icons: (
 		content: attr(data-icon-before);
 	}
 }
-&[data-icon-after] {
+.button[data-icon-after] {
 	padding-right: 3em;
 	&:before {
 		position: absolute;
