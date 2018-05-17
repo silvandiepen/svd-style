@@ -1,0 +1,31 @@
+/* ----------------------------------------- */
+/*    Get the color from the colorset;      */
+/* --------------------------------------- */
+
+@function output($args: ()) {
+	$output: true;
+	/*
+        Check the overall setting. If false, do not output any css
+    */
+	@if $setting-output-css == false {
+		$output: false;
+	}
+
+	/*
+        Go through all $arguments
+    */
+	@each $arg in $args {
+		@if variable-exists(setting-output-#{$arg}) {
+			@if map-get($setting-output, $arg) == false {
+				$output: false;
+			}
+		} @else {
+			@warn "#{$arg} does not exist in the settings.";
+		}
+	}
+
+	/*
+        In the end, determine if this prop should return anything.
+    */
+	@return $output;
+}

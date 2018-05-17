@@ -1,0 +1,6 @@
+input[type="button"],
+input[type="submit"] {
+	&:not(.button) {
+		@extend .button;
+	}
+}

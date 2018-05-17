@@ -1,0 +1,12 @@
+{
+	"setting": {
+		"output": [
+			{
+				"css": true,
+				"background-colors": true,
+				"text-colors": true,
+				"custom-properties": true
+			}
+		]
+	}
+}
