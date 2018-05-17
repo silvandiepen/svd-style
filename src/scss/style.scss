@@ -1,15 +1,15 @@
 /*
   Import the grid
 */
-@import 'settings/index';
-@import 'functions/index';
-@import 'reset/index';
-@import 'mixins/index';
-@import 'grid/index';
-@import 'typography/index';
-@import 'components/index';
-@import 'patterns/index';
-@import 'spacing';
+@import "settings/index";
+@import "functions/index";
+@import "reset/index";
+@import "mixins/index";
+@import "grid/index";
+@import "typography/index";
+@import "components/index";
+@import "patterns/index";
+@import "spacing";
 
 body,
 html {
@@ -34,6 +34,9 @@ main.center {
 	}
 }
 
-.examples{
-	.column{ border: 1px solid white; padding: .5rem; }
+.examples {
+	.column {
+		border: 1px solid white;
+		padding: 0.5rem;
+	}
 }

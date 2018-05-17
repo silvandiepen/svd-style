@@ -3,6 +3,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 pre,
 p,
 form {
@@ -20,6 +21,7 @@ form {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + p {
 		margin-top: 1rem;
 	}
@@ -32,7 +34,7 @@ form {
 	& + textarea,
 	& + form {
 		margin-top: grid(0.5);
-		@include min-('margin-top',0.5,16);
+		@include min-("margin-top", 0.5, 16);
 	}
 }
 table,
@@ -53,7 +55,7 @@ pre {
 	}
 }
 p {
-	@include wildcard('button',true) {
+	@include wildcard("button", true) {
 		margin-top: 2rem;
 	}
 	& + p {
@@ -66,6 +68,7 @@ p {
 	& + h2,
 	& + h3,
 	& + h4,
+	& + h6,
 	& + h5 {
 		margin-top: 2rem;
 	}
@@ -74,7 +77,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
 	& + dl {
 		margin-top: grid(0.25);
 	}
@@ -84,14 +88,16 @@ h5 {
 	& + table {
 		margin-top: 1rem;
 	}
-	& + ul {
+	& + ul,
+	& + ol {
 		margin-top: 1rem;
 	}
 }
 h2,
 h3,
 h4 {
-	& + h5 {
+	& + h5,
+	& + h6 {
 		margin-top: grid(0.2);
 	}
 }
@@ -102,6 +108,7 @@ table {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + p {
 		margin-top: 2rem;
 	}
@@ -112,10 +119,12 @@ blockquote {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + p {
 		margin-top: 1rem;
 	}
 }
+ol,
 ul,
 blockquote {
 	& + h1,
@@ -123,6 +132,7 @@ blockquote {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + p {
 		margin-top: 1rem;
 	}
@@ -136,9 +146,10 @@ p {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + ul {
 		margin-top: grid(0.5);
-		@include min-('margin-top',0.5,16);
+		@include min-("margin-top", 0.5, 16);
 	}
 }
 input,
@@ -150,10 +161,11 @@ textarea {
 	& + h3,
 	& + h4,
 	& + h5,
+	& + h6,
 	& + ul,
 	& + p,
 	& + form {
 		margin-top: grid(0.5);
-		@include min-('margin-top',0.5,16);
+		@include min-("margin-top", 0.5, 16);
 	}
 }

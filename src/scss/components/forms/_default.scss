@@ -7,7 +7,7 @@
 	padding: 0.75rem 0.75rem;
 	min-width: 10rem;
 	max-width: 100%;
-	-webkit-appearance: none; 
+	-webkit-appearance: none;
 	&::placeholder {
 		color: color(Black, 0.1);
 		opacity: 1;
@@ -30,16 +30,15 @@
 		}
 	}
 
-	&--ghost{
+	&--ghost {
 		background-color: transparent;
 		color: currentColor;
 		border: 1px solid red;
-
 		@each $color-name, $color-value in $colors {
 			.bg-#{to-lower-case($color-name)} &,
-			.bg-#{$color-name} &{
-				color: contra($color-value);
-				border-color: contra($color-value);
+			.bg-#{$color-name} & {
+				color: contra($color-name);
+				border-color: contra($color-name);
 			}
 		}
 	}

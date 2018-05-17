@@ -1,6 +1,16 @@
-
-.input-checkbox {
-	input[type='checkbox'] {
+input[type="checkbox"] {
+	-webkit-appearance: checkbox;
+	-moz-appearance: checkbox;
+	appearance: checkbox;
+	width: auto;
+	max-width: auto;
+	min-width: auto;
+}
+.input-radio {
+	input[type="checkbox"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
 		&:not(.hidden) {
 			@include input-checkbox(
 				1rem,

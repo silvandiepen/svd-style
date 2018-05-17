@@ -1,3 +1,7 @@
+/* ----------------------------------------- */
+/*	Just a shorthand for custom properties 	*/
+/* --------------------------------------- */
+
 @include v($v) {
-	@return unquote('var(--#{$v})');
+	@return unquote("var(--#{$v})");
 }

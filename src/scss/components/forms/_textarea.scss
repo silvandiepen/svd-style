@@ -4,6 +4,5 @@ textarea {
 	min-height: 5rem;
 	&:not(:empty) {
 		border: 1px solid color(Black, 0.25);
-		border: 1px solid red;
 	}
 }

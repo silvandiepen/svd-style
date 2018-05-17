@@ -9,8 +9,7 @@
 		"settings": "node scripts/json-to-css.js",
 		"dev": "npm run settings && npm run start --w",
 		"build": "npm run settings && rm -rf dist && webpack --config webpack.config.js",
-		"prepublishOnly": "npm run build",
-		"start:dev": "webpack-dev-server --hot --inline"
+		"prepublishOnly": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -43,10 +42,9 @@
 		"grunt": "^1.0.2",
 		"html-loader": "^0.5.5",
 		"modern-normalize": "^0.4.0",
-		"node-sass": "^4.8.3",
+		"node-sass": "^4.9.0",
 		"postcss": "^6.0.19",
 		"postcss-loader": "^2.1.1",
-		"pug-html-loader": "^1.1.5",
 		"raw-loader": "^0.5.1",
 		"sass-loader": "^6.0.6",
 		"style-loader": "^0.20.3",

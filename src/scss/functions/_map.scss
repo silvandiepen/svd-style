@@ -5,14 +5,14 @@
 }
 
 @function to-map($list) {
-	@if type-of($list) == 'list' {
-		$newmap: ();
-		@each $item in $list {
-			$newmap: map-merge($newmap, ('#{nth($item,1)}': nth($item, 2)));
+	$newmap: ();
+	@if type-of($list) == "list" {
+		@each $item-name, $item-value in $list {
+			$item: ("#{$item-name}": $item-value);
+			$newmap: map-merge($newmap, $item);
 		}
 		@return $newmap;
-	}
-	@elseif type-of($list) == 'map' {
+	} @else if type-of($list) == "map" {
 		@return $list;
 	} @else {
 		@return ();

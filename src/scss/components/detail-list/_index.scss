@@ -9,7 +9,7 @@ dl {
 		display: inline-block;
 		min-width: 200px;
 		flex-grow: 1;
-		padding: 1rem;
+		padding: 1rem 0;
 	}
 	dt {
 		width: 40%;
@@ -17,7 +17,7 @@ dl {
 	dd {
 		width: 60%;
 	}
-	dt + dd{
-		padding-top: 0; 
+	dt + dd {
+		//	padding-top: 0;
 	}
 }

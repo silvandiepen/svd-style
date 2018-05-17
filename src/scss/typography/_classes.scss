@@ -67,3 +67,22 @@ blockquote {
 div {
 	@extend %#{$base-prefix}default-font-rules !optional;
 }
+
+// Variations
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	&.fancy {
+		font-style: italic;
+	}
+	&.thin {
+		font-weight: 100;
+	}
+	&.caps {
+		text-transform: uppercase;
+	}
+}
