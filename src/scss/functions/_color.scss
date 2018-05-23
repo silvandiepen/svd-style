@@ -62,11 +62,11 @@ $default-color-set: $colors-default !default;
 	/*
     Let's first check if it has values
     */
-	@if length($custom-colorset) < 1 {
+	@if length($custom-colors) < 1 {
 		$passed: false;
 		@warn "[function define-custom-colors] The custom colorset you've made, doesnt have any values an therefor the default colorset will be used.";
 	} @else {
-		@if length(nth($custom-colorset, 1)) != 2 {
+		@if length(nth($custom-colors, 1)) != 2 {
 			$passed: false;
 			@warn "[function define-custom-colors] The custom colors you've made, doesn't have right structure.";
 		}

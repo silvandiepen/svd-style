@@ -33,7 +33,7 @@
 	/*
 		Create background classes. With the first capital and without. 
 	*/
-	@debug output();
+	// @debug output();
 
 	@if output("background-colors") {
 		.bg-#{to-lower-case($color-name)},

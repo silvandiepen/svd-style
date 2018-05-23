@@ -1,5 +1,6 @@
 {
 	"colors": {
+		"title": "default",
 		"default": [
 			{
 				"Black": "#101010",
