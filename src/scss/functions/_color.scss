@@ -87,19 +87,19 @@ $default-color-set: $colors-default !default;
 	// Define the Color set if its a string
 	@if type-of($default-color-set) == "string" {
 		@if $default-color-set == "default" {
-			$set: $colors-default;
+			$set: $color-default;
 		} @else if $default-color-set == "social" {
-			$set: $colors-default;
+			$set: $color-default;
 		} @else if $default-color-set == "svd" {
-			$set: $colors-svd;
+			$set: $color-svd;
 		} @else if $default-color-set == "vibrant" {
-			$set: $colors-vibrant;
+			$set: $color-vibrant;
 		} @else {
 			@warn "[function define-color-set] the requested colorset doesnt exist so default color set has ben set back.";
-			$set: $colors-default;
+			$set: $color-default;
 		}
 	} @else {
-		$set: $colors-default;
+		$set: $color-default;
 		@warn "[function define-color-set] the argument given in the function is not a string and can't be set as new colorset";
 	}
 	@return $set;
