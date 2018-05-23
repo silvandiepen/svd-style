@@ -24,7 +24,7 @@ button {
 }
 
 .button {
-	@each $color-name, $color-value in $colors-default {
+	@each $color-name, $color-value in $default-color-set {
 		&--#{to-lower-case($color-name)},
 		&--#{$color-name} {
 			border-bottom: 2px solid darken($color-value, 10%);

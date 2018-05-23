@@ -47,9 +47,9 @@ functions.color = (data, v) => {
 		transparency = vArray[1];
 	}
 	// console.log(data.colors);
-	Object.keys(data.colors).forEach(function(list) {
+	Object.keys(data.color).forEach(function(list) {
 		if (list !== "title") {
-			data.colors[list].forEach(function(colorList) {
+			data.color[list].forEach(function(colorList) {
 				Object.keys(colorList).map(function(value, key) {
 					if (value.toLowerCase() === searchColor.toLowerCase()) {
 						theColor = colorList[value];

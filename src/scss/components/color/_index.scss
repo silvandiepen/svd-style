@@ -17,7 +17,7 @@
 				blue($color-value);
 		}
 		// Social Colors in variables
-		@each $color-name, $color-value in $colors-social {
+		@each $color-name, $color-value in $color-social {
 			$variable: "--color-#{to-lower-case($color-name)}";
 			//hex
 			#{$variable}: $color-value;
