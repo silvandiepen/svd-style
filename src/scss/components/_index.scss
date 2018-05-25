@@ -1,22 +1,21 @@
 // need to go first
-@import
-	'color/index';
+@import "color/index";
 
 // all components
-@import
-	'blockquote/index',
-	'button/index',
-	'card/index',
-	'code/index',
-	'content/index',
-	'data-label/index',
-	'detail-list/index',
-	'ease/index',
-	'forms/index',
-	'helpers/index',
-	'navigation/index',
-	'print/index',
-	'reminder/index',
-	'section/index',
-	'show-more/index',
-	'table/index';
+@import "blockquote/index",
+	"button/index",
+	"card/index",
+	"code/index",
+	"content/index",
+	"data-label/index",
+	"detail-list/index",
+	"ease/index",
+	"forms/index",
+	"helpers/index",
+	"hr/index",
+	"navigation/index",
+	"print/index",
+	"reminder/index",
+	"section/index",
+	"show-more/index",
+	"table/index";

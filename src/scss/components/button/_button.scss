@@ -98,8 +98,11 @@ $basic-icons: (
 	minus: "\2796"
 );
 @each $icon-name, $icon-value in $basic-icons {
-	.button--#{$icon-name}:before {
-		content: #{$icon-value};
+	@debug ".button-icon--#{$icon-name}";
+	.button-icon--#{$icon-name} {
+		&:before {
+			content: #{$icon-value};
+		}
 	}
 }
 .button[data-icon-before] {
