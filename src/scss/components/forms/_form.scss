@@ -27,14 +27,17 @@ fieldset {
 			}
 		}
 	}
+	.input-group,
 	input,
 	textarea,
 	select {
+		display: inline-block;
 		width: 50%;
 		@media #{$small-only} {
 			width: 100%;
 		}
 	}
+	label + .input-group,
 	label + input,
 	label + textarea,
 	label + select {
@@ -63,5 +66,18 @@ form {
 		& + fieldset {
 			padding-top: 1rem;
 		}
+		.extra {
+			background-color: color(Offwhite);
+			padding: 1rem;
+		}
+	}
+}
+
+fieldset {
+	legend {
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 14px;
 	}
 }

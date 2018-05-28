@@ -1,4 +1,4 @@
-$ease-linear: '0.25, 0.25, 0.75, 0.75]]' !default; //
+$ease-linear: '0.25, 0.25, 0.75, 0.75' !default; //
 $ease-ease: '0.25, 0.10, 0.25, 1' !default; //
 $ease-ease-in: '0.42, 0, 1, 1' !default; //
 $ease-ease-out: '0, 0, 0.58, 1' !default; //
@@ -28,7 +28,7 @@ $ease-easeinoutexpo: '1, 0, 0, 1' !default; //
 $ease-easeinoutcirc: '0.785, 0.135, 0.15, 0.86' !default; //
 $ease-easeinoutback: '0.68, -0.55, 0.265, 1.55' !default; //
 $ease: (
-	"linear": '0.25, 0.25, 0.75, 0.75]]', 
+	"linear": '0.25, 0.25, 0.75, 0.75', 
 	"ease": '0.25, 0.10, 0.25, 1', 
 	"ease-in": '0.42, 0, 1, 1', 
 	"ease-out": '0, 0, 0.58, 1', 

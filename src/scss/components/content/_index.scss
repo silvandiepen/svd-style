@@ -48,46 +48,84 @@ hr {
 /*	Ordered & Unordered lists	*/
 /* --------------------------- */
 
+ul,
+ol {
+	&:not([class]) {
+		li {
+			position: relative;
+			line-height: 2;
+			&:before {
+				position: absolute;
+				right: 100%;
+				transform: translateX(100%);
+			}
+		}
+	}
+}
 ul:not([class]) {
 	li {
+		padding-left: 1.5rem;
 		&:before {
 			content: "\2014 ";
 		}
-		ol,
-		ul {
-			padding-left: 1rem;
+	}
+}
+ol:not([class]) {
+	> li {
+		padding-left: 1.5rem;
+		&:before {
+			font-size: rem(12);
+			font-weight: bold;
+			text-align: left;
+			line-height: 2rem;
+			display: block;
 		}
 	}
 }
 ol:not([class]) {
 	counter-reset: level1;
-	li {
+	> li {
 		counter-increment: level1;
 		&:before {
-			font-size: rem(12);
-			font-weight: bold;
-			content: counter(level1) ". ";
-			line-height: 1rem;
+			content: counter(level1) ".";
 		}
-		ol,
-		ul {
+		ol {
 			counter-reset: level2;
-			padding-left: 1rem;
-			li {
+			> li {
 				counter-increment: level2;
+				padding-left: 2rem;
 				&:before {
-					content: counter(level1) "." counter(level2) ". ";
-					line-height: 1rem;
+					content: counter(level1) "." counter(level2) ".";
 				}
-				ol,
-				ul {
+				ol {
 					counter-reset: level3;
-					li {
+					> li {
 						counter-increment: level3;
 						&:before {
 							content: counter(level1) "." counter(level2) "." counter(level3)
 								". ";
-							line-height: 1rem;
+						}
+						ol {
+							counter-reset: level4;
+							> li {
+								padding-left: 3rem;
+								counter-increment: level4;
+								&:before {
+									content: counter(level1) "." counter(level2) "."
+										counter(level3) "." counter(level4) ". ";
+								}
+								ol {
+									counter-reset: level5;
+									> li {
+										counter-increment: level5;
+										&:before {
+											content: counter(level1) "." counter(level2) "."
+												counter(level3) "." counter(level4) "." counter(level5)
+												". ";
+										}
+									}
+								}
+							}
 						}
 					}
 				}

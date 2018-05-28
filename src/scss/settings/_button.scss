@@ -6,3 +6,39 @@ $button-font-size: 14px !default; //
 $button-border-radius: 2px !default; //
 $button-line-height: 1 !default; //
 $button-font-weight: 600 !default; //
+$button-icons-play: '\25b6' !default; //
+$button-icons-stop: '\25fc' !default; //
+$button-icons-pause: '\2759\2759' !default; //
+$button-icons-plus: '\2795' !default; //
+$button-icons-minus: '\2796' !default; //
+$button-icons-close: '\2715' !default; //
+$button-icons-close2: '\2716' !default; //
+$button-icons-close3: '\2717' !default; //
+$button-icons-close4: '\2573' !default; //
+$button-icons-arrow-left: '\2190' !default; //
+$button-icons-arrow-up: '\2191' !default; //
+$button-icons-arrow-right: '\2192' !default; //
+$button-icons-arrow-down: '\2193' !default; //
+$button-icons-arrow-left-up: '\2196' !default; //
+$button-icons-arrow-right-up: '\2197' !default; //
+$button-icons-arrow-right-down: '\2198' !default; //
+$button-icons-arrow-left-down: '\2199' !default; //
+$button-icons: (
+	"play": '\25b6', 
+	"stop": '\25fc', 
+	"pause": '\2759\2759', 
+	"plus": '\2795', 
+	"minus": '\2796', 
+	"close": '\2715', 
+	"close2": '\2716', 
+	"close3": '\2717', 
+	"close4": '\2573', 
+	"arrow-left": '\2190', 
+	"arrow-up": '\2191', 
+	"arrow-right": '\2192', 
+	"arrow-down": '\2193', 
+	"arrow-left-up": '\2196', 
+	"arrow-right-up": '\2197', 
+	"arrow-right-down": '\2198', 
+	"arrow-left-down": '\2199'
+) !default; //

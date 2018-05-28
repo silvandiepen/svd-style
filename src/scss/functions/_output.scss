@@ -3,21 +3,21 @@
 /* --------------------------------------- */
 
 @function output($args: ()) {
-	$output: true;
+	$doOutput: true;
 	/*
         Check the overall setting. If false, do not output any css
     */
-	@if $setting-output-css == false {
-		$output: false;
+	@if $output-css == false {
+		$doOutput: false;
 	}
 
 	/*
         Go through all $arguments
     */
 	@each $arg in $args {
-		@if variable-exists(setting-output-#{$arg}) {
-			@if map-get($setting-output, $arg) == false {
-				$output: false;
+		@if variable-exists(output-#{$arg}) {
+			@if map-get($output, $arg) == false {
+				$doOutput: false;
 			}
 		} @else {
 			@warn "#{$arg} does not exist in the settings.";
@@ -27,5 +27,5 @@
 	/*
         In the end, determine if this prop should return anything.
     */
-	@return $output;
+	@return $doOutput;
 }
