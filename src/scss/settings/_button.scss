@@ -23,6 +23,15 @@ $button-icons-arrow-left-up: '\2196' !default; //
 $button-icons-arrow-right-up: '\2197' !default; //
 $button-icons-arrow-right-down: '\2198' !default; //
 $button-icons-arrow-left-down: '\2199' !default; //
+$button-icons-to-up: '\2934' !default; //
+$button-icons-to-down: '\2936' !default; //
+$button-icons-to-left: '\2937' !default; //
+$button-icons-to-right: '\2938' !default; //
+$button-icons-hamburger: '\2630' !default; //
+$button-icons-real-arrow: '\2794' !default; //
+$button-icons-go-prev: '\276e' !default; //
+$button-icons-go-next: '\276f' !default; //
+$button-icons-glasses: '\25ef\25e0\25ef' !default; //
 $button-icons: (
 	"play": '\25b6', 
 	"stop": '\25fc', 
@@ -40,5 +49,14 @@ $button-icons: (
 	"arrow-left-up": '\2196', 
 	"arrow-right-up": '\2197', 
 	"arrow-right-down": '\2198', 
-	"arrow-left-down": '\2199'
+	"arrow-left-down": '\2199', 
+	"to-up": '\2934', 
+	"to-down": '\2936', 
+	"to-left": '\2937', 
+	"to-right": '\2938', 
+	"hamburger": '\2630', 
+	"real-arrow": '\2794', 
+	"go-prev": '\276e', 
+	"go-next": '\276f', 
+	"glasses": '\25ef\25e0\25ef'
 ) !default; //

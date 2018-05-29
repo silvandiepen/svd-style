@@ -153,6 +153,7 @@
 						&.button-icon--#{$icon-name} {
 							span span:after {
 								content: "#{$icon-value}";
+								@include icon-specific-style($icon-name);
 							}
 						}
 					}
@@ -162,6 +163,7 @@
 						&.button-icon--#{$icon-name} {
 							span span:before {
 								content: "#{$icon-value}";
+								@include icon-specific-style($icon-name);
 							}
 						}
 					}
@@ -242,6 +244,7 @@
 		.button-icon--#{$icon-name} {
 			&:before {
 				content: "#{$icon-value}";
+				@include icon-specific-style($icon-name);
 			}
 		}
 	}
