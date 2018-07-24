@@ -1,6 +1,6 @@
 {
 	"name": "svd-style",
-	"version": "1.7.1",
+	"version": "1.7.2",
 	"description": "Style for SVD projects",
 	"main": "style.scss",
 	"scripts": {
