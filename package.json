@@ -5,10 +5,10 @@
 	"main": "style.scss",
 	"scripts": {
 		"start": "rm -rf dist && webpack --config webpack.config.js --watch",
-		"test": "npm run settings && npm run test-style && npm run test-ext && node test/ext.js",
-		"test-ext-size": "node test/ext.js",
-		"test-style": "node-sass test/index.scss test/css/output.css",
+		"test": "npm run settings && npm run test-default && npm run test-full && npm run test-ext && node test/test.js",
+		"test-default": "node-sass test/index.scss test/css/default.css",
 		"test-ext": "node-sass test/ext.scss test/css/ext.css",
+		"test-full": "node-sass test/full.scss test/css/full.css",
 		"settings": "node scripts/json-to-css.js",
 		"dev": "npm run settings && npm run start --w",
 		"build": "npm run settings && rm -rf dist/**/* && npm run build-dist",
