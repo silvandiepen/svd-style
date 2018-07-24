@@ -1,8 +1,10 @@
 {
 	"grid": {
 		"row-width": 4096,
+		"row-class": "row",
 		"design-width": 1920,
 		"columns": 24,
+		"column-class": "column",
 		"screen": "only screen",
 		"cssgrid": false,
 		"breakpoints": [
@@ -29,15 +31,6 @@
 				"sixth": "1/6",
 				"five-sixth": "5/6"
 			}
-		],
-		"create": {
-			"column": true,
-			"pull": false,
-			"push": false,
-			"offset": false,
-			"alias": true,
-			"only": true,
-			"bg-colors": true
-		}
+		]
 	}
 }

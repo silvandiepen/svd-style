@@ -1,3 +1,5 @@
-.anim-transform {
-	will-change: transform;
+@if output("helpers") {
+	.anim-transform {
+		will-change: transform;
+	}
 }

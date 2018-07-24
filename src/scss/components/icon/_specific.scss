@@ -1,0 +1,8 @@
+@mixin icon-specific-style($icon-name) {
+	@if $icon-name == "glasses" {
+		letter-spacing: -1.5px;
+	}
+}
+@if output("icons-specific") {
+	// yet to be filled
+}

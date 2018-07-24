@@ -2,14 +2,20 @@
 	"name": "svd-style",
 	"version": "1.6.9",
 	"description": "Style for SVD projects",
-	"main": "index.scss",
+	"main": "style.scss",
 	"scripts": {
 		"start": "rm -rf dist && webpack --config webpack.config.js --watch",
-		"test": "grunt test",
+		"test": "npm run settings && npm run test-style && npm run test-ext && node test/ext.js",
+		"test-ext-size": "node test/ext.js",
+		"test-style": "node-sass test/index.scss test/css/output.css",
+		"test-ext": "node-sass test/ext.scss test/css/ext.css",
 		"settings": "node scripts/json-to-css.js",
 		"dev": "npm run settings && npm run start --w",
-		"build": "npm run settings && rm -rf dist && webpack --config webpack.config.js",
-		"prepublishOnly": "npm run build"
+		"build": "npm run settings && rm -rf dist/**/* && npm run build-dist",
+		"build-dist": "npm run build-default && npm run build-full",
+		"build-default": "node-sass src/scss/style.scss dist/svd.css",
+		"build-full": "node-sass src/scss/full.scss dist/svd-full.css",
+		"prepublishOnly": "npm run test && npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -54,6 +60,7 @@
 		"webpack-dev-server": "2.11.1"
 	},
 	"dependencies": {
+		"sass-true": "^4.0.0",
 		"vue": "^2.5.16",
 		"vue-loader": "^14.2.2",
 		"vue-smooth-scroll": "^1.0.13",

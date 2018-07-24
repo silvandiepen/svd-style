@@ -1,8 +1,10 @@
 $output-css: true !default; //
+$output-full: false !default; //
 $output-background-colors: true !default; //
 $output-text-colors: true !default; //
 $output-custom-properties: true !default; //
 $output-ease-classes: false !default; //
+$output-button: false !default; //
 $output-button-default: true !default; //
 $output-button-colors: true !default; //
 $output-button-sizes: true !default; //
@@ -11,12 +13,90 @@ $output-button-round: true !default; //
 $output-button-icons: true !default; //
 $output-button-text-transform: true !default; //
 $output-button-rotated: true !default; //
+$output-button-border: true !default; //
+$output-custom-properties-media-queries: false !default; //
+$output-custom-properties-colors: false !default; //
+$output-grid: true !default; //
+$output-grid-helpers: false !default; //
+$output-grid-hide-show-classes: true !default; //
+$output-grid-only-classes: true !default; //
+$output-grid-counted-columns: true !default; //
+$output-grid-column: true !default; //
+$output-grid-parts: true !default; //
+$output-grid-offset: false !default; //
+$output-grid-push: false !default; //
+$output-grid-pull: false !default; //
+$output-grid-non-breaking-column: false !default; //
+$output-grid-columns: true !default; //
+$output-grid-cssgrid: false !default; //
+$output-grid-row-breakpoints: true !default; //
+$output-grid-mq-custom-properties: false !default; //
+$output-components: true !default; //
+$output-blockquote: true !default; //
+$output-button-group: false !default; //
+$output-card: true !default; //
+$output-code: true !default; //
+$output-code-prism: false !default; //
+$output-color: true !default; //
+$output-content: true !default; //
+$output-content-link-filetypes: false !default; //
+$output-content-p-notices: false !default; //
+$output-content-list: true !default; //
+$output-content-line-height: true !default; //
+$output-content-hr: true !default; //
+$output-content-default-link: true !default; //
+$output-detail-list: true !default; //
+$output-data-label: true !default; //
+$output-ease: true !default; //
+$output-form: true !default; //
+$output-form-fieldset: true !default; //
+$output-form-form: true !default; //
+$output-form-button: true !default; //
+$output-form-input-text: true !default; //
+$output-form-check-color: false !default; //
+$output-form-check-icon: false !default; //
+$output-form-check-text: false !default; //
+$output-form-checkbox: true !default; //
+$output-form-hidden: true !default; //
+$output-form-radio: true !default; //
+$output-form-range: false !default; //
+$output-form-switch: false !default; //
+$output-form-input: true !default; //
+$output-form-textarea: true !default; //
+$output-form-select: true !default; //
+$output-form-label: true !default; //
+$output-helpers: true !default; //
+$output-reset: true !default; //
+$output-reset-meyerweb: true !default; //
+$output-reset-extra: true !default; //
+$output-horizontal-rule: true !default; //
+$output-icon: true !default; //
+$output-icons-specific: false !default; //
+$output-print: true !default; //
+$output-navigation: false !default; //
+$output-reminder: true !default; //
+$output-section: true !default; //
+$output-showmore: false !default; //
+$output-spacing: true !default; //
+$output-table: true !default; //
+$output-typography: true !default; //
+$output-typography-headings: true !default; //
+$output-typography-margins: true !default; //
+$output-pattern: false !default; //
+$output-pattern-checkered: true !default; //
+$output-pattern-cubes: true !default; //
+$output-pattern-dots: true !default; //
+$output-pattern-houndstooth: true !default; //
+$output-pattern-lines: true !default; //
+$output-pattern-zigzag: true !default; //
 $output: (
 	"css": true, 
+	"full": false, 
 	"background-colors": true, 
 	"text-colors": true, 
 	"custom-properties": true, 
 	"ease-classes": false, 
+	"button": false, 
 	"button-default": true, 
 	"button-colors": true, 
 	"button-sizes": true, 
@@ -24,5 +104,81 @@ $output: (
 	"button-round": true, 
 	"button-icons": true, 
 	"button-text-transform": true, 
-	"button-rotated": true
+	"button-rotated": true, 
+	"button-border": true, 
+	"custom-properties-media-queries": false, 
+	"custom-properties-colors": false, 
+	"grid": true, 
+	"grid-helpers": false, 
+	"grid-hide-show-classes": true, 
+	"grid-only-classes": true, 
+	"grid-counted-columns": true, 
+	"grid-column": true, 
+	"grid-parts": true, 
+	"grid-offset": false, 
+	"grid-push": false, 
+	"grid-pull": false, 
+	"grid-non-breaking-column": false, 
+	"grid-columns": true, 
+	"grid-cssgrid": false, 
+	"grid-row-breakpoints": true, 
+	"grid-mq-custom-properties": false, 
+	"components": true, 
+	"blockquote": true, 
+	"button-group": false, 
+	"card": true, 
+	"code": true, 
+	"code-prism": false, 
+	"color": true, 
+	"content": true, 
+	"content-link-filetypes": false, 
+	"content-p-notices": false, 
+	"content-list": true, 
+	"content-line-height": true, 
+	"content-hr": true, 
+	"content-default-link": true, 
+	"detail-list": true, 
+	"data-label": true, 
+	"ease": true, 
+	"form": true, 
+	"form-fieldset": true, 
+	"form-form": true, 
+	"form-button": true, 
+	"form-input-text": true, 
+	"form-check-color": false, 
+	"form-check-icon": false, 
+	"form-check-text": false, 
+	"form-checkbox": true, 
+	"form-hidden": true, 
+	"form-radio": true, 
+	"form-range": false, 
+	"form-switch": false, 
+	"form-input": true, 
+	"form-textarea": true, 
+	"form-select": true, 
+	"form-label": true, 
+	"helpers": true, 
+	"reset": true, 
+	"reset-meyerweb": true, 
+	"reset-extra": true, 
+	"horizontal-rule": true, 
+	"icon": true, 
+	"icons-specific": false, 
+	"print": true, 
+	"navigation": false, 
+	"reminder": true, 
+	"section": true, 
+	"showmore": false, 
+	"spacing": true, 
+	"table": true, 
+	"typography": true, 
+	"typography-headings": true, 
+	"typography-margins": true, 
+	"pattern": false, 
+	"pattern-checkered": true, 
+	"pattern-cubes": true, 
+	"pattern-dots": true, 
+	"pattern-houndstooth": true, 
+	"pattern-lines": true, 
+	"pattern-zigzag": true
 ) !default; //

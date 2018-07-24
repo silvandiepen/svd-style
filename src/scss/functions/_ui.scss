@@ -1,5 +1,5 @@
 @function long-shadow(
-	$direction: 'to bottom right',
+	$direction: "to bottom right",
 	$length: 100,
 	$color: black,
 	$fade: false,
@@ -31,7 +31,7 @@
 			not $fade,
 			$color,
 			if(
-				type-of($fade) == 'color',
+				type-of($fade) == "color",
 				mix($fade, $color, ($i / $steps * 100)),
 				rgba($color, 1 - $i / $steps)
 			)
@@ -42,7 +42,7 @@
 				(cos(0deg + $direction) * $current-step)
 				0
 				$current-color,
-			'comma'
+			"comma"
 		);
 	}
 

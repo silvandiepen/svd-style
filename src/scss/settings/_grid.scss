@@ -1,6 +1,8 @@
 $grid-row-width: 4096 !default; //
+$grid-row-class: 'row' !default; //
 $grid-design-width: 1920 !default; //
 $grid-columns: 24 !default; //
+$grid-column-class: 'column' !default; //
 $grid-screen: 'only screen' !default; //
 $grid-cssgrid: false !default; //
 $grid-breakpoints-small: 750 !default; //
@@ -20,13 +22,6 @@ $grid-parts-three-fifth: 3/5 !default; //
 $grid-parts-four-fifth: 4/5 !default; //
 $grid-parts-sixth: 1/6 !default; //
 $grid-parts-five-sixth: 5/6 !default; //
-$grid-create-column: true !default; //
-$grid-create-pull: false !default; //
-$grid-create-push: false !default; //
-$grid-create-offset: false !default; //
-$grid-create-alias: true !default; //
-$grid-create-only: true !default; //
-$grid-create-bg-colors: true !default; //
 $grid-breakpoints: (
 	"small": 750, 
 	"medium": 960, 

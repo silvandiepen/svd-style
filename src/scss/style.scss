@@ -1,42 +1,31 @@
-/*
-  Import the grid
-*/
 @import "settings/index";
 @import "functions/index";
-@import "reset/index";
 @import "mixins/index";
 @import "grid/index";
-@import "typography/index";
 @import "components/index";
-@import "patterns/index";
 @import "spacing";
 
-body,
-html {
-	font-family: $system-fonts;
-	background-color: color(Offwhite);
-	color: color(Dark);
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-main.center {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	&.dark {
-		background-color: color(Dark);
-		color: color(White);
+@if $output-css {
+	body,
+	html {
+		font-family: $typography-fonts-system;
+		background-color: color(Offwhite);
+		color: color(Dark);
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
 	}
-}
 
-.examples {
-	.column {
-		border: 1px solid white;
-		padding: 0.5rem;
+	main.center {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&.dark {
+			background-color: color(Dark);
+			color: color(White);
+		}
 	}
 }

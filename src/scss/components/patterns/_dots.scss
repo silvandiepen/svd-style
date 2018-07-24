@@ -1,7 +1,7 @@
 @mixin pattern-dots($args, $var: false) {
-	$color-primary: '';
-	$color-secondary: '';
-	$pattern-size: '';
+	$color-primary: "";
+	$color-secondary: "";
+	$pattern-size: "";
 	$pattern-spacing: 4;
 
 	@if $args != null {
@@ -9,7 +9,7 @@
 			$color-primary: nth($args, 1);
 			$color-secondary: nth($args, 2);
 			$pattern-size: nth($args, 3);
-		} @elseif length($args) == 4 {
+		} @else if length($args) == 4 {
 			$pattern-spacing: nth($args, 4);
 		} @else {
 			@warn 'pattern-dots does not have the right amount of arguments. (color-primary, color-secondary, pattern-size, spacing)';
@@ -25,24 +25,15 @@
 	background-image: radial-gradient(#{$color-primary} 25%, transparent 25%),
 		radial-gradient(#{$color-primary} 25%, #{$color-secondary} 25%);
 	background-repeat: repeat;
-	background-size: calc(#{$pattern-size} * #{$pattern-spacing}) calc(#{$pattern-size} * #{$pattern-spacing}),
-		calc(#{$pattern-size} * #{$pattern-spacing}) calc(#{$pattern-size} * #{$pattern-spacing});
+	background-size: calc(#{$pattern-size} * #{$pattern-spacing})
+			calc(#{$pattern-size} * #{$pattern-spacing}),
+		calc(#{$pattern-size} * #{$pattern-spacing})
+			calc(#{$pattern-size} * #{$pattern-spacing});
 	background-position: 0 0,
 		calc(#{$pattern-size} * 2) calc(#{$pattern-size} * 2);
 }
-.pattern-dots {
-	@include pattern-dots(null, true);
-	// background-image: radial-gradient(
-	// 		var(--pattern-color-primary) 25%,
-	// 		transparent 25%
-	// 	),
-	// 	radial-gradient(
-	// 		var(--pattern-color-primary) 25%,
-	// 		var(--pattern-color-secondary) 25%
-	// 	);
-	// background-repeat: repeat;
-	// background-size: calc(var(--pattern-size) * 4) calc(var(--pattern-size) * 4),
-	// 	calc(var(--pattern-size) * 4) calc(var(--pattern-size) * 4);
-	// background-position: 0 0,
-	// 	calc(var(--pattern-size) * 2) calc(var(--pattern-size) * 2);
+@if output("pattern", "pattern-dots") {
+	.pattern-dots {
+		@include pattern-dots(null, true);
+	}
 }

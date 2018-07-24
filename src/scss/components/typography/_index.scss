@@ -1,0 +1,13 @@
+// Import files
+@import "functions";
+@import "mixins";
+@import "default";
+@import "base";
+@import "margin";
+@import "sizing";
+
+// Load all fonts
+@include font-load($font-primary);
+@include font-load($font-secondary);
+@include font-load($font-tertiary);
+@include font-load($font-quaternary);

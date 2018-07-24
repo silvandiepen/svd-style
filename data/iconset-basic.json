@@ -1,15 +1,6 @@
 {
-	"button": {
-		"font-family":
-			"[[RobotoCondensed, Roboto Condensed, Helvetica Neue Condensed, Impact, sans-serif]]",
-		"background-color": "{{color(Black)}}",
-		"padding": "{{grid(0 1)}}",
-		"text-transform": "uppercase",
-		"font-size": "14px",
-		"border-radius": "2px",
-		"line-height": "1",
-		"font-weight": "{{assets(typography.font-weight.bold)}}",
-		"icons": [
+	"iconset": {
+		"basic": [
 			{
 				"play": "\\25b6",
 				"stop": "\\25fc",
@@ -30,14 +21,15 @@
 				"arrow-left-down": "\\2199",
 				"to-up": "\\2934",
 				"to-down": "\\2935",
-				"to-down": "\\2936",
 				"to-left": "\\2937",
 				"to-right": "\\2938",
 				"hamburger": "\\2630",
 				"real-arrow": "\\2794",
 				"go-prev": "\\276e",
 				"go-next": "\\276f",
-				"glasses": "\\25ef\\25e0\\25ef"
+				"glasses": "\\25ef\\25e0\\25ef",
+				"star-lines": "\\2606",
+				"star": "\\2605"
 			}
 		]
 	}

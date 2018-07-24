@@ -1,9 +1,2 @@
-/*
-  Import the grid
-*/
-
-@import 'settings/index';
-$prefix: $base-prefix;
-@import 'functions/index';
-@import 'mixins/index';
-@import 'grid/import';
+$output-css: false;
+@import "style.scss";
