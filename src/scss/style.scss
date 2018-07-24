@@ -8,7 +8,7 @@
 @if $output-css {
 	body,
 	html {
-		font-family: $typography-fonts-system;
+		font-family: unquote($typography-fonts-system);
 		background-color: color(Offwhite);
 		color: color(Dark);
 		width: 100%;
