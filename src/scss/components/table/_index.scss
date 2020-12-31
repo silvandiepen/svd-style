@@ -1,79 +1,79 @@
 @if output("table") {
-	table {
-		background-color: color(White);
-		border: 1px solid color(Black, 0.1);
-		border-radius: $base-border-radius;
-		border-collapse: collapse;
+  table {
+    background-color: color(White);
+    border: 1px solid color(BBlack, 0.1);
+    border-radius: $base-border-radius;
+    border-collapse: collapse;
 
-		& + table {
-			margin-top: grid(1);
-			@include min-("margin-top", 1, 30);
-		}
-		&.full-width {
-			width: 100%;
-		}
-		caption {
-			border: 1px solid currentColor;
-			padding: 1rem;
-			font-weight: bold;
-		}
-		td,
-		th {
-			padding: 1rem;
-			border-bottom: 1px solid color(Black, 0.1);
-			font-size: rem(14);
-			vertical-align: top;
-		}
-		th {
-			text-align: left;
-			// background-color: color(Blue);
-			font-weight: bold;
-		}
-		tr {
-			&:hover {
-				td {
-					//			background-color: color(White);
-				}
-			}
-			&:nth-child(even) {
-				background-color: color(Blue, 0.05);
-				code {
-					background-color: color(Blue, 0.1);
-				}
-			}
-		}
-		thead,
-		tbody,
-		tfoot {
-			&:last-child {
-				th:last-child {
-					td,
-					th {
-						border-bottom: none;
-					}
-				}
-			}
-		}
-		&.responsive {
-			@media #{$small-only} {
-				display: block;
-				width: 100%;
-			}
-			td,
-			th {
-				@media #{$small-only} {
-					display: block;
-					border: none;
-					&:last-child {
-						border-bottom: 1px solid currentColor;
-					}
-				}
-			}
-			tr {
-				@media #{$small-only} {
-					display: block;
-				}
-			}
-		}
-	}
+    & + table {
+      margin-top: grid(1);
+      @include min-("margin-top", 1, 30);
+    }
+    &.full-width {
+      width: 100%;
+    }
+    caption {
+      border: 1px solid currentColor;
+      padding: 1rem;
+      font-weight: bold;
+    }
+    td,
+    th {
+      padding: 1rem;
+      border-bottom: 1px solid color(BBlack, 0.1);
+      font-size: rem(14);
+      vertical-align: top;
+    }
+    th {
+      text-align: left;
+      // background-color: color(Blue);
+      font-weight: bold;
+    }
+    tr {
+      &:hover {
+        td {
+          //			background-color: color(White);
+        }
+      }
+      &:nth-child(even) {
+        background-color: color(Blue, 0.05);
+        code {
+          background-color: color(Blue, 0.1);
+        }
+      }
+    }
+    thead,
+    tbody,
+    tfoot {
+      &:last-child {
+        th:last-child {
+          td,
+          th {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    &.responsive {
+      @media #{$small-only} {
+        display: block;
+        width: 100%;
+      }
+      td,
+      th {
+        @media #{$small-only} {
+          display: block;
+          border: none;
+          &:last-child {
+            border-bottom: 1px solid currentColor;
+          }
+        }
+      }
+      tr {
+        @media #{$small-only} {
+          display: block;
+        }
+      }
+    }
+  }
 }

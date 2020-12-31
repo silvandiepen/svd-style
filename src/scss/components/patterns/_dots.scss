@@ -1,39 +1,39 @@
 @mixin pattern-dots($args, $var: false) {
-	$color-primary: "";
-	$color-secondary: "";
-	$pattern-size: "";
-	$pattern-spacing: 4;
+  $color-primary: "";
+  $color-secondary: "";
+  $pattern-size: "";
+  $pattern-spacing: 4;
 
-	@if $args != null {
-		@if length($args) == 3 {
-			$color-primary: nth($args, 1);
-			$color-secondary: nth($args, 2);
-			$pattern-size: nth($args, 3);
-		} @else if length($args) == 4 {
-			$pattern-spacing: nth($args, 4);
-		} @else {
-			@warn 'pattern-dots does not have the right amount of arguments. (color-primary, color-secondary, pattern-size, spacing)';
-		}
-	}
-	@if $var {
-		$color-primary: var(--pattern-color-primary, white);
-		$color-secondary: var(--pattern-color-secondary, black);
-		$pattern-size: var(--pattern-size, 1rem);
-		$pattern-spacing: var(--pattern-spacing, 4);
-	}
+  @if $args != null {
+    @if length($args) == 3 {
+      $color-primary: nth($args, 1);
+      $color-secondary: nth($args, 2);
+      $pattern-size: nth($args, 3);
+    } @else if length($args) == 4 {
+      $pattern-spacing: nth($args, 4);
+    } @else {
+      @warn 'pattern-dots does not have the right amount of arguments. (color-primary, color-secondary, pattern-size, spacing)';
+    }
+  }
+  @if $var {
+    $color-primary: var(--pattern-color-primary, white);
+    $color-secondary: var(--pattern-color-secondary, BBlack);
+    $pattern-size: var(--pattern-size, 1rem);
+    $pattern-spacing: var(--pattern-spacing, 4);
+  }
 
-	background-image: radial-gradient(#{$color-primary} 25%, transparent 25%),
-		radial-gradient(#{$color-primary} 25%, #{$color-secondary} 25%);
-	background-repeat: repeat;
-	background-size: calc(#{$pattern-size} * #{$pattern-spacing})
-			calc(#{$pattern-size} * #{$pattern-spacing}),
-		calc(#{$pattern-size} * #{$pattern-spacing})
-			calc(#{$pattern-size} * #{$pattern-spacing});
-	background-position: 0 0,
-		calc(#{$pattern-size} * 2) calc(#{$pattern-size} * 2);
+  background-image: radial-gradient(#{$color-primary} 25%, transparent 25%),
+    radial-gradient(#{$color-primary} 25%, #{$color-secondary} 25%);
+  background-repeat: repeat;
+  background-size: calc(#{$pattern-size} * #{$pattern-spacing})
+      calc(#{$pattern-size} * #{$pattern-spacing}),
+    calc(#{$pattern-size} * #{$pattern-spacing})
+      calc(#{$pattern-size} * #{$pattern-spacing});
+  background-position: 0 0,
+    calc(#{$pattern-size} * 2) calc(#{$pattern-size} * 2);
 }
 @if output("pattern", "pattern-dots") {
-	.pattern-dots {
-		@include pattern-dots(null, true);
-	}
+  .pattern-dots {
+    @include pattern-dots(null, true);
+  }
 }
