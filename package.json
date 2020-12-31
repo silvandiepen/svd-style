@@ -15,7 +15,7 @@
     "build-dist": "npm run build-default && npm run build-full",
     "build-default": "sass src/scss/style.scss dist/svd.css",
     "build-full": "sass src/scss/full.scss dist/svd-full.css",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
